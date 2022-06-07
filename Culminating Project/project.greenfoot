@@ -1,9 +1,9 @@
 #Greenfoot project file
 class.Orc.image=Orc.png
-editor.fx.0.height=739
+editor.fx.0.height=680
 editor.fx.0.width=816
-editor.fx.0.x=275
-editor.fx.0.y=-4
+editor.fx.0.x=245
+editor.fx.0.y=82
 height=744
 package.numDependencies=0
 package.numTargets=2
@@ -25,7 +25,7 @@ target1.height=50
 target1.name=Orc
 target1.showInterface=false
 target1.type=ClassTarget
-target1.width=80
+target1.width=140
 target1.x=0
 target1.y=0
 target2.height=50
