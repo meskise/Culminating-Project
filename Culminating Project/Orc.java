@@ -9,6 +9,8 @@ public class Orc extends Actor
      * Movement variables.
      */
     boolean isFacingRight = true;
+    int deltaY;
+    int deltaX;
     
     /**
      * Animation variables.
@@ -64,17 +66,43 @@ public class Orc extends Actor
     
     public void movementRight()
     {
-    
+        deltaX = 0;
+        
+        setLocation(getX() + deltaX , getY() + deltaY);
     }
     
     public void movementLeft()
     {
-    
+        deltaY = 0;
+        setLocation(getX() + deltaX , getY() + deltaY);
     }
     
     public void applyGravity()
     {
+      int height = getImage().getHeight();
+      int width = getImage().getWidth();
+      
+      Actor Platform = getOneObjectAtOffset(0 , height /2, Platform.class);
+      
+      if (Platform != null)
+      {
+          deltaY = 0;
+          
+          moveOnTopOfObject(Platform);
+      }
+      
+      else
+      {
+          deltaY = deltaY +1;
+      }
+    }
     
+    public void moveOnTopOfObject(Actor object)//Move player to top of object
+    {
+        int height = getImage().getHeight();
+        int objectHeight = object.getImage().getHeight();
+      
+        setLocation(getX(), object.getY() - objectHeight /2 - height /2 +1);
     }
     
     public void checkCollision()
