@@ -18,7 +18,7 @@ public class Orc extends Actor
     /**
      * Animation variables.
      */
-    int animationInterval = 10;  // Number of frames between animation images.
+    int animationInterval = 5;  // Number of frames between animation images.
     int frameCounter = 0;       // Frame counter. For animations.
     
     /**
@@ -157,8 +157,8 @@ public class Orc extends Actor
      */
     void loadImages()
     {
-        imagesWalkRight = new GreenfootImage[6];
-        imagesWalkLeft = new GreenfootImage[6];
+        imagesWalkRight = new GreenfootImage[12];
+        imagesWalkLeft = new GreenfootImage[12];
         imagesIdleRight = new GreenfootImage[6];
         imagesIdleLeft = new GreenfootImage[6];
         
