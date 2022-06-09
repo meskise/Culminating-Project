@@ -19,6 +19,7 @@ public class PlayerOne extends Actor
     // Gravity
     double g = 0.8;
     
+    private boolean touchedKey = false;
     /** 
      * Scale and load all images.
      */
@@ -37,6 +38,7 @@ public class PlayerOne extends Actor
         movementKeys();
         applyGravity();
         collisonCheck();
+        
     }
     
     /**
