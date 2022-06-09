@@ -57,6 +57,6 @@ public class MyWorld extends World
         addObject(platform13,580,380);
 
         Orc orc = new Orc();
-        addObject(orc,214,215);
+        addObject(orc,500,300);
     }
 }
