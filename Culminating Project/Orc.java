@@ -33,15 +33,24 @@ public class Orc extends Actor
     
     public void act()
     {
+        runAnimations();
+        checkCollision();
+        applyGravity();
+    }
+    
+    public void runAnimations()
+    {
         if (Greenfoot.isKeyDown("right"))
         {
             isFacingRight = true;
             animate(imagesWalkRight);
+            movementRight();
         }
         else if (Greenfoot.isKeyDown("left"))
         {
             isFacingRight = false;
             animate(imagesWalkLeft);
+            movementLeft();
         }
         else if (isFacingRight == true)
         {
@@ -53,6 +62,35 @@ public class Orc extends Actor
         }
     }
     
+    public void movementRight()
+    {
+    
+    }
+    
+    public void movementLeft()
+    {
+    
+    }
+    
+    public void applyGravity()
+    {
+    
+    }
+    
+    public void checkCollision()
+    {
+    
+    }
+    
+    public void attack()
+    {
+    
+    }
+    
+    public void die()
+    {
+    
+    }
     
     /**
      * Animates using the specified images.
