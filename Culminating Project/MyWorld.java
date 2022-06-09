@@ -18,6 +18,7 @@ public class MyWorld extends World
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1); 
         prepare();
+        setPaintOrder(PlayerOne.class, Orc.class, Platform.class, Platform2.class, Key.class, Door.class, Temp.class);
     }
 
     /**
@@ -28,6 +29,11 @@ public class MyWorld extends World
     {
         PlayerOne player = new PlayerOne();
         addObject(player,20,330);
+        
+        Key key = new Key();
+        addObject(key,70,50);
+        Door door = new Door();
+        addObject(door,550, 315);
 
         Platform platform = new Platform();
         addObject(platform,20,380);
