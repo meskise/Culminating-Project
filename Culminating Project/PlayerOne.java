@@ -16,7 +16,7 @@ public class PlayerOne extends Actor
     double deltaX = 0;
     double deltaY = 0;
     
-    // Gravity.
+    // Gravity
     double g = 0.8;
     
     /** 
