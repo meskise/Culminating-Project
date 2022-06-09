@@ -80,8 +80,8 @@ public class Orc extends Actor
     {
         imagesWalkRight = new GreenfootImage[6];
         imagesWalkLeft = new GreenfootImage[6];
-        imagesIdleRight = new GreenfootImage[4];
-        imagesIdleLeft = new GreenfootImage[4];
+        imagesIdleRight = new GreenfootImage[6];
+        imagesIdleLeft = new GreenfootImage[6];
         
         for (int i = 0; i < imagesWalkRight.length; i++)
         {
@@ -94,10 +94,10 @@ public class Orc extends Actor
         for (int i = 0; i < imagesIdleRight.length; i++)
         {
             // Again, assuming the image files are tile0.png, tile1.png, etc.
-            // String imagePath = "3 SteamMan/Idle/tile" + i + ".png";
-            // imagesIdleRight[i] = new GreenfootImage(imagePath);
-            // imagesIdleLeft[i] = new GreenfootImage(imagePath);
-            // imagesIdleLeft[i].mirrorHorizontally();
+            String imagePath = "images/Orc_Idle" + i + ".png";
+            imagesIdleRight[i] = new GreenfootImage(imagePath);
+            imagesIdleLeft[i] = new GreenfootImage(imagePath);
+            imagesIdleLeft[i].mirrorHorizontally();
         }
     }
 }
