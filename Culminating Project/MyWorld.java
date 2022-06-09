@@ -56,8 +56,6 @@ public class MyWorld extends World
         Platform platform13 = new Platform();
         addObject(platform13,580,380);
 
-        //Orc orc = new Orc();
-        //addObject(orc,214,215);
         Platform2 platform22 = new Platform2();
         addObject(platform22,222,280);
         Platform2 platform23 = new Platform2();
@@ -78,5 +76,8 @@ public class MyWorld extends World
         addObject(platform210,487,220);
         Platform2 platform211 = new Platform2();
         addObject(platform211,568,110);
+        
+        Orc orc = new Orc();
+        addObject(orc,500,300);
     }
 }
