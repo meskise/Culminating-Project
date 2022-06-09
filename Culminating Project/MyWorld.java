@@ -28,7 +28,7 @@ public class MyWorld extends World
     {
         PlayerOne player = new PlayerOne();
         addObject(player,20,330);
-        
+
         Platform platform = new Platform();
         addObject(platform,20,380);
         Platform platform2 = new Platform();
@@ -56,7 +56,27 @@ public class MyWorld extends World
         Platform platform13 = new Platform();
         addObject(platform13,580,380);
 
-        Orc orc = new Orc();
-        addObject(orc,214,215);
+        //Orc orc = new Orc();
+        //addObject(orc,214,215);
+        Platform2 platform22 = new Platform2();
+        addObject(platform22,222,280);
+        Platform2 platform23 = new Platform2();
+        addObject(platform23,262,280);
+        Platform2 platform24 = new Platform2();
+        addObject(platform24,338,183);
+        Platform2 platform25 = new Platform2();
+        addObject(platform25,378,183);
+        Platform2 platform26 = new Platform2();
+        addObject(platform26,222,122);
+        Platform2 platform27 = new Platform2();
+        addObject(platform27,262,122);
+        Platform2 platform28 = new Platform2();
+        addObject(platform28,73,77);
+        Platform2 platform29 = new Platform2();
+        addObject(platform29,113,77);
+        Platform2 platform210 = new Platform2();
+        addObject(platform210,487,220);
+        Platform2 platform211 = new Platform2();
+        addObject(platform211,568,110);
     }
 }
