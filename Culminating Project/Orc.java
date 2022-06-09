@@ -8,9 +8,12 @@ public class Orc extends Actor
     /**
      * Movement variables.
      */
+    boolean isInAir;
     boolean isFacingRight = true;
     int deltaY;
     int deltaX;
+    final int gravity = 1;
+    int move = 2;
     
     /**
      * Animation variables.
@@ -35,6 +38,8 @@ public class Orc extends Actor
     
     public void act()
     {
+        deltaX = move;
+        setLocation(getX() + deltaX , getY() + deltaY);
         runAnimations();
         checkCollision();
         applyGravity();
@@ -42,17 +47,17 @@ public class Orc extends Actor
     
     public void runAnimations()
     {
-        if (Greenfoot.isKeyDown("right"))
+        if (deltaX == 2)
         {
             isFacingRight = true;
             animate(imagesWalkRight);
-            movementRight();
+            
         }
-        else if (Greenfoot.isKeyDown("left"))
+        else if (deltaX == -2)
         {
             isFacingRight = false;
             animate(imagesWalkLeft);
-            movementLeft();
+            
         }
         else if (isFacingRight == true)
         {
@@ -63,38 +68,46 @@ public class Orc extends Actor
             animate(imagesIdleLeft);
         }
     }
-    
-    public void movementRight()
-    {
-        deltaX = 0;
-        
-        setLocation(getX() + deltaX , getY() + deltaY);
-    }
-    
-    public void movementLeft()
-    {
-        deltaY = 0;
-        setLocation(getX() + deltaX , getY() + deltaY);
-    }
-    
+           
     public void applyGravity()
     {
-      int height = getImage().getHeight();
-      int width = getImage().getWidth();
+        int height = getImage().getHeight();
+        int width = getImage().getWidth();
       
-      Actor Platform = getOneObjectAtOffset(0 , height /2, Platform.class);
+        Actor Platform = getOneObjectAtOffset(0 , height /2, Platform.class);
       
-      if (Platform != null)
-      {
-          deltaY = 0;
-          
-          moveOnTopOfObject(Platform);
-      }
+        if (Platform != null)
+        {
+            deltaY = 0;
+            isInAir = false;
+            moveOnTopOfObject(Platform);
+        }
       
-      else
-      {
-          deltaY = deltaY +1;
-      }
+        else
+        {
+            deltaY = deltaY + gravity;  // Apply gravity.
+            isInAir = true;
+            if(move == 2)
+            {
+                move = -2;
+            }
+            else if(move == -2)
+            {
+                move = 2;
+            }
+        }
+      
+        if (isAtEdge())
+        {
+            if(move == 2)
+            {
+                move = -2;
+            }
+            else if(move == -2)
+            {
+                move = 2;
+            }
+        }
     }
     
     public void moveOnTopOfObject(Actor object)//Move player to top of object
