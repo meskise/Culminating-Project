@@ -8,6 +8,11 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class PlayerOne extends Actor
 {
+    // Number of acts/frames between animation images.
+    final int ANIMATION_INTERVAL = 2;
+    int frameCounter = 0;       // Frame counter. For animations.
+    //Movement Speed.
+    final double SPEED_X = 3.5;
     // Check if facing right or is in air.
     boolean isFacingRight;
     boolean isInAir;
@@ -18,7 +23,16 @@ public class PlayerOne extends Actor
     
     // Gravity
     double g = 0.8;
-    
+    /**
+     * Arrays for animation images.
+     */
+    GreenfootImage[] imagesWalkRight;
+    GreenfootImage[] imagesWalkLeft;
+    GreenfootImage[] imagesJumpRight;
+    GreenfootImage[] imagesJumpLeft;
+    GreenfootImage[] imagesIdleRight;
+    GreenfootImage[] imagesIdleLeft;
+   
     private boolean touchedKey = false;
     
     private Actor sword;
@@ -31,6 +45,7 @@ public class PlayerOne extends Actor
         GreenfootImage image = getImage();
         image.scale(35,45);
         setImage(image);
+        loadImages();
     }
     
     /**
@@ -73,11 +88,21 @@ public class PlayerOne extends Actor
         // Movement keys.
         if (Greenfoot.isKeyDown("a"))
         {
-            deltaX = - 3.5;
+            deltaX = - SPEED_X;
+            isFacingRight = false;
+            if ((isInAir == false) && (isFacingRight == false))
+            {
+                animate(imagesWalkLeft);
+            }
         }
         else if (Greenfoot.isKeyDown("d"))
         {
-            deltaX = 3.5;
+            deltaX = SPEED_X;
+            isFacingRight = true;
+            if ((isInAir == false) && (isFacingRight == true))
+            {
+                animate(imagesWalkRight);
+            }
         }
         else
         {
@@ -92,7 +117,27 @@ public class PlayerOne extends Actor
                 // Jump. 
                 deltaY = -14;
             }
+            
         }
+        if ((isInAir == true) && (isFacingRight == true))
+        {
+            animate(imagesJumpRight);
+        }
+        if ((isInAir == true) && (isFacingRight == false))
+        {
+            animate(imagesJumpLeft);
+        }
+        if (deltaY == 0 && deltaX == 0)// if not jumping/falling and not runing.
+         {
+             if (isFacingRight == true)
+             {
+                 animate(imagesIdleRight);
+             }
+             else
+             {
+                 animate(imagesIdleLeft);
+             }
+         }
         
         
         // Allows movement.
@@ -223,6 +268,60 @@ public class PlayerOne extends Actor
         {
             //Greenfoot.setWorld(new GameOver());
             Greenfoot.stop();
+        }
+    }
+    
+    /**
+     * Animates using the specified images.
+     */
+    void animate(GreenfootImage[] images)
+    {
+        if (frameCounter >= images.length * ANIMATION_INTERVAL)  // Greater or equal (>=) takes care of animations with different number of images.
+        {
+            frameCounter = 0;
+        }
+        
+        if (frameCounter % ANIMATION_INTERVAL == 0)  // If it's time to switch to next animation image.
+        {
+            setImage(images[frameCounter/ANIMATION_INTERVAL]);
+        }
+        
+        frameCounter++;
+    }
+    void loadImages()
+    {
+        imagesWalkRight = new GreenfootImage[6];
+        imagesWalkLeft = new GreenfootImage[6];
+        imagesJumpRight = new GreenfootImage[6];
+        imagesJumpLeft = new GreenfootImage[6];
+        imagesIdleRight = new GreenfootImage[4];
+        imagesIdleLeft = new GreenfootImage[4];
+        for (int i = 0; i < imagesWalkRight.length; i++)
+        {
+            // Assuming the image files are tile0.png, tile1.png, etc.
+            String imagePath = "Run/tile" + i + ".png";
+            imagesWalkRight[i] = new GreenfootImage(imagePath);
+            imagesWalkLeft[i] = new GreenfootImage(imagePath);
+            
+            imagesWalkLeft[i].mirrorHorizontally();
+        }
+        for (int i = 0; i < imagesJumpRight.length; i++)
+        {
+            // Assuming the image files are tile0.png, tile1.png, etc.
+            String imagePath = "Jump/tile" + i + ".png";
+            imagesJumpRight[i] = new GreenfootImage(imagePath);
+            imagesJumpLeft[i] = new GreenfootImage(imagePath);
+            
+            imagesJumpLeft[i].mirrorHorizontally();
+        }
+        for (int i = 0; i < imagesIdleRight.length; i++)
+        {
+            // Assuming the image files are tile0.png, tile1.png, etc.
+            String imagePath = "Idle/tile" + i + ".png";
+            imagesIdleRight[i] = new GreenfootImage(imagePath);
+            imagesIdleLeft[i] = new GreenfootImage(imagePath);
+            
+            imagesIdleLeft[i].mirrorHorizontally();
         }
     }
 }
