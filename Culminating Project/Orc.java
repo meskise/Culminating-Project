@@ -28,7 +28,8 @@ public class Orc extends Actor
     GreenfootImage[] imagesWalkLeft;
     GreenfootImage[] imagesIdleRight;
     GreenfootImage[] imagesIdleLeft;
-    
+    GreenfootImage[] imagesDieRight;
+    GreenfootImage[] imagesDieLeft;
     
     public Orc()
     {
@@ -130,7 +131,14 @@ public class Orc extends Actor
     
     public void die()
     {
-    
+        if (isFacingRight == true)
+        {
+            animate(imagesDieRight);
+        }
+        else
+        {
+            animate(imagesDieLeft);
+        }
     }
     
     /**
@@ -161,6 +169,8 @@ public class Orc extends Actor
         imagesWalkLeft = new GreenfootImage[12];
         imagesIdleRight = new GreenfootImage[6];
         imagesIdleLeft = new GreenfootImage[6];
+        imagesDieRight = new GreenfootImage[6];
+        imagesDieLeft = new GreenfootImage[6];
         
         for (int i = 0; i < imagesWalkRight.length; i++)
         {
@@ -181,6 +191,16 @@ public class Orc extends Actor
             imagesIdleLeft[i].scale(64, 92);
             imagesIdleRight[i].scale(64, 92);
             imagesIdleLeft[i].mirrorHorizontally();
+        }
+        for (int i = 0; i < imagesIdleRight.length; i++)
+        {
+            // Again, assuming the image files are tile0.png, tile1.png, etc.
+            String imagePath = "images/Orc_Dying" + i + ".png";
+            imagesDieRight[i] = new GreenfootImage(imagePath);
+            imagesDieLeft[i] = new GreenfootImage(imagePath);
+            imagesDieLeft[i].scale(64, 92);
+            imagesDieRight[i].scale(64, 92);
+            imagesDieLeft[i].mirrorHorizontally();
         }
     }
 }
