@@ -24,7 +24,7 @@ public class Key extends Actor
     public void act() 
     {
        Temp temp = new Temp();
-       if (isTouching(PlayerOne.class))
+       if (isTouching(PlayerOne.class) && Greenfoot.isKeyDown("f"))
         {
             counter++;
             // If Woodcutter touches key, add temp object on the door.
