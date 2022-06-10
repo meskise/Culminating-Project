@@ -8,7 +8,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class MyWorld extends World
 {
-
+    PlayerOne player = new PlayerOne();
+    int scrollDistance = 200;
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -20,14 +21,40 @@ public class MyWorld extends World
         prepare();
         setPaintOrder(PlayerOne.class, Orc.class, Platform.class, Platform2.class, Key.class, Door.class, Temp.class);
     }
-
+    
+    public void act()
+    {
+        checkScroll();
+    }
+    
+    public void checkScroll()
+    {
+        if (player.getX() < 100)
+        {
+            scroll(- scrollDistance , 0);
+        }
+        
+        if (player.getX() > 500)
+        {
+            scroll(+ scrollDistance , 0);
+        }
+    }
+    
+    public void scroll(int x , int y)
+    {
+        for (Actor actor : getObjects(Actor.class))
+        {
+            actor.setLocation(actor.getX() - x, actor.getY() - y);
+        }
+    }
+    
     /**
      * Prepare the world for the start of the program.
      * That is: create the initial objects and add them to the world.
      */
     private void prepare()
     {
-        PlayerOne player = new PlayerOne();
+        
         addObject(player,20,330);
         
         Key key = new Key();
