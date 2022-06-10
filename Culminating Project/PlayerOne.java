@@ -9,7 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class PlayerOne extends Actor
 {
     // Number of acts/frames between animation images.
-    final int ANIMATION_INTERVAL = 2;
+    final int ANIMATION_INTERVAL = 7;
     int frameCounter = 0;       // Frame counter. For animations.
     //Movement Speed.
     final double SPEED_X = 3.5;
