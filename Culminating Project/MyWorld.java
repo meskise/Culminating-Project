@@ -34,6 +34,9 @@ public class MyWorld extends World
         addObject(key,70,50);
         Door door = new Door();
         addObject(door,550, 315);
+        
+        Sword sword = new Sword();
+        addObject(sword, 240, 250);
 
         Platform platform = new Platform();
         addObject(platform,20,380);

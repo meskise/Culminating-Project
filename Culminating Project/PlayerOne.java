@@ -20,6 +20,9 @@ public class PlayerOne extends Actor
     double g = 0.8;
     
     private boolean touchedKey = false;
+    
+    private Actor sword;
+    private boolean pickUpMsg = false;
     /** 
      * Scale and load all images.
      */
@@ -38,8 +41,29 @@ public class PlayerOne extends Actor
         movementKeys();
         applyGravity();
         collisonCheck();
-        
+        Sword();
     }
+    
+    public void Sword()
+    {
+        PickUp pickup = new PickUp();
+        if (sword == null && isTouching(Sword.class) && Greenfoot.isKeyDown("f"))
+        {
+            sword = getOneIntersectingObject(Sword.class);
+        }
+        
+        if (pickUpMsg == false && isTouching(Sword.class))
+        {
+            getWorld().addObject(pickup, getX() + 5, getY() - 25);
+            pickUpMsg = true;
+        }
+        
+        if (sword != null && sword.getWorld() != null)
+        {
+            sword.setLocation(getX(), getY());
+        }
+    }
+      
     
     /**
      * Basic movement.
