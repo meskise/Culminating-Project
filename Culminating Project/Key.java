@@ -26,14 +26,14 @@ public class Key extends Actor
        Temp temp = new Temp();
        if (isTouching(PlayerOne.class) && Greenfoot.isKeyDown("f"))
         {
-            counter++;
+            
             // If Woodcutter touches key, add temp object on the door.
             getWorld().addObject(temp, 550, 320);
-            if (counter == 3)
-            {
-                // Remove key after touching player.
-                getWorld().removeObject(this);
-            }
+            
+            
+            // Remove key after touching player.
+            getWorld().removeObject(this);
+            
         }
     }      
 }
