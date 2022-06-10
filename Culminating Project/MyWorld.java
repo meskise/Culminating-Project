@@ -17,9 +17,9 @@ public class MyWorld extends World
     public MyWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(600, 400, 1); 
+        super(600, 400, 1 , false); 
         prepare();
-        setPaintOrder(PlayerOne.class, Orc.class, Platform.class, Platform2.class, Key.class, Door.class, Temp.class);
+        setPaintOrder(PlayerOne.class, Orc.class , Platform.class , Spike.class , Platform2.class, Key.class, Door.class, Temp.class);
     }
     
     public void act()
@@ -91,6 +91,20 @@ public class MyWorld extends World
         addObject(platform12,540,380);
         Platform platform13 = new Platform();
         addObject(platform13,580,380);
+        Platform platform14 = new Platform();
+        addObject(platform14, -20 ,380);
+        Platform platform15 = new Platform();
+        addObject(platform15, -60 ,380);
+        Platform platform16 = new Platform();
+        addObject(platform16, -100 ,380);
+        Platform platform17 = new Platform();
+        addObject(platform17, -140 ,380);
+        Platform platform18 = new Platform();
+        addObject(platform18, -180 ,380);
+        Platform platform19 = new Platform();
+        addObject(platform19, -220 ,380);
+        Platform platform20 = new Platform();
+        addObject(platform20, -260 ,380);
 
         Platform2 platform22 = new Platform2();
         addObject(platform22,222,280);
@@ -115,5 +129,10 @@ public class MyWorld extends World
         
         Orc orc = new Orc();
         addObject(orc,500,320);
+        
+        Spike spike = new Spike();
+        addObject(spike, -100 , 360);
+        Spike spike2 = new Spike();
+        addObject(spike2, -160, 360);
     }
 }
