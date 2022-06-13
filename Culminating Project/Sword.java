@@ -21,6 +21,6 @@ public class Sword extends Actor
      */
     public void act()
     {
-        setRotation(240);
+        //
     }
 }

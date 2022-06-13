@@ -37,6 +37,7 @@ public class PlayerOne extends Actor
     private Actor key;
     private boolean pickUpMsg = false;
     private boolean pickUpMsgTwo = false;
+    private boolean swordPickedUp = false;
     /** 
      * Scale and load all images.
      */
@@ -58,6 +59,24 @@ public class PlayerOne extends Actor
         collisonCheck();
         swordPickUp();
         keyPickUp();
+        swordCombat();
+    }
+    
+    public void swordCombat()
+    {
+        if (swordPickedUp == true)
+        {
+            
+        }
+        
+        if (isFacingRight == true && swordPickedUp == true)
+        {
+            sword.setRotation(240);
+        }
+        else if (isFacingRight == false && swordPickedUp == true)
+        {
+            sword.setRotation(120);
+        }
     }
     
     public void swordPickUp()
@@ -80,6 +99,7 @@ public class PlayerOne extends Actor
         if (sword != null && sword.getWorld() != null)
         {
             sword.setLocation(getX(), getY());
+            swordPickedUp = true;
         }
     }
     
