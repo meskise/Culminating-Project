@@ -20,6 +20,9 @@ public class PlayerOne extends Actor
     // Movement variables.
     double deltaX = 0;
     double deltaY = 0;
+    double swordDeltaX = 0;
+    double swordDeltaY = 0;
+    final double SWORDSPEED_X = 5;
     
     // Gravity
     double g = 0.8;
@@ -38,6 +41,7 @@ public class PlayerOne extends Actor
     private boolean pickUpMsg = false;
     private boolean pickUpMsgTwo = false;
     private boolean swordPickedUp = false;
+    private boolean swordLocation;
     /** 
      * Scale and load all images.
      */
@@ -64,16 +68,27 @@ public class PlayerOne extends Actor
     
     public void swordCombat()
     {
-        if (swordPickedUp == true)
+        if (Greenfoot.mousePressed(null) && swordPickedUp == true)
         {
-            
+            swordLocation = false;
         }
         
-        if (isFacingRight == true && swordPickedUp == true)
+        if (Greenfoot.isKeyDown("f") && (swordPickedUp == true))
+        {
+            swordLocation = true;
+        }
+        
+        if (swordLocation == true)
+        {
+            sword.setLocation(getX(), getY());
+        }
+        
+        
+        if (isFacingRight == true && swordPickedUp == true && isTouching(Sword.class))
         {
             sword.setRotation(240);
         }
-        else if (isFacingRight == false && swordPickedUp == true)
+        else if (isFacingRight == false && swordPickedUp == true && isTouching(Sword.class))
         {
             sword.setRotation(120);
         }
@@ -98,7 +113,7 @@ public class PlayerOne extends Actor
         // If sword is picked up, attach to player
         if (sword != null && sword.getWorld() != null)
         {
-            sword.setLocation(getX(), getY());
+            //sword.setLocation(getX(), getY());
             swordPickedUp = true;
         }
     }

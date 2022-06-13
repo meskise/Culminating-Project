@@ -8,6 +8,11 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Sword extends Actor
 {
+    private boolean swordThrow;
+    boolean isFacingRight;
+    double deltaX = 0;
+    double deltaY = 0;
+    int rotation = getRotation();
     public Sword()
     {
         // Load image and resize it.
@@ -21,6 +26,32 @@ public class Sword extends Actor
      */
     public void act()
     {
-        //
+        if (Greenfoot.mousePressed(null) && isTouching(PlayerOne.class))
+        {
+            swordThrow = true;
+        }
+        
+        if (rotation == 240)
+        {
+            isFacingRight = true;
+        }
+        else
+        {
+            isFacingRight = false;
+        }
+        
+        
+        if (isFacingRight == true && swordThrow == true)
+        {
+            setRotation(270);
+            deltaX = 7;
+        }
+        
+        if (isFacingRight == false && swordThrow == true)
+        {
+            setRotation(90);
+            deltaX = -7;
+        }
+        setLocation(getX() + (int)deltaX, getY() + (int)deltaY);
     }
 }
