@@ -23,20 +23,20 @@ public class PlayerOne extends Actor
     
     // Gravity
     double g = 0.8;
-    /**
-     * Arrays for animation images.
-     */
+    
+    // Arrays for animation images.
     GreenfootImage[] imagesWalkRight;
     GreenfootImage[] imagesWalkLeft;
     GreenfootImage[] imagesJumpRight;
     GreenfootImage[] imagesJumpLeft;
     GreenfootImage[] imagesIdleRight;
     GreenfootImage[] imagesIdleLeft;
-   
-    private boolean touchedKey = false;
     
+    // Variables for picking up object.
     private Actor sword;
+    private Actor key;
     private boolean pickUpMsg = false;
+    private boolean pickUpMsgTwo = false;
     /** 
      * Scale and load all images.
      */
@@ -56,10 +56,11 @@ public class PlayerOne extends Actor
         movementKeys();
         applyGravity();
         collisonCheck();
-        Sword();
+        swordPickUp();
+        keyPickUp();
     }
     
-    public void Sword()
+    public void swordPickUp()
     {
         PickUp pickup = new PickUp();
         // If sword is on the map, and is touching player, and F is pressed, pick up sword.
@@ -81,7 +82,23 @@ public class PlayerOne extends Actor
             sword.setLocation(getX(), getY());
         }
     }
-      
+    
+    public void keyPickUp()
+    {
+        PickUp pickup = new PickUp();
+        // If sword is on the map, and is touching player, and F is pressed, pick up sword.
+        if (key == null && isTouching(Key.class) && Greenfoot.isKeyDown("f"))
+        {
+            key = getOneIntersectingObject(Key.class);
+        }
+        
+        // If there is no pick up msg displayed and is touching sword, display pickup msg.
+        if (pickUpMsgTwo == false && isTouching(Key.class))
+        {
+            getWorld().addObject(pickup, getX() + 5, getY() - 25);
+            pickUpMsgTwo = true;
+        }
+    }
     
     /**
      * Basic movement.
