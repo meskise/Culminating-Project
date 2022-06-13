@@ -38,6 +38,16 @@ public class MyWorld extends World
         {
             scroll(+ scrollDistance , 0);
         }
+        
+        if (player.getY() > 395)
+        {
+            scroll(0 , + scrollDistance);
+        }
+        
+        if (player.getY() < 100)
+        {
+            scroll(0 , - scrollDistance);
+        }
     }
     
     public void scroll(int x , int y)
