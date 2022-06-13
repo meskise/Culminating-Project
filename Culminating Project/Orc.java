@@ -54,7 +54,7 @@ public class Orc extends Actor
         if (isTouching(Sword.class))
         {
             health = health - 25;
-            System.out.println(health);
+            //System.out.println(health);
         }
         
         if (health <= 0)

@@ -39,12 +39,12 @@ public class MyWorld extends World
             scroll(+ scrollDistance , 0);
         }
         
-        if (player.getY() > 395)
+        if (player.getY() > 350)
         {
             scroll(0 , + scrollDistance);
         }
         
-        if (player.getY() < 100)
+        if (player.getY() < 50)
         {
             scroll(0 , - scrollDistance);
         }
