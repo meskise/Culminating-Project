@@ -10,7 +10,8 @@ public class PlayerOne extends Actor
 {
     // Number of acts/frames between animation images.
     final int ANIMATION_INTERVAL = 7;
-    int frameCounter = 0;       // Frame counter. For animations.
+    int frameCounter = 0;// Frame counter. For animations.
+    
     //Movement Speed.
     final double SPEED_X = 3.5;
     // Check if facing right or is in air.
@@ -32,11 +33,16 @@ public class PlayerOne extends Actor
     GreenfootImage[] imagesJumpLeft;
     GreenfootImage[] imagesIdleRight;
     GreenfootImage[] imagesIdleLeft;
-   
+    GreenfootImage[] imagesDieRight;
+    GreenfootImage[] imagesDieLeft;
+    
     private boolean touchedKey = false;
     
     private Actor sword;
     private boolean pickUpMsg = false;
+    
+    private Actor spike;
+    
     /** 
      * Scale and load all images.
      */
@@ -57,6 +63,8 @@ public class PlayerOne extends Actor
         applyGravity();
         collisonCheck();
         Sword();
+        death();
+        
     }
     
     public void Sword()
@@ -271,6 +279,26 @@ public class PlayerOne extends Actor
         }
     }
     
+    public void death()
+    {
+        if (isTouching(Spike.class))
+        {
+            deathAnimation();
+        }
+    }
+    
+    public void deathAnimation()
+    {
+        if (isFacingRight == true)
+            {
+                animate(imagesDieRight);
+            }
+            else
+            {
+                animate(imagesDieLeft);
+            }
+    }
+    
     /**
      * Animates using the specified images.
      */
@@ -296,6 +324,8 @@ public class PlayerOne extends Actor
         imagesJumpLeft = new GreenfootImage[6];
         imagesIdleRight = new GreenfootImage[4];
         imagesIdleLeft = new GreenfootImage[4];
+        imagesDieRight = new GreenfootImage[6];
+        imagesDieLeft = new GreenfootImage[6];
         for (int i = 0; i < imagesWalkRight.length; i++)
         {
             // Assuming the image files are tile0.png, tile1.png, etc.
@@ -322,6 +352,15 @@ public class PlayerOne extends Actor
             imagesIdleLeft[i] = new GreenfootImage(imagePath);
             
             imagesIdleLeft[i].mirrorHorizontally();
+        }
+        for (int i = 0; i < imagesDieRight.length; i++)
+        {
+            // Assuming the image files are tile0.png, tile1.png, etc.
+            String imagePath = "SteamMan_death" + i + ".png";
+            imagesDieRight[i] = new GreenfootImage(imagePath);
+            imagesDieLeft[i] = new GreenfootImage(imagePath);
+            
+            imagesDieLeft[i].mirrorHorizontally();
         }
     }
 }

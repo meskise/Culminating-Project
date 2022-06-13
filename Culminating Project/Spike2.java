@@ -1,34 +1,25 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Spike here.
+ * Write a description of class Spike2 here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Spike extends Actor
+public class Spike2 extends Actor
 {
-    int counter = 0;
-    
-    public Spike()
+    public Spike2()
     {
         GreenfootImage image = getImage();
         image.scale(60, 30);
         setImage(image);
     }
     /**
-     * Act - do whatever the Spike wants to do. This method is called whenever
+     * Act - do whatever the Spike2 wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act() 
     {
-        if (isTouching(PlayerOne.class))
-        {
-            counter++;
-            if (counter == 3)
-            {
-                getWorld().removeObject(this);
-            }
-        }
+        // Add your action code here.
     }    
 }
