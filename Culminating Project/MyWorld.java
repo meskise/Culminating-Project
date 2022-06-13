@@ -10,6 +10,7 @@ public class MyWorld extends World
 {
     PlayerOne player = new PlayerOne();
     int scrollDistance = 200;
+    int numberOfBricks = 5;
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -64,47 +65,7 @@ public class MyWorld extends World
         
         Sword sword = new Sword();
         addObject(sword, 240, 250);
-
-        Platform platform = new Platform();
-        addObject(platform,20,380);
-        Platform platform2 = new Platform();
-        addObject(platform2,60,380);
-        Platform platform3 = new Platform();
-        addObject(platform3,100,380);
-        Platform platform4 = new Platform();
-        addObject(platform4,140,380);
-        Platform platform5 = new Platform();
-        addObject(platform5,180,380);
-        Platform platform6 = new Platform();
-        addObject(platform6,300,380);
-        Platform platform7 = new Platform();
-        addObject(platform7,340,380);
-        Platform platform8 = new Platform();
-        addObject(platform8,380,380);
-        Platform platform9 = new Platform();
-        addObject(platform9,420,380);
-        Platform platform10 = new Platform();
-        addObject(platform10,460,380);
-        Platform platform11 = new Platform();
-        addObject(platform11,500,380);
-        Platform platform12 = new Platform();
-        addObject(platform12,540,380);
-        Platform platform13 = new Platform();
-        addObject(platform13,580,380);
-        Platform platform14 = new Platform();
-        addObject(platform14, -20 ,380);
-        Platform platform15 = new Platform();
-        addObject(platform15, -60 ,380);
-        Platform platform16 = new Platform();
-        addObject(platform16, -100 ,380);
-        Platform platform17 = new Platform();
-        addObject(platform17, -140 ,380);
-        Platform platform18 = new Platform();
-        addObject(platform18, -180 ,380);
-        Platform platform19 = new Platform();
-        addObject(platform19, -220 ,380);
-        Platform platform20 = new Platform();
-        addObject(platform20, -260 ,380);
+        boarder();
 
         Platform2 platform22 = new Platform2();
         addObject(platform22,222,280);
@@ -135,4 +96,167 @@ public class MyWorld extends World
         Spike spike2 = new Spike();
         addObject(spike2, -160, 360);
     }
+    public void boarder()
+    {
+        //Floor
+        for (int i = 0; i < numberOfBricks;  i++)
+        {
+         int x = i * -40 + 600;
+         int y = 380;
+         addObject(new Platform(), x, y);
+         
+        }
+        for (int i = 0; i < numberOfBricks;  i++)
+        {
+         int x = i * -40 + 400;
+         int y = 380;
+         addObject(new Platform(), x, y);
+         
+        }
+        for (int i = 0; i < numberOfBricks;  i++)
+        {
+         int x = i * -40 + 200;
+         int y = 380;
+         addObject(new Platform(), x, y);
+         
+        }
+        for (int i = 0; i < numberOfBricks;  i++)
+        {
+         int x = i * -40 + 0;
+         int y = 380;
+         addObject(new Platform(), x, y);
+         
+        }
+        for (int i = 0; i < numberOfBricks;  i++)
+        {
+         int x = i * -40 + -200;
+         int y = 380;
+         addObject(new Platform(), x, y);
+         
+        }
+        for (int i = 0; i < numberOfBricks;  i++)
+        {
+         int x = i * -40 + -400;
+         int y = 380;
+         addObject(new Platform(), x, y);
+         
+        }
+        for (int i = 0; i < numberOfBricks;  i++)
+        {
+         int x = i * -40 + -600;
+         int y = 380;
+         addObject(new Platform(), x, y);
+         
+        }
+        //Roof
+        for (int i = 0; i < numberOfBricks;  i++)
+        {
+         int x = i * -40 + 600;
+         int y = -1200;
+         addObject(new Platform(), x, y);
+         
+        }
+        for (int i = 0; i < numberOfBricks;  i++)
+        {
+         int x = i * -40 + 400;
+         int y = -1200;
+         addObject(new Platform(), x, y);
+         
+        }
+        for (int i = 0; i < numberOfBricks;  i++)
+        {
+         int x = i * -40 + 200;
+         int y = -1200;
+         addObject(new Platform(), x, y);
+         
+        }
+        for (int i = 0; i < numberOfBricks;  i++)
+        {
+         int x = i * -40 + 0;
+         int y = -1200;
+         addObject(new Platform(), x, y);
+         
+        }
+        for (int i = 0; i < numberOfBricks;  i++)
+        {
+         int x = i * -40 + -200;
+         int y = -1200;
+         addObject(new Platform(), x, y);
+         
+        }
+        for (int i = 0; i < numberOfBricks;  i++)
+        {
+         int x = i * -40 + -400;
+         int y = -1200;
+         addObject(new Platform(), x, y);
+         
+        }
+        for (int i = 0; i < numberOfBricks;  i++)
+        {
+         int x = i * -40 + -600;
+         int y = -1200;
+         addObject(new Platform(), x, y);
+         
+        }
+
+        // Right boarder
+        for (int i = 0; i < 10;  i++)
+        {
+         int x = 640;
+         int y = i * -40 + 400;
+         addObject(new RightWall(), x, y);
+         
+        }
+        for (int i = 0; i < 10;  i++)
+        {
+         int x = 640;
+         int y = i * -40 + 0;
+         addObject(new RightWall(), x, y);
+         
+        }
+        for (int i = 0; i < 10;  i++)
+        {
+         int x = 640;
+         int y = i * -40 + -400;
+         addObject(new RightWall(), x, y);
+         
+        }
+        for (int i = 0; i < 10;  i++)
+        {
+         int x = 640;
+         int y = i * -40 + -800;
+         addObject(new RightWall(), x, y);
+         
+        }
+        // Left Boarder
+        for (int i = 0; i < 10;  i++)
+        {
+         int x = -800;
+         int y = i * -40 + 400;
+         addObject(new LeftWall(), x, y);
+         
+        }
+        for (int i = 0; i < 10;  i++)
+        {
+         int x = -800;
+         int y = i * -40 + 0;
+         addObject(new LeftWall(), x, y);
+         
+        }
+        for (int i = 0; i < 10;  i++)
+        {
+         int x = -800;
+         int y = i * -40 + -400;
+         addObject(new LeftWall(), x, y);
+         
+        }
+        for (int i = 0; i < 10;  i++)
+        {
+         int x = -800;
+         int y = i * -40 + -800;
+         addObject(new LeftWall(), x, y);
+         
+        }
+    }
+    
 }
