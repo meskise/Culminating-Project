@@ -9,7 +9,6 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Key extends Actor
 {
     int counter = 0;
-    
     public Key()
     {
         GreenfootImage image = getImage();
@@ -23,14 +22,8 @@ public class Key extends Actor
      */
     public void act() 
     {
-       Temp temp = new Temp();
-       if (isTouching(PlayerOne.class) && Greenfoot.isKeyDown("f"))
+        if (isTouching(PlayerOne.class) && Greenfoot.isKeyDown("f"))
         {
-            
-            // If Woodcutter touches key, add temp object on the door.
-            getWorld().addObject(temp, 550, 320);
-            
-            
             // Remove key after touching player.
             getWorld().removeObject(this);
             
