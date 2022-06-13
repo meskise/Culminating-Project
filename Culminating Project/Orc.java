@@ -5,9 +5,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Orc extends Actor
 {
-    /**
-     * Movement variables.
-     */
+    
+    // Movement variables.
     boolean isInAir;
     boolean isFacingRight = true;
     int deltaY;
@@ -15,15 +14,15 @@ public class Orc extends Actor
     final int gravity = 1;
     int move = 2;
     
-    /**
-     * Animation variables.
-     */
+    
+    // Animation variables.
     int animationInterval = 5;  // Number of frames between animation images.
     int frameCounter = 0;       // Frame counter. For animations.
     
-    /**
-     * Arrays for animation images.
-     */
+    // Health system variables.
+    int health = 500;
+
+    // Arrays for animation images.
     GreenfootImage[] imagesWalkRight;
     GreenfootImage[] imagesWalkLeft;
     GreenfootImage[] imagesIdleRight;
@@ -31,6 +30,9 @@ public class Orc extends Actor
     GreenfootImage[] imagesDieRight;
     GreenfootImage[] imagesDieLeft;
     
+    /**
+     * Public orc class.
+     */
     public Orc()
     {
         loadImages();
@@ -44,6 +46,22 @@ public class Orc extends Actor
         runAnimations();
         checkCollision();
         applyGravity();
+        healthSystem();
+    }
+    
+    public void healthSystem()
+    {
+        if (isTouching(Sword.class))
+        {
+            health = health - 25;
+            System.out.println(health);
+        }
+        
+        if (health <= 0)
+        {
+            die();
+            getWorld().removeObject(this);
+        }
     }
     
     public void runAnimations()
