@@ -62,17 +62,20 @@ public class PlayerOne extends Actor
     public void Sword()
     {
         PickUp pickup = new PickUp();
+        // If sword is on the map, and is touching player, and F is pressed, pick up sword.
         if (sword == null && isTouching(Sword.class) && Greenfoot.isKeyDown("f"))
         {
             sword = getOneIntersectingObject(Sword.class);
         }
         
+        // If there is no pick up msg displayed and is touching sword, display pickup msg.
         if (pickUpMsg == false && isTouching(Sword.class))
         {
             getWorld().addObject(pickup, getX() + 5, getY() - 25);
             pickUpMsg = true;
         }
         
+        // If sword is picked up, attach to player
         if (sword != null && sword.getWorld() != null)
         {
             sword.setLocation(getX(), getY());
@@ -264,11 +267,6 @@ public class PlayerOne extends Actor
             stopOnLeftObject(platform);
         }
         
-        if (getY() >= 395)
-        {
-            //Greenfoot.setWorld(new GameOver());
-            Greenfoot.stop();
-        }
     }
     
     /**
