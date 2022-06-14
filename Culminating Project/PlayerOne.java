@@ -20,6 +20,9 @@ public class PlayerOne extends Actor
     // Movement variables.
     double deltaX = 0;
     double deltaY = 0;
+    double swordDeltaX = 0;
+    double swordDeltaY = 0;
+    final double SWORDSPEED_X = 5;
     
     // Gravity
     double g = 0.8;
@@ -37,6 +40,8 @@ public class PlayerOne extends Actor
     private Actor key;
     private boolean pickUpMsg = false;
     private boolean pickUpMsgTwo = false;
+    private boolean swordPickedUp = false;
+    private boolean swordLocation;
     /** 
      * Scale and load all images.
      */
@@ -58,6 +63,37 @@ public class PlayerOne extends Actor
         collisonCheck();
         swordPickUp();
         keyPickUp();
+        swordCombat();
+    }
+    
+    public void swordCombat()
+    {
+        // If left clicked, and sword is picked up, sword location is false.
+        if (Greenfoot.mousePressed(null) && swordPickedUp == true)
+        {
+            swordLocation = false;
+        }
+        // If 'f' is pressed, and sword has been picked up before, then sword location is true.
+        if (Greenfoot.isKeyDown("f") && (swordPickedUp == true))
+        {
+            swordLocation = true;
+        }
+        
+        // If sword location is true, then set location of sword to PlayerOne.
+        if (swordLocation == true)
+        {
+            sword.setLocation(getX(), getY());
+        }
+        
+        // If facing right, sword has been picked up and sword/player are touching eachother, set sword rotation to 240 to appear as if it is being carried.
+        if (isFacingRight == true && swordPickedUp == true && isTouching(Sword.class))
+        {
+            sword.setRotation(240);
+        }
+        else if (isFacingRight == false && swordPickedUp == true && isTouching(Sword.class)) // If facing left, sword has been picked up and sword/player are touching eachother, set sword rotation to 120 to appear as if it is being carried.
+        {
+            sword.setRotation(120);
+        }
     }
     
     public void swordPickUp()
@@ -79,7 +115,7 @@ public class PlayerOne extends Actor
         // If sword is picked up, attach to player
         if (sword != null && sword.getWorld() != null)
         {
-            sword.setLocation(getX(), getY());
+            swordPickedUp = true;
         }
     }
     
