@@ -68,27 +68,29 @@ public class PlayerOne extends Actor
     
     public void swordCombat()
     {
+        // If left clicked, and sword is picked up, sword location is false.
         if (Greenfoot.mousePressed(null) && swordPickedUp == true)
         {
             swordLocation = false;
         }
-        
+        // If 'f' is pressed, and sword has been picked up before, then sword location is true.
         if (Greenfoot.isKeyDown("f") && (swordPickedUp == true))
         {
             swordLocation = true;
         }
         
+        // If sword location is true, then set location of sword to PlayerOne.
         if (swordLocation == true)
         {
             sword.setLocation(getX(), getY());
         }
         
-        
+        // If facing right, sword has been picked up and sword/player are touching eachother, set sword rotation to 240 to appear as if it is being carried.
         if (isFacingRight == true && swordPickedUp == true && isTouching(Sword.class))
         {
             sword.setRotation(240);
         }
-        else if (isFacingRight == false && swordPickedUp == true && isTouching(Sword.class))
+        else if (isFacingRight == false && swordPickedUp == true && isTouching(Sword.class)) // If facing left, sword has been picked up and sword/player are touching eachother, set sword rotation to 120 to appear as if it is being carried.
         {
             sword.setRotation(120);
         }
@@ -113,7 +115,6 @@ public class PlayerOne extends Actor
         // If sword is picked up, attach to player
         if (sword != null && sword.getWorld() != null)
         {
-            //sword.setLocation(getX(), getY());
             swordPickedUp = true;
         }
     }

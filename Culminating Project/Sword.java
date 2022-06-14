@@ -8,11 +8,18 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Sword extends Actor
 {
+    // Booleans.
     private boolean swordThrow;
+    private boolean swordPickedUp;
     boolean isFacingRight;
+    // Movement.
     double deltaX = 0;
     double deltaY = 0;
-    int rotation = getRotation();
+    // Rotation.
+    public static int rotation = 0;
+    // Actors.
+    private Actor playerone;
+    private Actor sword;
     public Sword()
     {
         // Load image and resize it.
@@ -26,32 +33,52 @@ public class Sword extends Actor
      */
     public void act()
     {
-        if (Greenfoot.mousePressed(null) && isTouching(PlayerOne.class))
-        {
-            swordThrow = true;
-        }
+        swordThrow();
+    }
+    
+    public void swordThrow()
+    {
+        // Rotation is the rotation of the sword.
+        rotation = getRotation();
         
-        if (rotation == 240)
+        // If rotation of sword is 180 or higher, is facing right is true.
+        if (rotation >= 180)
         {
             isFacingRight = true;
         }
-        else
+        else // If sword rotation isn't 180 or higher, is facing right is false.
         {
             isFacingRight = false;
         }
         
-        
-        if (isFacingRight == true && swordThrow == true)
+        // If facing right and mouse is left clicked, throw sword right.
+        if (isFacingRight == true && Greenfoot.mousePressed(null))
         {
-            setRotation(270);
+            swordThrow = true;
             deltaX = 7;
         }
-        
-        if (isFacingRight == false && swordThrow == true)
+        // If facing left and mouse is left clicked, throw sword left.
+        if (isFacingRight == false && Greenfoot.mousePressed(null))
         {
-            setRotation(90);
+            swordThrow = true;
             deltaX = -7;
         }
+        
+        // If sword has been thrown, and facing right is true, set swords rotation to 270 to appear as if the sword is facing right.
+        if (swordThrow == true && isFacingRight == true)
+        {
+            setRotation(270);
+        }
+        else if (swordThrow == true && isFacingRight == false) // If sword has been thrown, and facing right is falase, set swords rotation to 90 to appear as if the sword is facing left
+        {
+            setRotation(90);
+        }
+        // Allows sword to move in different directions.
         setLocation(getX() + (int)deltaX, getY() + (int)deltaY);
+    }
+
+    public static int getActorsRotation() 
+    {
+        return rotation;
     }
 }
