@@ -52,13 +52,13 @@ public class Sword extends Actor
         }
         
         // If facing right and mouse is left clicked, throw sword right.
-        if (isFacingRight == true && Greenfoot.mousePressed(null))
+        if (isFacingRight == true && Greenfoot.mousePressed(null) && swordPickedUp == true)
         {
             swordThrow = true;
             deltaX = 7;
         }
         // If facing left and mouse is left clicked, throw sword left.
-        if (isFacingRight == false && Greenfoot.mousePressed(null))
+        if (isFacingRight == false && Greenfoot.mousePressed(null) && swordPickedUp == true)
         {
             swordThrow = true;
             deltaX = -7;
@@ -72,6 +72,12 @@ public class Sword extends Actor
         else if (swordThrow == true && isFacingRight == false) // If sword has been thrown, and facing right is falase, set swords rotation to 90 to appear as if the sword is facing left
         {
             setRotation(90);
+        }
+        
+        // If touching player sword is picked up.
+        if (isTouching(PlayerOne.class))
+        {
+            swordPickedUp = true;
         }
         // Allows sword to move in different directions.
         setLocation(getX() + (int)deltaX, getY() + (int)deltaY);
