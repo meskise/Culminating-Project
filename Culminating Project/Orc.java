@@ -9,6 +9,7 @@ public class Orc extends Actor
     // Movement variables.
     boolean isInAir;
     boolean isFacingRight = true;
+    boolean isTouchingPlayer;
     int deltaY;
     int deltaX;
     final int gravity = 1;
@@ -29,6 +30,9 @@ public class Orc extends Actor
     GreenfootImage[] imagesIdleLeft;
     GreenfootImage[] imagesDieRight;
     GreenfootImage[] imagesDieLeft;
+    GreenfootImage[] imagesAttackRight;
+    GreenfootImage[] imagesAttackLeft;
+
     
     /**
      * Public orc class.
@@ -42,7 +46,10 @@ public class Orc extends Actor
     public void act()
     {
         deltaX = move;
-        setLocation(getX() + deltaX , getY() + deltaY);
+        if (isTouchingPlayer == false)
+        {
+            setLocation(getX() + deltaX , getY() + deltaY);
+        }
         runAnimations();
         checkCollision();
         applyGravity();
@@ -66,7 +73,18 @@ public class Orc extends Actor
     
     public void runAnimations()
     {
-        if (deltaX == 2)
+        if (isTouchingPlayer == true)
+        {
+            if (isFacingRight == true)
+            {
+                animate(imagesAttackRight);
+            }
+            else
+            {
+                animate(imagesAttackLeft);
+            }
+        }
+        else if (deltaX == 2)
         {
             isFacingRight = true;
             animate(imagesWalkRight);
@@ -86,6 +104,7 @@ public class Orc extends Actor
         {
             animate(imagesIdleLeft);
         }
+        
     }
            
     public void applyGravity()
@@ -139,12 +158,19 @@ public class Orc extends Actor
     
     public void checkCollision()
     {
-    
+        if (isTouching(PlayerOne.class))
+        {
+            isTouchingPlayer = true;
+        }
+        else
+        {
+            isTouchingPlayer = false;
+        }
     }
     
     public void attack()
     {
-    
+        
     }
     
     public void die()
@@ -189,7 +215,8 @@ public class Orc extends Actor
         imagesIdleLeft = new GreenfootImage[6];
         imagesDieRight = new GreenfootImage[6];
         imagesDieLeft = new GreenfootImage[6];
-        
+        imagesAttackRight = new GreenfootImage[7];
+        imagesAttackLeft = new GreenfootImage[7];
         for (int i = 0; i < imagesWalkRight.length; i++)
         {
             // Assuming the image files are tile0.png, tile1.png, etc.
@@ -219,6 +246,16 @@ public class Orc extends Actor
             imagesDieLeft[i].scale(64, 92);
             imagesDieRight[i].scale(64, 92);
             imagesDieLeft[i].mirrorHorizontally();
+        }
+        for (int i = 0; i < imagesAttackRight.length; i++)
+        {
+            // Assuming the image files are tile0.png, tile1.png, etc.
+            String imagePath = "images/Orc_Attack" + i + ".png";
+            imagesAttackRight[i] = new GreenfootImage(imagePath);
+            imagesAttackLeft[i] = new GreenfootImage(imagePath);
+            imagesAttackLeft[i].scale(64, 92);
+            imagesAttackRight[i].scale(64, 92);
+            imagesAttackLeft[i].mirrorHorizontally();
         }
     }
 }
