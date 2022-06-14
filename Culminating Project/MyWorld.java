@@ -76,6 +76,7 @@ public class MyWorld extends World
         Sword sword = new Sword();
         addObject(sword, 240, 250);
         boarder();
+        platforms();
 
         Platform2 platform22 = new Platform2();
         addObject(platform22,222,280);
@@ -85,10 +86,10 @@ public class MyWorld extends World
         addObject(platform24,338,183);
         Platform2 platform25 = new Platform2();
         addObject(platform25,378,183);
-        Platform2 platform26 = new Platform2();
-        addObject(platform26,222,122);
-        Platform2 platform27 = new Platform2();
-        addObject(platform27,262,122);
+        // Platform2 platform26 = new Platform2();
+        // addObject(platform26,222,122);
+        // Platform2 platform27 = new Platform2();
+        // addObject(platform27,262,122);
         Platform2 platform28 = new Platform2();
         addObject(platform28,73,77);
         Platform2 platform29 = new Platform2();
@@ -163,49 +164,49 @@ public class MyWorld extends World
         {
          int x = i * -40 + 600;
          int y = -1200;
-         addObject(new Platform(), x, y);
+         addObject(new Roof(), x, y);
          
         }
         for (int i = 0; i < numberOfBricks;  i++)
         {
          int x = i * -40 + 400;
          int y = -1200;
-         addObject(new Platform(), x, y);
+         addObject(new Roof(), x, y);
          
         }
         for (int i = 0; i < numberOfBricks;  i++)
         {
          int x = i * -40 + 200;
          int y = -1200;
-         addObject(new Platform(), x, y);
+         addObject(new Roof(), x, y);
          
         }
         for (int i = 0; i < numberOfBricks;  i++)
         {
          int x = i * -40 + 0;
          int y = -1200;
-         addObject(new Platform(), x, y);
+         addObject(new Roof(), x, y);
          
         }
         for (int i = 0; i < numberOfBricks;  i++)
         {
          int x = i * -40 + -200;
          int y = -1200;
-         addObject(new Platform(), x, y);
+         addObject(new Roof(), x, y);
          
         }
         for (int i = 0; i < numberOfBricks;  i++)
         {
          int x = i * -40 + -400;
          int y = -1200;
-         addObject(new Platform(), x, y);
+         addObject(new Roof(), x, y);
          
         }
         for (int i = 0; i < numberOfBricks;  i++)
         {
          int x = i * -40 + -600;
          int y = -1200;
-         addObject(new Platform(), x, y);
+         addObject(new Roof(), x, y);
          
         }
 
@@ -268,5 +269,176 @@ public class MyWorld extends World
          
         }
     }
-    
+    public void platforms()
+    {
+        // First level of platforms.
+        for (int i = 0; i < 7; i++)
+        {
+            int y = 280;
+            for (int a = 0; a < 2;  a++)
+            {
+                int x = i * -200 + a * -40 + 100;
+                
+                addObject(new Platform2(), x, y);
+         
+            }
+        }
+        // Second level of platforms.
+        for (int i = 0; i < 7; i++)
+        {
+            int y = 183;
+            for (int a = 0; a < 2;  a++)
+            {
+                int x = i * -200 + a * -40 + 200;
+                
+                addObject(new Platform2(), x, y);
+         
+            }
+        }
+        //Third level of platforms.
+        for (int i = 0; i < 8; i++)
+        {
+            int y = 77;
+            for (int a = 0; a < 2;  a++)
+            {
+                int x = i * -200 + a * -40 + 500;
+                
+                addObject(new Platform2(), x, y);
+         
+            }
+        }
+        // Forth
+        for (int i = 0; i < 7; i++)
+        {
+            int y = -29;
+            for (int a = 0; a < 2;  a++)
+            {
+                int x = i * -200 + a * -40 + 400;
+                
+                addObject(new Platform2(), x, y);
+         
+            }
+        }
+        //Fifth
+        for (int i = 0; i < 8; i++)
+        {
+            int y = -135;
+            for (int a = 0; a < 2;  a++)
+            {
+                int x = i * -200 + a * -40 + 500;
+                
+                addObject(new Platform2(), x, y);
+         
+            }
+        }
+        //Sixth
+        for (int i = 0; i < 8; i++)
+        {
+            int y = -241;
+            for (int a = 0; a < 2;  a++)
+            {
+                int x = i * -200 + a * -40 + 400;
+                
+                addObject(new Platform2(), x, y);
+         
+            }
+        }
+        //Seventh
+        for (int i = 0; i < 8; i++)
+        {
+            int y = -347;
+            for (int a = 0; a < 2;  a++)
+            {
+                int x = i * -200 + a * -40 + 500;
+                
+                addObject(new Platform2(), x, y);
+         
+            }
+        }
+        //Eightth
+        for (int i = 0; i < 7; i++)
+        {
+            int y = -453;
+            for (int a = 0; a < 2;  a++)
+            {
+                int x = i * -200 + a * -40 + 400;
+                
+                addObject(new Platform2(), x, y);
+         
+            }
+        }
+        //Nineth
+        for (int i = 0; i < 8; i++)
+        {
+            int y = -559;
+            for (int a = 0; a < 2;  a++)
+            {
+                int x = i * -200 + a * -40 + 500;
+                
+                addObject(new Platform2(), x, y);
+         
+            }
+        }
+        //Tenth
+        for (int i = 0; i < 7; i++)
+        {
+            int y = -665;
+            for (int a = 0; a < 2;  a++)
+            {
+                int x = i * -200 + a * -40 + 400;
+                
+                addObject(new Platform2(), x, y);
+         
+            }
+        }
+        //Eleventh
+        for (int i = 0; i < 8; i++)
+        {
+            int y = -771;
+            for (int a = 0; a < 2;  a++)
+            {
+                int x = i * -200 + a * -40 + 500;
+                
+                addObject(new Platform2(), x, y);
+         
+            }
+        }
+        //Twelveth
+        for (int i = 0; i < 7; i++)
+        {
+            int y = -877;
+            for (int a = 0; a < 2;  a++)
+            {
+                int x = i * -200 + a * -40 + 400;
+                
+                addObject(new Platform2(), x, y);
+         
+            }
+        }
+        //Thirteenth
+        for (int i = 0; i < 8; i++)
+        {
+            int y = -983;
+            for (int a = 0; a < 2;  a++)
+            {
+                int x = i * -200 + a * -40 + 500;
+                
+                addObject(new Platform2(), x, y);
+         
+            }
+        }
+        //Fourteenth
+        for (int i = 0; i < 7; i++)
+        {
+            int y = -1089;
+            for (int a = 0; a < 2;  a++)
+            {
+                int x = i * -200 + a * -40 + 400;
+                
+                addObject(new Platform2(), x, y);
+         
+            }
+        }
+        
+    }
 }
