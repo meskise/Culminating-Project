@@ -66,7 +66,7 @@ public class MyWorld extends World
     private void prepare()
     {
         
-        addObject(player,20,330);
+        addObject(player,-760,330);
         
         Key key = new Key();
         addObject(key,70,50);
