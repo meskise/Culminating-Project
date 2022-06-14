@@ -9,7 +9,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class MyWorld extends World
 {
     PlayerOne player = new PlayerOne();
-    int scrollDistance = 200;
+    int scrollDistance = 2;
+    int vScrollDistance = 5;
     int numberOfBricks = 5;
     /**
      * Constructor for objects of class MyWorld.
@@ -30,24 +31,24 @@ public class MyWorld extends World
     
     public void checkScroll()
     {
-        if (player.getX() < 100)
+        if (player.getX() < 298.5)
         {
             scroll(- scrollDistance , 0);
         }
         
-        if (player.getX() > 500)
+        if (player.getX() > 301.5)
         {
             scroll(+ scrollDistance , 0);
         }
         
-        if (player.getY() > 350)
+        if (player.getY() > 300)
         {
-            scroll(0 , + scrollDistance);
+            scroll(0 , + vScrollDistance);
         }
         
-        if (player.getY() < 50)
+        if (player.getY() < 100)
         {
-            scroll(0 , - scrollDistance);
+            scroll(0 , - vScrollDistance);
         }
     }
     

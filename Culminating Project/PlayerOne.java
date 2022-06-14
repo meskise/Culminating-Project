@@ -12,7 +12,7 @@ public class PlayerOne extends Actor
     final int ANIMATION_INTERVAL = 7;
     int frameCounter = 0;       // Frame counter. For animations.
     //Movement Speed.
-    final double SPEED_X = 3.5;
+    final double SPEED_X = 2.5;
     // Check if facing right or is in air.
     boolean isFacingRight;
     boolean isInAir;
@@ -64,6 +64,10 @@ public class PlayerOne extends Actor
         swordPickUp();
         keyPickUp();
         swordCombat();
+        if (Greenfoot.isKeyDown("h"))
+        {
+            Greenfoot.setWorld(new LevelTwo());
+        }
     }
     
     public void swordCombat()
