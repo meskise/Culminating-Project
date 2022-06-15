@@ -51,7 +51,7 @@ public class Bow extends Actor
             //imagesBowShootLeft[i] = new GreenfootImage(imagePath);
             
             imagesBowShootRight[i].scale(15,40);
-            //imagesBowShootLeft[i].scale(12,33);
+            //imagesBowShootLeft[i].scale(15,40);
             
             //imagesBowShootLeft[i].mirrorHorizontally();
         }
