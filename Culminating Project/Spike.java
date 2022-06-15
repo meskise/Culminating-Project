@@ -22,13 +22,6 @@ public class Spike extends Actor
      */
     public void act() 
     {
-        if (isTouching(PlayerOne.class))
-        {
-            counter++;
-            if (counter == 3)
-            {
-                getWorld().removeObject(this);
-            }
-        }
+        
     }    
 }

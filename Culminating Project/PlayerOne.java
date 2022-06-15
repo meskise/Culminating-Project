@@ -42,7 +42,7 @@ public class PlayerOne extends Actor
     private boolean pickUpMsg = false;
     
     private Actor spike;
-    
+    boolean isDead = false;
     /** 
      * Scale and load all images.
      */
@@ -283,6 +283,15 @@ public class PlayerOne extends Actor
     {
         if (isTouching(Spike.class))
         {
+            if (isDead == false)
+            {
+                frameCounter = 0;
+                isDead = true;
+            }
+            
+        }
+        if (isDead == true)
+        {
             deathAnimation();
         }
     }
@@ -291,12 +300,28 @@ public class PlayerOne extends Actor
     {
         if (isFacingRight == true)
             {
-                animate(imagesDieRight);
+                animateNoLoop(imagesDieRight);
+                
             }
             else
             {
-                animate(imagesDieLeft);
+                animateNoLoop(imagesDieLeft);
             }
+    }
+    
+    void animateNoLoop(GreenfootImage[] images)
+    {
+        if (frameCounter >= images.length * ANIMATION_INTERVAL)  // Greater or equal (>=) takes care of animations with different number of images.
+        {
+            return;
+        }
+        
+        if (frameCounter % ANIMATION_INTERVAL == 0)  // If it's time to switch to next animation image.
+        {
+            setImage(images[frameCounter/ANIMATION_INTERVAL]);
+        }
+        
+        frameCounter++;
     }
     
     /**

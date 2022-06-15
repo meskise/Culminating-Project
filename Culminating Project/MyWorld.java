@@ -134,9 +134,6 @@ public class MyWorld extends World
         addObject(spike1, -100 , 360);
         Spike spike12 = new Spike();
         addObject(spike12, -160, 360);
-        Spike2 spike2 = new Spike2();
-        addObject(spike2, -100 , 360);
-        Spike2 spike21 = new Spike2();
-        addObject(spike21, -160 , 360);
+        
     }
 }
