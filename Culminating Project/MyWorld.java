@@ -78,6 +78,7 @@ public class MyWorld extends World
         addObject(sword, 240, 250);
         boarder();
         platforms();
+        ground();
 
         Platform2 platform22 = new Platform2();
         addObject(platform22,222,280);
@@ -108,6 +109,60 @@ public class MyWorld extends World
         Spike spike2 = new Spike();
         addObject(spike2, -160, 360);
     }
+    
+    public void ground()
+    {
+        for (int i = 0; i < numberOfBricks;  i++)
+        {
+         int x = i * -40 + 600;
+         int y = 420;
+         addObject(new SolidGround(), x, y);
+         
+        }
+        for (int i = 0; i < numberOfBricks;  i++)
+        {
+         int x = i * -40 + 400;
+         int y = 420;
+         addObject(new SolidGround(), x, y);
+         
+        }
+        for (int i = 0; i < numberOfBricks;  i++)
+        {
+         int x = i * -40 + 200;
+         int y = 420;
+         addObject(new SolidGround(), x, y);
+         
+        }
+        for (int i = 0; i < numberOfBricks;  i++)
+        {
+         int x = i * -40 + 0;
+         int y = 420;
+         addObject(new SolidGround(), x, y);
+         
+        }
+        for (int i = 0; i < numberOfBricks;  i++)
+        {
+         int x = i * -40 + -200;
+         int y = 420;
+         addObject(new SolidGround(), x, y);
+         
+        }
+        for (int i = 0; i < numberOfBricks;  i++)
+        {
+         int x = i * -40 + -400;
+         int y = 420;
+         addObject(new SolidGround(), x, y);
+         
+        }
+        for (int i = 0; i < numberOfBricks;  i++)
+        {
+         int x = i * -40 + -600;
+         int y = 420;
+         addObject(new SolidGround(), x, y);
+         
+        }
+    }
+    
     public void boarder()
     {
         //Floor
