@@ -78,6 +78,8 @@ public class MyWorld extends World
         addObject(sword, 240, 250);
         boarder();
         platforms();
+        Bat bat = new Bat();
+        addObject(bat,600,200);
 
         Platform2 platform22 = new Platform2();
         addObject(platform22,222,280);
