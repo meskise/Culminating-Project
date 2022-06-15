@@ -64,9 +64,19 @@ public class PlayerOne extends Actor
         swordPickUp();
         keyPickUp();
         swordCombat();
+        enemyColisions();
         if (Greenfoot.isKeyDown("h"))
         {
             Greenfoot.setWorld(new LevelTwo());
+        }
+    }
+    public void enemyColisions()
+    {
+        if (isTouching(Bat.class))
+        {
+            //getWorld().showText("Game Over",400,300);
+            getWorld().removeObject(this);
+            Greenfoot.stop();
         }
     }
     

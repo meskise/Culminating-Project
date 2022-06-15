@@ -24,13 +24,13 @@ public class Bat extends Actor
         //if Bat gets too close to Left edge, change y direction to go Right.
        if(isTouching(LeftWall.class))
        {
-           deltaX=7;
+           deltaX=3;
            //getImage().mirrorVertically();
        }
        //if Bat gets too close to Right edge, change y direction to go Left.
        if(isTouching(RightWall.class))
        {
-           deltaX=-7;
+           deltaX=-3;
            //getImage().mirrorVertically();
        }
        setLocation(getX() + deltaX, getY() + deltaY);
