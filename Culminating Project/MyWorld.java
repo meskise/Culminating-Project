@@ -21,7 +21,7 @@ public class MyWorld extends World
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1 , false); 
         prepare();
-        setPaintOrder(PlayerOne.class, Orc.class, Platform.class, Spike.class , Platform2.class, Sword.class, Key.class, Door.class, Temp.class);
+        setPaintOrder(PlayerOne.class, Orc.class, Platform.class, SolidGround.class, Spike.class , Platform2.class, Sword.class, Key.class, Door.class, Temp.class);
     }
     
     public void act()
@@ -78,6 +78,7 @@ public class MyWorld extends World
         addObject(sword, 240, 250);
         boarder();
         platforms();
+        ground();
 
         Platform2 platform22 = new Platform2();
         addObject(platform22,222,280);
@@ -108,6 +109,60 @@ public class MyWorld extends World
         Spike spike2 = new Spike();
         addObject(spike2, -160, 360);
     }
+    
+    public void ground()
+    {
+        for (int i = 0; i < numberOfBricks;  i++)
+        {
+         int x = i * -40 + 600;
+         int y = 420;
+         addObject(new SolidGround(), x, y);
+         
+        }
+        for (int i = 0; i < numberOfBricks;  i++)
+        {
+         int x = i * -40 + 400;
+         int y = 420;
+         addObject(new SolidGround(), x, y);
+         
+        }
+        for (int i = 0; i < numberOfBricks;  i++)
+        {
+         int x = i * -40 + 200;
+         int y = 420;
+         addObject(new SolidGround(), x, y);
+         
+        }
+        for (int i = 0; i < numberOfBricks;  i++)
+        {
+         int x = i * -40 + 0;
+         int y = 420;
+         addObject(new SolidGround(), x, y);
+         
+        }
+        for (int i = 0; i < numberOfBricks;  i++)
+        {
+         int x = i * -40 + -200;
+         int y = 420;
+         addObject(new SolidGround(), x, y);
+         
+        }
+        for (int i = 0; i < numberOfBricks;  i++)
+        {
+         int x = i * -40 + -400;
+         int y = 420;
+         addObject(new SolidGround(), x, y);
+         
+        }
+        for (int i = 0; i < numberOfBricks;  i++)
+        {
+         int x = i * -40 + -600;
+         int y = 420;
+         addObject(new SolidGround(), x, y);
+         
+        }
+    }
+    
     public void boarder()
     {
         //Floor
