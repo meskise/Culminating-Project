@@ -77,49 +77,49 @@ public class LevelTwo extends World
         {
          int x = i * -40 + 1660;
          int y = 380;
-         addObject(new Platform(), x, y);
+         addObject(new CastlePlatform(), x, y);
          
         }
         for (int i = 0; i < numberOfBricks;  i++)
         {
          int x = i * -40 + 1460;
          int y = 380;
-         addObject(new Platform(), x, y);
+         addObject(new CastlePlatform(), x, y);
          
         }
         for (int i = 0; i < numberOfBricks;  i++)
         {
          int x = i * -40 + 1260;
          int y = 380;
-         addObject(new Platform(), x, y);
+         addObject(new CastlePlatform(), x, y);
          
         }
         for (int i = 0; i < numberOfBricks;  i++)
         {
          int x = i * -40 + 1060;
          int y = 380;
-         addObject(new Platform(), x, y);
+         addObject(new CastlePlatform(), x, y);
          
         }
         for (int i = 0; i < numberOfBricks;  i++)
         {
          int x = i * -40 + 860;
          int y = 380;
-         addObject(new Platform(), x, y);
+         addObject(new CastlePlatform(), x, y);
          
         }
         for (int i = 0; i < numberOfBricks;  i++)
         {
          int x = i * -40 + 660;
          int y = 380;
-         addObject(new Platform(), x, y);
+         addObject(new CastlePlatform(), x, y);
          
         }
         for (int i = 0; i < numberOfBricks;  i++)
         {
          int x = i * -40 + 460;
          int y = 380;
-         addObject(new Platform(), x, y);
+         addObject(new CastlePlatform(), x, y);
          
         }
         // Solid ground
@@ -127,49 +127,99 @@ public class LevelTwo extends World
         {
          int x = i * -40 + 1660;
          int y = 420;
-         addObject(new SolidGround(), x, y);
+         addObject(new SolidCastleGround(), x, y);
          
         }
         for (int i = 0; i < numberOfBricks;  i++)
         {
          int x = i * -40 + 1460;
          int y = 420;
-         addObject(new SolidGround(), x, y);
+         addObject(new SolidCastleGround(), x, y);
          
         }
         for (int i = 0; i < numberOfBricks;  i++)
         {
          int x = i * -40 + 1260;
          int y = 420;
-         addObject(new SolidGround(), x, y);
+         addObject(new SolidCastleGround(), x, y);
          
         }
         for (int i = 0; i < numberOfBricks;  i++)
         {
          int x = i * -40 + 1060;
          int y = 420;
-         addObject(new SolidGround(), x, y);
+         addObject(new SolidCastleGround(), x, y);
          
         }
         for (int i = 0; i < numberOfBricks;  i++)
         {
          int x = i * -40 + 860;
          int y = 420;
-         addObject(new SolidGround(), x, y);
+         addObject(new SolidCastleGround(), x, y);
          
         }
         for (int i = 0; i < numberOfBricks;  i++)
         {
          int x = i * -40 + 660;
          int y = 420;
-         addObject(new SolidGround(), x, y);
+         addObject(new SolidCastleGround(), x, y);
          
         }
         for (int i = 0; i < numberOfBricks;  i++)
         {
          int x = i * -40 + 460;
          int y = 420;
-         addObject(new SolidGround(), x, y);
+         addObject(new SolidCastleGround(), x, y);
+         
+        }
+        
+        for (int i = 0; i < numberOfBricks;  i++)
+        {
+         int x = i * -40 + 1660;
+         int y = 460;
+         addObject(new SolidCastleGround(), x, y);
+         
+        }
+        for (int i = 0; i < numberOfBricks;  i++)
+        {
+         int x = i * -40 + 1460;
+         int y = 460;
+         addObject(new SolidCastleGround(), x, y);
+         
+        }
+        for (int i = 0; i < numberOfBricks;  i++)
+        {
+         int x = i * -40 + 1260;
+         int y = 460;
+         addObject(new SolidCastleGround(), x, y);
+         
+        }
+        for (int i = 0; i < numberOfBricks;  i++)
+        {
+         int x = i * -40 + 1060;
+         int y = 460;
+         addObject(new SolidCastleGround(), x, y);
+         
+        }
+        for (int i = 0; i < numberOfBricks;  i++)
+        {
+         int x = i * -40 + 860;
+         int y = 460;
+         addObject(new SolidCastleGround(), x, y);
+         
+        }
+        for (int i = 0; i < numberOfBricks;  i++)
+        {
+         int x = i * -40 + 660;
+         int y = 460;
+         addObject(new SolidCastleGround(), x, y);
+         
+        }
+        for (int i = 0; i < numberOfBricks;  i++)
+        {
+         int x = i * -40 + 460;
+         int y = 460;
+         addObject(new SolidCastleGround(), x, y);
          
         }
     }
