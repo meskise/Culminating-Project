@@ -20,7 +20,7 @@ public class LevelTwo extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1, false); 
-        setPaintOrder(PlayerOne.class, Bow.class, Orc.class, Arrow.class, Platform.class, SolidGround.class, Spike.class , Platform2.class, Sword.class, Key.class, Door.class, Temp.class);
+        setPaintOrder(PickUp.class, PlayerOne.class, Bow.class, Orc.class, Arrow.class, Platform.class, SolidGround.class, Spike.class , Platform2.class, Sword.class, Key.class, Door.class, Temp.class);
         prepare();
     }
     
