@@ -21,7 +21,7 @@ public class MyWorld extends World
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1 , false); 
         prepare();
-        setPaintOrder(PlayerOne.class, Orc.class, Platform.class, Spike.class , Platform2.class, Sword.class, Key.class, Door.class, Temp.class);
+        setPaintOrder(PickUp.class, PlayerOne.class, Orc.class, Platform.class, SolidGround.class, Spike.class , Platform2.class, Sword.class, Key.class, Door.class, Temp.class);
     }
     
     public void act()
@@ -66,15 +66,16 @@ public class MyWorld extends World
      */
     private void prepare()
     {
-        
+
         addObject(player,-760,330);
-        
+
         Key key = new Key();
         addObject(key,70,50);
         Door door = new Door();
         addObject(door,550, 315);
-        
+
         Sword sword = new Sword();
+
         addObject(sword, 290, 250);
         boarder();
         platforms();
@@ -83,14 +84,125 @@ public class MyWorld extends World
         
         
         
+
+        
+        ground();
+
+       
+
         Orc orc = new Orc();
         addObject(orc,500,320);
-        
-        Spike spike = new Spike();
-        addObject(spike, -100 , 360);
-        Spike spike2 = new Spike();
-        addObject(spike2, -160, 360);
+
+        Spike spike1 = new Spike();
+        addObject(spike1, -100 , 360);
+        Spike spike12 = new Spike();
+        addObject(spike12, -160, 360);
+
     }
+    
+    public void ground()
+    {
+        for (int i = 0; i < numberOfBricks;  i++)
+        {
+         int x = i * -40 + 600;
+         int y = 420;
+         addObject(new SolidGround(), x, y);
+         
+        }
+        for (int i = 0; i < numberOfBricks;  i++)
+        {
+         int x = i * -40 + 400;
+         int y = 420;
+         addObject(new SolidGround(), x, y);
+         
+        }
+        for (int i = 0; i < numberOfBricks;  i++)
+        {
+         int x = i * -40 + 200;
+         int y = 420;
+         addObject(new SolidGround(), x, y);
+         
+        }
+        for (int i = 0; i < numberOfBricks;  i++)
+        {
+         int x = i * -40 + 0;
+         int y = 420;
+         addObject(new SolidGround(), x, y);
+         
+        }
+        for (int i = 0; i < numberOfBricks;  i++)
+        {
+         int x = i * -40 + -200;
+         int y = 420;
+         addObject(new SolidGround(), x, y);
+         
+        }
+        for (int i = 0; i < numberOfBricks;  i++)
+        {
+         int x = i * -40 + -400;
+         int y = 420;
+         addObject(new SolidGround(), x, y);
+         
+        }
+        for (int i = 0; i < numberOfBricks;  i++)
+        {
+         int x = i * -40 + -600;
+         int y = 420;
+         addObject(new SolidGround(), x, y);
+         
+        }
+        
+        for (int i = 0; i < numberOfBricks;  i++)
+        {
+         int x = i * -40 + 600;
+         int y = 460;
+         addObject(new SolidGround(), x, y);
+         
+        }
+        for (int i = 0; i < numberOfBricks;  i++)
+        {
+         int x = i * -40 + 400;
+         int y = 460;
+         addObject(new SolidGround(), x, y);
+         
+        }
+        for (int i = 0; i < numberOfBricks;  i++)
+        {
+         int x = i * -40 + 200;
+         int y = 460;
+         addObject(new SolidGround(), x, y);
+         
+        }
+        for (int i = 0; i < numberOfBricks;  i++)
+        {
+         int x = i * -40 + 0;
+         int y = 460;
+         addObject(new SolidGround(), x, y);
+         
+        }
+        for (int i = 0; i < numberOfBricks;  i++)
+        {
+         int x = i * -40 + -200;
+         int y = 460;
+         addObject(new SolidGround(), x, y);
+         
+        }
+        for (int i = 0; i < numberOfBricks;  i++)
+        {
+         int x = i * -40 + -400;
+         int y = 460;
+         addObject(new SolidGround(), x, y);
+         
+        }
+        for (int i = 0; i < numberOfBricks;  i++)
+        {
+         int x = i * -40 + -600;
+         int y = 460;
+         addObject(new SolidGround(), x, y);
+         
+        }
+    }
+
     public void spawningBats()
     {
         for (int i = 0; i < 7;  i++)
@@ -143,6 +255,7 @@ public class MyWorld extends World
          
         }
     }
+    
     public void boarder()
     {
         //Floor

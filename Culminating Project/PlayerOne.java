@@ -10,7 +10,8 @@ public class PlayerOne extends Actor
 {
     // Number of acts/frames between animation images.
     final int ANIMATION_INTERVAL = 7;
-    int frameCounter = 0;       // Frame counter. For animations.
+    int frameCounter = 0;// Frame counter. For animations.
+    
     //Movement Speed.
     final double SPEED_X = 2.5;
     // jump hight
@@ -36,14 +37,29 @@ public class PlayerOne extends Actor
     GreenfootImage[] imagesJumpLeft;
     GreenfootImage[] imagesIdleRight;
     GreenfootImage[] imagesIdleLeft;
+
+    GreenfootImage[] imagesDieRight;
+    GreenfootImage[] imagesDieLeft;
+    
+    private boolean touchedKey = false;
+
     
     // Variables for picking up object.
     private Actor sword;
     private Actor key;
+    private Actor bow;
     private boolean pickUpMsg = false;
+
+    
+    private Actor spike;
+    boolean isDead = false;
+
     private boolean pickUpMsgTwo = false;
+    private boolean pickUpMsgThree = false;
     private boolean swordPickedUp = false;
+    private boolean bowPickedUp = false;
     private boolean swordLocation;
+
     /** 
      * Scale and load all images.
      */
@@ -63,14 +79,14 @@ public class PlayerOne extends Actor
         movementKeys();
         applyGravity();
         collisonCheck();
+        death();
         swordPickUp();
+        bowPickUp();
         keyPickUp();
         swordCombat();
         enemyColisions();
-        if (Greenfoot.isKeyDown("h"))
-        {
-            Greenfoot.setWorld(new LevelTwo());
-        }
+        bowCombat();
+
     }
     public void enemyColisions()
     {
@@ -110,6 +126,7 @@ public class PlayerOne extends Actor
         {
             sword.setRotation(120);
         }
+
     }
     
     public void swordPickUp()
@@ -133,6 +150,60 @@ public class PlayerOne extends Actor
         {
             swordPickedUp = true;
         }
+    }
+    
+    public void bowCombat()
+    {
+        // If facing right, bow has been picked up and bow/player are touching eachother, set bow rotation to 240 to appear as if it is being carried.
+        if (isFacingRight == true && bowPickedUp == true && isTouching(Bow.class) && Greenfoot.isKeyDown("g") == false)
+        {
+            bow.setRotation(45);
+        }
+        else if (isFacingRight == false && bowPickedUp == true && isTouching(Bow.class) && Greenfoot.isKeyDown("g") == false) // If facing left, bow has been picked up and bow/player are touching eachother, set bow rotation to 120 to appear as if it is being carried.
+        {
+            bow.setRotation(115);
+        }
+        
+    }
+    
+    public void bowPickUp()
+    {
+        PickUp pickup = new PickUp();
+        // If bow is on the map, and is touching player, and F is pressed, pick up sword.
+        if (bow == null && isTouching(Bow.class) && Greenfoot.isKeyDown("f"))
+        {
+            bow = getOneIntersectingObject(Bow.class);
+        }
+        
+        // If there is no pick up msg displayed and is touching bow, display pickup msg.
+        if (pickUpMsgThree == false && isTouching(Bow.class))
+        {
+            getWorld().addObject(pickup, getX() + 10, getY() - 35);
+            pickUpMsgThree = true;
+        }
+        
+        // If bow is picked up, attach to player
+        if (bow != null && bow.getWorld() != null)
+        {
+            bowPickedUp = true;
+        }
+        
+        if (bowPickedUp == true && Greenfoot.isKeyDown("g") == false)
+        {
+            bow.setLocation(getX(), getY() + 5);
+        }
+        
+        if (bowPickedUp == true && Greenfoot.isKeyDown("g") && isFacingRight == true)
+        {
+            bow.setLocation(getX() + 10, getY() + 5);
+            bow.setRotation(0);
+        }
+        else if (bowPickedUp == true && Greenfoot.isKeyDown("g") && isFacingRight == false)
+        {
+            bow.setLocation(getX() - 10, getY() + 5);
+            bow.setRotation(180);
+        }
+   
     }
     
     public void keyPickUp()
@@ -199,7 +270,7 @@ public class PlayerOne extends Actor
         {
             animate(imagesJumpLeft);
         }
-        if (deltaY == 0 && deltaX == 0)// if not jumping/falling and not runing.
+        if (deltaY == 0 && deltaX == 0  && isDead == false)// if not jumping/falling and not runing.
          {
              if (isFacingRight == true)
              {
@@ -338,6 +409,66 @@ public class PlayerOne extends Actor
         
     }
     
+    public void death()
+    {
+        if (isTouching(Spike.class))
+        {
+            if (isDead == false)
+            {
+                frameCounter = 0;
+                isDead = true;
+            }
+            
+        }
+        if (isTouching(Orc.class))
+        {
+            if (isDead == false)
+            {
+                frameCounter = 0;
+                isDead = true;
+            }
+            
+        }
+        int height = getImage().getHeight();
+        if (isDead == true)
+        {
+            Actor platform = getOneObjectAtOffset(0, height / 2, Platform.class);
+            deathAnimation();
+            if (platform != null)
+            {
+                moveOnTopOfObject(platform);
+            }
+        }
+    }
+    
+    public void deathAnimation()
+    {
+        if (isFacingRight == true)
+            {
+                animateNoLoop(imagesDieRight);
+                
+            }
+            else
+            {
+                animateNoLoop(imagesDieLeft);
+            }
+    }
+    
+    void animateNoLoop(GreenfootImage[] images)
+    {
+        if (frameCounter >= images.length * ANIMATION_INTERVAL)  // Greater or equal (>=) takes care of animations with different number of images.
+        {
+            return;
+        }
+        
+        if (frameCounter % ANIMATION_INTERVAL == 0)  // If it's time to switch to next animation image.
+        {
+            setImage(images[frameCounter/ANIMATION_INTERVAL]);
+        }
+        
+        frameCounter++;
+    }
+    
     /**
      * Animates using the specified images.
      */
@@ -363,6 +494,8 @@ public class PlayerOne extends Actor
         imagesJumpLeft = new GreenfootImage[6];
         imagesIdleRight = new GreenfootImage[4];
         imagesIdleLeft = new GreenfootImage[4];
+        imagesDieRight = new GreenfootImage[6];
+        imagesDieLeft = new GreenfootImage[6];
         for (int i = 0; i < imagesWalkRight.length; i++)
         {
             // Assuming the image files are tile0.png, tile1.png, etc.
@@ -389,6 +522,15 @@ public class PlayerOne extends Actor
             imagesIdleLeft[i] = new GreenfootImage(imagePath);
             
             imagesIdleLeft[i].mirrorHorizontally();
+        }
+        for (int i = 0; i < imagesDieRight.length; i++)
+        {
+            // Assuming the image files are tile0.png, tile1.png, etc.
+            String imagePath = "SteamMan_death" + i + ".png";
+            imagesDieRight[i] = new GreenfootImage(imagePath);
+            imagesDieLeft[i] = new GreenfootImage(imagePath);
+            
+            imagesDieLeft[i].mirrorHorizontally();
         }
     }
 }

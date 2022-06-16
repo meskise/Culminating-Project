@@ -64,12 +64,12 @@ public class Sword extends Actor
             deltaX = -7;
         }
         
-        // If sword has been thrown, and facing right is true, set swords rotation to 270 to appear as if the sword is facing right.
-        if (swordThrow == true && isFacingRight == true)
+        // If sword has been thrown, and deltaX is positive, set swords rotation to 270 to appear as if the sword is facing right.
+        if (swordThrow == true && deltaX == 7)
         {
             setRotation(270);
         }
-        else if (swordThrow == true && isFacingRight == false) // If sword has been thrown, and facing right is falase, set swords rotation to 90 to appear as if the sword is facing left
+        else if (swordThrow == true && deltaX == -7) // If sword has been thrown,and deltaX is negative, set swords rotation to 90 to appear as if the sword is facing left
         {
             setRotation(90);
         }

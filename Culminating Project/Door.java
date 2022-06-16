@@ -35,7 +35,7 @@ public class Door extends Actor
         // If door is touching player, and key isn't in world, you win.
         if (isTouching(PlayerOne.class) && getWorld().getObjects(Key.class).isEmpty())
         {
-            System.out.println("Win");
+            Greenfoot.setWorld(new LevelTwo());
         }
         
         if (getWorld().getObjects(Key.class).isEmpty())
