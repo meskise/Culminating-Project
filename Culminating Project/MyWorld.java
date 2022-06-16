@@ -163,6 +163,56 @@ public class MyWorld extends World
          addObject(new SolidGround(), x, y);
          
         }
+        
+        for (int i = 0; i < numberOfBricks;  i++)
+        {
+         int x = i * -40 + 600;
+         int y = 460;
+         addObject(new SolidGround(), x, y);
+         
+        }
+        for (int i = 0; i < numberOfBricks;  i++)
+        {
+         int x = i * -40 + 400;
+         int y = 460;
+         addObject(new SolidGround(), x, y);
+         
+        }
+        for (int i = 0; i < numberOfBricks;  i++)
+        {
+         int x = i * -40 + 200;
+         int y = 460;
+         addObject(new SolidGround(), x, y);
+         
+        }
+        for (int i = 0; i < numberOfBricks;  i++)
+        {
+         int x = i * -40 + 0;
+         int y = 460;
+         addObject(new SolidGround(), x, y);
+         
+        }
+        for (int i = 0; i < numberOfBricks;  i++)
+        {
+         int x = i * -40 + -200;
+         int y = 460;
+         addObject(new SolidGround(), x, y);
+         
+        }
+        for (int i = 0; i < numberOfBricks;  i++)
+        {
+         int x = i * -40 + -400;
+         int y = 460;
+         addObject(new SolidGround(), x, y);
+         
+        }
+        for (int i = 0; i < numberOfBricks;  i++)
+        {
+         int x = i * -40 + -600;
+         int y = 460;
+         addObject(new SolidGround(), x, y);
+         
+        }
     }
     
     public void boarder()

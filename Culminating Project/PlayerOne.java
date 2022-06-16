@@ -83,10 +83,6 @@ public class PlayerOne extends Actor
         keyPickUp();
         swordCombat();
         bowCombat();
-        if (Greenfoot.isKeyDown("h"))
-        {
-            Greenfoot.setWorld(new LevelTwo());
-        }
     }
     
     public void swordCombat()
