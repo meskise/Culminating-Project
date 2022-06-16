@@ -42,11 +42,11 @@ public class Bat extends Actor
            //getImage().mirrorVertically();
        }
        
-       if(isFacingRight = true)
+       if(isFacingRight == true)
        {
            animate(imagesFlyRight);
        }
-       if(isFacingRight = false)
+       else
        {
            animate(imagesFlyLeft);
        }
