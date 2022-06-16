@@ -20,7 +20,7 @@ public class LevelTwo extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1, false); 
-        setPaintOrder(PlayerOne.class, Orc.class, Platform.class, SolidGround.class, Spike.class , Platform2.class, Sword.class, Key.class, Door.class, Temp.class);
+        setPaintOrder(PlayerOne.class, Bow.class, Orc.class, Arrow.class, Platform.class, SolidGround.class, Spike.class , Platform2.class, Sword.class, Key.class, Door.class, Temp.class);
         prepare();
     }
     
@@ -35,10 +35,8 @@ public class LevelTwo extends World
         ground();
         
         Bow bow = new Bow();
-        addObject(bow, 350, 325);
+        addObject(bow, 500, 340);
         
-        Arrow arrow = new Arrow();
-        addObject(arrow, 450, 325);
     }
     
     public void checkScroll()
