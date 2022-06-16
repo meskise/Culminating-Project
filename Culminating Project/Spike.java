@@ -8,6 +8,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Spike extends Actor
 {
+    int counter = 0;
+    
     public Spike()
     {
         GreenfootImage image = getImage();
@@ -20,6 +22,6 @@ public class Spike extends Actor
      */
     public void act() 
     {
-        // Add your action code here.
+        
     }    
 }

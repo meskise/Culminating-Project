@@ -104,10 +104,11 @@ public class MyWorld extends World
         Orc orc = new Orc();
         addObject(orc,500,320);
         
-        Spike spike = new Spike();
-        addObject(spike, -100 , 360);
-        Spike spike2 = new Spike();
-        addObject(spike2, -160, 360);
+        Spike spike1 = new Spike();
+        addObject(spike1, -100 , 360);
+        Spike spike12 = new Spike();
+        addObject(spike12, -160, 360);
+        
     }
     
     public void ground()
