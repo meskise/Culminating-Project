@@ -17,7 +17,7 @@ public class Orc extends Actor
     
     
     // Animation variables.
-    int animationInterval = 5;  // Number of frames between animation images.
+    int animationInterval = 7;  // Number of frames between animation images.
     int frameCounter = 0;       // Frame counter. For animations.
     
     // Health system variables.
@@ -223,8 +223,8 @@ public class Orc extends Actor
             String imagePath = "images/Orc_Walk" + i + ".png";
             imagesWalkRight[i] = new GreenfootImage(imagePath);
             imagesWalkLeft[i] = new GreenfootImage(imagePath);
-            imagesWalkLeft[i].scale(64, 92);
-            imagesWalkRight[i].scale(64, 92);
+            imagesWalkLeft[i].scale(64, 90);
+            imagesWalkRight[i].scale(64, 90);
             imagesWalkLeft[i].mirrorHorizontally();
         }
         for (int i = 0; i < imagesIdleRight.length; i++)
@@ -233,8 +233,8 @@ public class Orc extends Actor
             String imagePath = "images/Orc_Idle" + i + ".png";
             imagesIdleRight[i] = new GreenfootImage(imagePath);
             imagesIdleLeft[i] = new GreenfootImage(imagePath);
-            imagesIdleLeft[i].scale(64, 92);
-            imagesIdleRight[i].scale(64, 92);
+            imagesIdleLeft[i].scale(64, 90);
+            imagesIdleRight[i].scale(64, 90);
             imagesIdleLeft[i].mirrorHorizontally();
         }
         for (int i = 0; i < imagesIdleRight.length; i++)
@@ -243,8 +243,8 @@ public class Orc extends Actor
             String imagePath = "images/Orc_Dying" + i + ".png";
             imagesDieRight[i] = new GreenfootImage(imagePath);
             imagesDieLeft[i] = new GreenfootImage(imagePath);
-            imagesDieLeft[i].scale(64, 92);
-            imagesDieRight[i].scale(64, 92);
+            imagesDieLeft[i].scale(64, 90);
+            imagesDieRight[i].scale(64, 90);
             imagesDieLeft[i].mirrorHorizontally();
         }
         for (int i = 0; i < imagesAttackRight.length; i++)
@@ -253,8 +253,8 @@ public class Orc extends Actor
             String imagePath = "images/Orc_Attack" + i + ".png";
             imagesAttackRight[i] = new GreenfootImage(imagePath);
             imagesAttackLeft[i] = new GreenfootImage(imagePath);
-            imagesAttackLeft[i].scale(64, 92);
-            imagesAttackRight[i].scale(64, 92);
+            imagesAttackLeft[i].scale(64, 90);
+            imagesAttackRight[i].scale(64, 90);
             imagesAttackLeft[i].mirrorHorizontally();
         }
     }
