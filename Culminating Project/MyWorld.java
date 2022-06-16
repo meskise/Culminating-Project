@@ -96,49 +96,49 @@ public class MyWorld extends World
         for (int i = 0; i < 7;  i++)
         {
          int x = i * -200 + 350;
-         int y = 150;
+         int y = 140;
          addObject(new Bat(), x, y);
          
         }
         for (int i = 0; i < 7;  i++)
         {
          int x = i * -200 + 250;
-         int y = -150;
+         int y = -160;
          addObject(new Bat(), x, y);
          
         }
         for (int i = 0; i < 7;  i++)
         {
          int x = i * -200 + 450;
-         int y = -350;
+         int y = -360;
          addObject(new Bat(), x, y);
          
         }
         for (int i = 0; i < 7;  i++)
         {
          int x = i * -200 + 150;
-         int y = -550;
+         int y = -560;
          addObject(new Bat(), x, y);
          
         }
         for (int i = 0; i < 7;  i++)
         {
          int x = i * -200 + 400;
-         int y = -750;
+         int y = -760;
          addObject(new Bat(), x, y);
          
         }
         for (int i = 0; i < 7;  i++)
         {
          int x = i * -200 + 0;
-         int y = -950;
+         int y = -960;
          addObject(new Bat(), x, y);
          
         }
         for (int i = 0; i < 7;  i++)
         {
          int x = i * -200 + -150;
-         int y = -1150;
+         int y = -1160;
          addObject(new Bat(), x, y);
          
         }
