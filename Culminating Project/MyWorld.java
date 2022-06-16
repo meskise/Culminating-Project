@@ -75,7 +75,7 @@ public class MyWorld extends World
         addObject(door,550, 315);
 
         Sword sword = new Sword();
-        addObject(sword, 240, 250);
+        addObject(sword, 353,147);
         boarder();
         platforms();
         ground();
@@ -109,7 +109,6 @@ public class MyWorld extends World
         Spike spike12 = new Spike();
         addObject(spike12, -160, 360);
 
-        sword.setLocation(353,147);
     }
     
     public void ground()
