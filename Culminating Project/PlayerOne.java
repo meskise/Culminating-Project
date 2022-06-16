@@ -13,7 +13,7 @@ public class PlayerOne extends Actor
     int frameCounter = 0;// Frame counter. For animations.
     
     //Movement Speed.
-    final double SPEED_X = 3.5;
+    final double SPEED_X = 2.5;
     // Check if facing right or is in air.
     boolean isFacingRight;
     boolean isInAir;
@@ -21,28 +21,40 @@ public class PlayerOne extends Actor
     // Movement variables.
     double deltaX = 0;
     double deltaY = 0;
+    double swordDeltaX = 0;
+    double swordDeltaY = 0;
+    final double SWORDSPEED_X = 5;
     
     // Gravity
     double g = 0.8;
-    /**
-     * Arrays for animation images.
-     */
+    
+    // Arrays for animation images.
     GreenfootImage[] imagesWalkRight;
     GreenfootImage[] imagesWalkLeft;
     GreenfootImage[] imagesJumpRight;
     GreenfootImage[] imagesJumpLeft;
     GreenfootImage[] imagesIdleRight;
     GreenfootImage[] imagesIdleLeft;
+
     GreenfootImage[] imagesDieRight;
     GreenfootImage[] imagesDieLeft;
     
     private boolean touchedKey = false;
+
     
+    // Variables for picking up object.
     private Actor sword;
+    private Actor key;
     private boolean pickUpMsg = false;
+
     
     private Actor spike;
     boolean isDead = false;
+
+    private boolean pickUpMsgTwo = false;
+    private boolean swordPickedUp = false;
+    private boolean swordLocation;
+
     /** 
      * Scale and load all images.
      */
@@ -62,31 +74,90 @@ public class PlayerOne extends Actor
         movementKeys();
         applyGravity();
         collisonCheck();
+
         Sword();
         death();
         
+
+        swordPickUp();
+        keyPickUp();
+        swordCombat();
+        if (Greenfoot.isKeyDown("h"))
+        {
+            Greenfoot.setWorld(new LevelTwo());
+        }
     }
     
-    public void Sword()
+    public void swordCombat()
+    {
+        // If left clicked, and sword is picked up, sword location is false.
+        if (Greenfoot.mousePressed(null) && swordPickedUp == true)
+        {
+            swordLocation = false;
+        }
+        // If 'f' is pressed, and sword has been picked up before, then sword location is true.
+        if (Greenfoot.isKeyDown("f") && (swordPickedUp == true))
+        {
+            swordLocation = true;
+        }
+        
+        // If sword location is true, then set location of sword to PlayerOne.
+        if (swordLocation == true)
+        {
+            sword.setLocation(getX(), getY());
+        }
+        
+        // If facing right, sword has been picked up and sword/player are touching eachother, set sword rotation to 240 to appear as if it is being carried.
+        if (isFacingRight == true && swordPickedUp == true && isTouching(Sword.class))
+        {
+            sword.setRotation(240);
+        }
+        else if (isFacingRight == false && swordPickedUp == true && isTouching(Sword.class)) // If facing left, sword has been picked up and sword/player are touching eachother, set sword rotation to 120 to appear as if it is being carried.
+        {
+            sword.setRotation(120);
+        }
+
+    }
+    
+    public void swordPickUp()
     {
         PickUp pickup = new PickUp();
+        // If sword is on the map, and is touching player, and F is pressed, pick up sword.
         if (sword == null && isTouching(Sword.class) && Greenfoot.isKeyDown("f"))
         {
             sword = getOneIntersectingObject(Sword.class);
         }
         
+        // If there is no pick up msg displayed and is touching sword, display pickup msg.
         if (pickUpMsg == false && isTouching(Sword.class))
         {
             getWorld().addObject(pickup, getX() + 5, getY() - 25);
             pickUpMsg = true;
         }
         
+        // If sword is picked up, attach to player
         if (sword != null && sword.getWorld() != null)
         {
-            sword.setLocation(getX(), getY());
+            swordPickedUp = true;
         }
     }
-      
+    
+    public void keyPickUp()
+    {
+        PickUp pickup = new PickUp();
+        // If sword is on the map, and is touching player, and F is pressed, pick up sword.
+        if (key == null && isTouching(Key.class) && Greenfoot.isKeyDown("f"))
+        {
+            key = getOneIntersectingObject(Key.class);
+        }
+        
+        // If there is no pick up msg displayed and is touching sword, display pickup msg.
+        if (pickUpMsgTwo == false && isTouching(Key.class))
+        {
+            getWorld().addObject(pickup, getX() + 5, getY() - 25);
+            pickUpMsgTwo = true;
+        }
+    }
     
     /**
      * Basic movement.
@@ -272,11 +343,6 @@ public class PlayerOne extends Actor
             stopOnLeftObject(platform);
         }
         
-        if (getY() >= 395)
-        {
-            //Greenfoot.setWorld(new GameOver());
-            Greenfoot.stop();
-        }
     }
     
     public void death()

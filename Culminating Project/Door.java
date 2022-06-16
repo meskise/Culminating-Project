@@ -26,6 +26,7 @@ public class Door extends Actor
      */
     public void act() 
     {
+        Temp temp = new Temp();
         // If temp object is touching door, open the door.
         if(isTouching(Temp.class))
         {
@@ -36,5 +37,12 @@ public class Door extends Actor
         {
             System.out.println("Win");
         }
+        
+        if (getWorld().getObjects(Key.class).isEmpty())
+        {
+            // Spawn temporary object on doors coordinates.
+            getWorld().addObject(temp, getX(), getY());
+        }
+        
     }    
 }

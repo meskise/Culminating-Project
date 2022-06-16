@@ -8,6 +8,18 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Sword extends Actor
 {
+    // Booleans.
+    private boolean swordThrow;
+    private boolean swordPickedUp;
+    boolean isFacingRight;
+    // Movement.
+    double deltaX = 0;
+    double deltaY = 0;
+    // Rotation.
+    public static int rotation = 0;
+    // Actors.
+    private Actor playerone;
+    private Actor sword;
     public Sword()
     {
         // Load image and resize it.
@@ -21,6 +33,58 @@ public class Sword extends Actor
      */
     public void act()
     {
-        setRotation(240);
+        swordThrow();
+    }
+    
+    public void swordThrow()
+    {
+        // Rotation is the rotation of the sword.
+        rotation = getRotation();
+        
+        // If rotation of sword is 180 or higher, is facing right is true.
+        if (rotation >= 180)
+        {
+            isFacingRight = true;
+        }
+        else // If sword rotation isn't 180 or higher, is facing right is false.
+        {
+            isFacingRight = false;
+        }
+        
+        // If facing right and mouse is left clicked, throw sword right.
+        if (isFacingRight == true && Greenfoot.mousePressed(null) && swordPickedUp == true)
+        {
+            swordThrow = true;
+            deltaX = 7;
+        }
+        // If facing left and mouse is left clicked, throw sword left.
+        if (isFacingRight == false && Greenfoot.mousePressed(null) && swordPickedUp == true)
+        {
+            swordThrow = true;
+            deltaX = -7;
+        }
+        
+        // If sword has been thrown, and deltaX is positive, set swords rotation to 270 to appear as if the sword is facing right.
+        if (swordThrow == true && deltaX == 7)
+        {
+            setRotation(270);
+        }
+        else if (swordThrow == true && deltaX == -7) // If sword has been thrown,and deltaX is negative, set swords rotation to 90 to appear as if the sword is facing left
+        {
+            setRotation(90);
+        }
+        
+        // If touching player sword is picked up.
+        if (isTouching(PlayerOne.class))
+        {
+            swordPickedUp = true;
+        }
+        // Allows sword to move in different directions.
+        setLocation(getX() + (int)deltaX, getY() + (int)deltaY);
+    }
+
+    public static int getActorsRotation() 
+    {
+        return rotation;
     }
 }
