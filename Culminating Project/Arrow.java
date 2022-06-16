@@ -8,10 +8,20 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Arrow extends Actor
 {
+
+    boolean isFacingRight;
+    // Movement.
+    double deltaX = 0;
+    double deltaY = 0;
+    // Rotation.
+    public static int rotation = 0;
+    // Actors.
+    private Actor playerone;
+    private Actor bow;
     public Arrow()
     {
         GreenfootImage image = getImage();
-        image.scale(3, 15);
+        image.scale(4, 20);
         setImage(image);
     }
     
@@ -21,6 +31,33 @@ public class Arrow extends Actor
      */
     public void act() 
     {
-        // Add your action code here.
+        bowShoot();
     }    
+    
+    public void bowShoot()
+    {
+        // Rotation is the rotation of the arrow.
+        rotation = getRotation();
+        
+        if (rotation >= 180)
+        {
+            isFacingRight = false;
+        }
+        else
+        {
+            isFacingRight = true;
+        }
+        
+        if (isFacingRight == true)
+        {
+            deltaX = 7;
+        }
+        
+        if (isFacingRight == false)
+        {
+            deltaX = -7;
+        }
+        
+        setLocation(getX() + (int)deltaX, getY() + (int)deltaY);
+    }
 }

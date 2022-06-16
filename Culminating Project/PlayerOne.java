@@ -45,6 +45,7 @@ public class PlayerOne extends Actor
     // Variables for picking up object.
     private Actor sword;
     private Actor key;
+    private Actor bow;
     private boolean pickUpMsg = false;
 
     
@@ -52,7 +53,9 @@ public class PlayerOne extends Actor
     boolean isDead = false;
 
     private boolean pickUpMsgTwo = false;
+    private boolean pickUpMsgThree = false;
     private boolean swordPickedUp = false;
+    private boolean bowPickedUp = false;
     private boolean swordLocation;
 
     /** 
@@ -76,8 +79,10 @@ public class PlayerOne extends Actor
         collisonCheck();
         death();
         swordPickUp();
+        bowPickUp();
         keyPickUp();
         swordCombat();
+        bowCombat();
         if (Greenfoot.isKeyDown("h"))
         {
             Greenfoot.setWorld(new LevelTwo());
@@ -136,6 +141,60 @@ public class PlayerOne extends Actor
         {
             swordPickedUp = true;
         }
+    }
+    
+    public void bowCombat()
+    {
+        // If facing right, bow has been picked up and bow/player are touching eachother, set bow rotation to 240 to appear as if it is being carried.
+        if (isFacingRight == true && bowPickedUp == true && isTouching(Bow.class) && Greenfoot.isKeyDown("g") == false)
+        {
+            bow.setRotation(45);
+        }
+        else if (isFacingRight == false && bowPickedUp == true && isTouching(Bow.class) && Greenfoot.isKeyDown("g") == false) // If facing left, bow has been picked up and bow/player are touching eachother, set bow rotation to 120 to appear as if it is being carried.
+        {
+            bow.setRotation(115);
+        }
+        
+    }
+    
+    public void bowPickUp()
+    {
+        PickUp pickup = new PickUp();
+        // If bow is on the map, and is touching player, and F is pressed, pick up sword.
+        if (bow == null && isTouching(Bow.class) && Greenfoot.isKeyDown("f"))
+        {
+            bow = getOneIntersectingObject(Bow.class);
+        }
+        
+        // If there is no pick up msg displayed and is touching bow, display pickup msg.
+        if (pickUpMsgThree == false && isTouching(Bow.class))
+        {
+            getWorld().addObject(pickup, getX() + 10, getY() - 35);
+            pickUpMsgThree = true;
+        }
+        
+        // If bow is picked up, attach to player
+        if (bow != null && bow.getWorld() != null)
+        {
+            bowPickedUp = true;
+        }
+        
+        if (bowPickedUp == true && Greenfoot.isKeyDown("g") == false)
+        {
+            bow.setLocation(getX(), getY() + 5);
+        }
+        
+        if (bowPickedUp == true && Greenfoot.isKeyDown("g") && isFacingRight == true)
+        {
+            bow.setLocation(getX() + 10, getY() + 5);
+            bow.setRotation(0);
+        }
+        else if (bowPickedUp == true && Greenfoot.isKeyDown("g") && isFacingRight == false)
+        {
+            bow.setLocation(getX() - 10, getY() + 5);
+            bow.setRotation(180);
+        }
+   
     }
     
     public void keyPickUp()
