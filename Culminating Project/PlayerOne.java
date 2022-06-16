@@ -13,6 +13,8 @@ public class PlayerOne extends Actor
     int frameCounter = 0;       // Frame counter. For animations.
     //Movement Speed.
     final double SPEED_X = 2.5;
+    // jump hight
+    int JUMPHIGHT = -14;
     // Check if facing right or is in air.
     boolean isFacingRight;
     boolean isInAir;
@@ -185,7 +187,7 @@ public class PlayerOne extends Actor
             if (isTouching(Platform.class))
             {
                 // Jump. 
-                deltaY = -14;
+                deltaY = JUMPHIGHT;
             }
             
         }
