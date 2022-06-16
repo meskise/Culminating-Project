@@ -75,32 +75,13 @@ public class MyWorld extends World
         addObject(door,550, 315);
         
         Sword sword = new Sword();
-        addObject(sword, 240, 250);
+        addObject(sword, 290, 250);
         boarder();
         platforms();
+        spawningBats();
         Bat bat = new Bat();
-        addObject(bat,600,200);
-
-        Platform2 platform22 = new Platform2();
-        addObject(platform22,222,280);
-        Platform2 platform23 = new Platform2();
-        addObject(platform23,262,280);
-        Platform2 platform24 = new Platform2();
-        addObject(platform24,338,183);
-        Platform2 platform25 = new Platform2();
-        addObject(platform25,378,183);
-        // Platform2 platform26 = new Platform2();
-        // addObject(platform26,222,122);
-        // Platform2 platform27 = new Platform2();
-        // addObject(platform27,262,122);
-        Platform2 platform28 = new Platform2();
-        addObject(platform28,73,77);
-        Platform2 platform29 = new Platform2();
-        addObject(platform29,113,77);
-        Platform2 platform210 = new Platform2();
-        addObject(platform210,487,220);
-        Platform2 platform211 = new Platform2();
-        addObject(platform211,568,110);
+        
+        
         
         Orc orc = new Orc();
         addObject(orc,500,320);
@@ -109,6 +90,58 @@ public class MyWorld extends World
         addObject(spike, -100 , 360);
         Spike spike2 = new Spike();
         addObject(spike2, -160, 360);
+    }
+    public void spawningBats()
+    {
+        for (int i = 0; i < 7;  i++)
+        {
+         int x = i * -200 + 350;
+         int y = 150;
+         addObject(new Bat(), x, y);
+         
+        }
+        for (int i = 0; i < 7;  i++)
+        {
+         int x = i * -200 + 250;
+         int y = -150;
+         addObject(new Bat(), x, y);
+         
+        }
+        for (int i = 0; i < 7;  i++)
+        {
+         int x = i * -200 + 450;
+         int y = -350;
+         addObject(new Bat(), x, y);
+         
+        }
+        for (int i = 0; i < 7;  i++)
+        {
+         int x = i * -200 + 150;
+         int y = -550;
+         addObject(new Bat(), x, y);
+         
+        }
+        for (int i = 0; i < 7;  i++)
+        {
+         int x = i * -200 + 400;
+         int y = -750;
+         addObject(new Bat(), x, y);
+         
+        }
+        for (int i = 0; i < 7;  i++)
+        {
+         int x = i * -200 + 0;
+         int y = -950;
+         addObject(new Bat(), x, y);
+         
+        }
+        for (int i = 0; i < 7;  i++)
+        {
+         int x = i * -200 + -150;
+         int y = -1150;
+         addObject(new Bat(), x, y);
+         
+        }
     }
     public void boarder()
     {
@@ -280,7 +313,7 @@ public class MyWorld extends World
             int y = 280;
             for (int a = 0; a < 2;  a++)
             {
-                int x = i * -200 + a * -40 + 100;
+                int x = i * -200 + a * -40 + 300;
                 
                 addObject(new Platform2(), x, y);
          
@@ -292,7 +325,7 @@ public class MyWorld extends World
             int y = 183;
             for (int a = 0; a < 2;  a++)
             {
-                int x = i * -200 + a * -40 + 200;
+                int x = i * -200 + a * -40 + 400;
                 
                 addObject(new Platform2(), x, y);
          
