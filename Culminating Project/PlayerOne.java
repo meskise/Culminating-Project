@@ -407,6 +407,15 @@ public class PlayerOne extends Actor
             }
             
         }
+        if (isTouching(Orc.class))
+        {
+            if (isDead == false)
+            {
+                frameCounter = 0;
+                isDead = true;
+            }
+            
+        }
         int height = getImage().getHeight();
         if (isDead == true)
         {

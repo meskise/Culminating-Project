@@ -66,14 +66,14 @@ public class MyWorld extends World
      */
     private void prepare()
     {
-        
+
         addObject(player,-760,330);
-        
+
         Key key = new Key();
         addObject(key,70,50);
         Door door = new Door();
         addObject(door,550, 315);
-        
+
         Sword sword = new Sword();
         addObject(sword, 240, 250);
         boarder();
@@ -100,15 +100,16 @@ public class MyWorld extends World
         addObject(platform210,487,220);
         Platform2 platform211 = new Platform2();
         addObject(platform211,568,110);
-        
+
         Orc orc = new Orc();
         addObject(orc,500,320);
-        
+
         Spike spike1 = new Spike();
         addObject(spike1, -100 , 360);
         Spike spike12 = new Spike();
         addObject(spike12, -160, 360);
-        
+
+        sword.setLocation(353,147);
     }
     
     public void ground()
