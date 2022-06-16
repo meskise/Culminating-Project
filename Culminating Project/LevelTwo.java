@@ -33,6 +33,12 @@ public class LevelTwo extends World
     {
         addObject(player, 300, 330);
         ground();
+        
+        Bow bow = new Bow();
+        addObject(bow, 350, 325);
+        
+        Arrow arrow = new Arrow();
+        addObject(arrow, 450, 325);
     }
     
     public void checkScroll()
