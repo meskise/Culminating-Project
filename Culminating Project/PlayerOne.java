@@ -135,7 +135,7 @@ public class PlayerOne extends Actor
         {
             animate(imagesJumpLeft);
         }
-        if (deltaY == 0 && deltaX == 0)// if not jumping/falling and not runing.
+        if (deltaY == 0 && deltaX == 0  && isDead == false)// if not jumping/falling and not runing.
          {
              if (isFacingRight == true)
              {
@@ -290,9 +290,15 @@ public class PlayerOne extends Actor
             }
             
         }
+        int height = getImage().getHeight();
         if (isDead == true)
         {
+            Actor platform = getOneObjectAtOffset(0, height / 2, Platform.class);
             deathAnimation();
+            if (platform != null)
+            {
+                moveOnTopOfObject(platform);
+            }
         }
     }
     
