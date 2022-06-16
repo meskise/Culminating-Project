@@ -10,10 +10,16 @@ public class Bat extends Actor
 {
     int deltaY;
     int deltaX;
+    final int ANIMATION_INTERVAL = 3;
+    int frameCounter = 0;
+    boolean isFacingRight;
+    GreenfootImage[]imagesFlyLeft;
+    GreenfootImage[]imagesFlyRight;
     public Bat()
     {
         deltaY = 0;
         deltaX = -3;
+        loadImages();
     }
     /**
      * Act - do whatever the Bat wants to do. This method is called whenever
@@ -25,14 +31,56 @@ public class Bat extends Actor
        if(isTouching(LeftWall.class))
        {
            deltaX=3;
+           isFacingRight = true;
            //getImage().mirrorVertically();
        }
        //if Bat gets too close to Right edge, change y direction to go Left.
        if(isTouching(RightWall.class))
        {
            deltaX=-3;
+           isFacingRight = false;
            //getImage().mirrorVertically();
+       }
+       
+       if(isFacingRight = true)
+       {
+           animate(imagesFlyRight);
+       }
+       if(isFacingRight = false)
+       {
+           animate(imagesFlyLeft);
        }
        setLocation(getX() + deltaX, getY() + deltaY);
     }    
+    /**
+     * Animates using the specified images.
+     */
+    void animate(GreenfootImage[] images)
+    {
+        if (frameCounter >= images.length * ANIMATION_INTERVAL)  // Greater or equal (>=) takes care of animations with different number of images.
+        {
+            frameCounter = 0;
+        }
+        
+        if (frameCounter % ANIMATION_INTERVAL == 0)  // If it's time to switch to next animation image.
+        {
+            setImage(images[frameCounter/ANIMATION_INTERVAL]);
+        }
+        
+        frameCounter++;
+    }
+    void loadImages()
+    {
+        imagesFlyLeft = new GreenfootImage[8];
+        imagesFlyRight = new GreenfootImage[8];
+        for (int i = 0; i < imagesFlyLeft.length; i++)
+        {
+            // Assuming the image files are tile0.png, tile1.png, etc.
+            String imagePath = "Bat Fly/Bat" + i + ".png";
+            imagesFlyLeft[i] = new GreenfootImage(imagePath);
+            imagesFlyRight[i] = new GreenfootImage(imagePath);
+            
+            imagesFlyRight[i].mirrorHorizontally();
+        }
+    }
 }
