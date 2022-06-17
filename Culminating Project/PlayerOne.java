@@ -86,8 +86,12 @@ public class PlayerOne extends Actor
         swordCombat();
         enemyColisions();
         bowCombat();
-
+        if (Greenfoot.isKeyDown("h"))
+        {
+            Greenfoot.setWorld(new LevelTwo());
+        }
     }
+    
     public void enemyColisions()
     {
         if (isTouching(Bat.class))
@@ -187,18 +191,19 @@ public class PlayerOne extends Actor
         {
             bowPickedUp = true;
         }
-        
+        // If bow is picked up and g isn't pressed, set location to player.
         if (bowPickedUp == true && Greenfoot.isKeyDown("g") == false)
         {
             bow.setLocation(getX(), getY() + 5);
         }
-        
+        // If bow is picked up, g is pressed, and facing right is true then set location to infront of player.
         if (bowPickedUp == true && Greenfoot.isKeyDown("g") && isFacingRight == true)
         {
             bow.setLocation(getX() + 10, getY() + 5);
             bow.setRotation(0);
         }
-        else if (bowPickedUp == true && Greenfoot.isKeyDown("g") && isFacingRight == false)
+       
+        if (bowPickedUp == true && Greenfoot.isKeyDown("g") && isFacingRight == false)
         {
             bow.setLocation(getX() - 10, getY() + 5);
             bow.setRotation(180);

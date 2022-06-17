@@ -1,7 +1,7 @@
 #Greenfoot project file
 class.Arrow.image=Arrow.png
 class.Bow.image=Bow.png
-class.CastlePlatform.image=CastleTileGround.jpg
+class.CastlePlatform.image=DungeonTileGround.jpg
 class.CastlePlatform2.image=CastleTilePlatform.jpg
 class.Door.image=DoorClosed.png
 
@@ -15,6 +15,9 @@ class.L2.image=L2.png
 
 class.DoorTwo.image=DoorOpenDark.png
 class.Key.image=KeyOneEdited.png
+class.LeftWall.image=CastleTile.jpg
+class.LevelTwo.image=DungeonBackground.jpg
+class.MyWorld.image=CastleTileBackground.jpg
 class.LeftWall.image=DungeonTileGroundRight.jpg
 
 class.LevelTwo.image=CastleTileBackground.jpg
@@ -23,21 +26,13 @@ class.MyWorld.image=DungeonBackground.jpg
 class.Orc.image=Orc.png
 class.PickUp.image=PressFtoPick.png
 
-
-class.Platform3.image=DungeonTileGround.jpg
-class.PlayerOne.image=SteamMan.png
-
-class.SolidCastleGround.image=CastleTile.jpg
-class.SolidGround.image=SolidGround.png
-
-class.Platform.image=DungeonTileGround.jpg
 class.Platform2.image=DungeonPlatform.jpg
-class.Platform3.image=DungeonTileGround.jpg
+class.Platform3.image=CastleTile.jpg
 class.PlayerOne.image=SteamMan.png
-class.RightWall.image=DungeonTileGroundLeft.jpg
-class.Roof.image=DungeonTileGroundDown.jpg
-class.SolidCastleGround.image=CastleTile.jpg
-class.SolidGround.image=DungeonTile.jpg
+class.RightWall.image=CastleTile.jpg
+class.Roof.image=CastleTile.jpg
+class.SolidCastleGround.image=DungeonTile.jpg
+class.SolidGround.image=CastleTile.jpg
 class.Spike.image=Spike-removebg-preview.png
 class.StartButton.image=png-clipart-button-gamemaker-studio-computer-icons-tk-game-start-button-game-text(2).png
 class.Sword.image=Sword.png
