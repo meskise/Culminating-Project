@@ -36,6 +36,7 @@ public class Bow extends Actor
      */
     public void act() 
     {
+        bowRotation();
         shootBow();
     } 
     
@@ -53,13 +54,13 @@ public class Bow extends Actor
         {
             isFacingRight = false;
         }
+        
     }
     
     public void shootBow()
     {
-        bowRotation();
-        
         Arrow arrow = new Arrow();
+        // If g is pressed, facing right is true, and is touching player one then animate, setlocation, and start shot counter.
         if (Greenfoot.isKeyDown("g") && isFacingRight == true && isTouching(PlayerOne.class))
         {
             animate(imagesBowShootRight);
@@ -103,8 +104,6 @@ public class Bow extends Actor
             String imagePath = "Bow/tile" + i + ".png";
             imagesBowShootRight[i] = new GreenfootImage(imagePath);
             imagesBowShootLeft[i] = new GreenfootImage(imagePath);
-            
-            imagesBowShootLeft[i].mirrorHorizontally();
             
             imagesBowShootRight[i].scale(15,40);
             imagesBowShootLeft[i].scale(15,40);
