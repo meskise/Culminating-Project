@@ -21,7 +21,7 @@ public class MyWorld extends World
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1 , false); 
         prepare();
-        setPaintOrder(PickUp.class, PlayerOne.class, Orc.class, Platform.class, SolidGround.class, Spike.class , Platform2.class, Sword.class, Key.class, Door.class, Temp.class);
+        setPaintOrder(PickUp.class, PlayerOne.class, Orc.class, Platform.class, SolidGround.class, CastlePlatform.class , Spike.class , Platform2.class, CastlePlatform2.class , Sword.class, Key.class, Door.class, Temp.class);
     }
     
     public void act()
@@ -79,36 +79,24 @@ public class MyWorld extends World
         boarder();
         platforms();
         ground();
-
-        Platform2 platform22 = new Platform2();
-        addObject(platform22,222,280);
-        Platform2 platform23 = new Platform2();
-        addObject(platform23,262,280);
-        Platform2 platform24 = new Platform2();
-        addObject(platform24,338,183);
-        Platform2 platform25 = new Platform2();
-        addObject(platform25,378,183);
-        // Platform2 platform26 = new Platform2();
-        // addObject(platform26,222,122);
-        // Platform2 platform27 = new Platform2();
-        // addObject(platform27,262,122);
-        Platform2 platform28 = new Platform2();
-        addObject(platform28,73,77);
-        Platform2 platform29 = new Platform2();
-        addObject(platform29,113,77);
-        Platform2 platform210 = new Platform2();
-        addObject(platform210,487,220);
-        Platform2 platform211 = new Platform2();
-        addObject(platform211,568,110);
+        walls();
+        
 
         Orc orc = new Orc();
         addObject(orc,500,320);
 
         Spike spike1 = new Spike();
-        addObject(spike1, -100 , 360);
-        Spike spike12 = new Spike();
-        addObject(spike12, -160, 360);
-
+        addObject(spike1, -210 , 360);
+        Spike spike2 = new Spike();
+        addObject(spike2, -150 , 360);
+        Spike spike3 = new Spike();
+        addObject(spike3, -290 , 360);
+        Spike spike4 = new Spike();
+        addObject(spike4, -350 , 360);
+        Spike spike5 = new Spike();
+        addObject(spike5, -410 , 360);
+        Spike spike6 = new Spike();
+        addObject(spike6, -470 , 360);
     }
     
     public void ground()
@@ -221,49 +209,49 @@ public class MyWorld extends World
         {
          int x = i * -40 + 600;
          int y = 380;
-         addObject(new Platform(), x, y);
+         addObject(new CastlePlatform(), x, y);
          
         }
         for (int i = 0; i < numberOfBricks;  i++)
         {
          int x = i * -40 + 400;
          int y = 380;
-         addObject(new Platform(), x, y);
+         addObject(new CastlePlatform(), x, y);
          
         }
         for (int i = 0; i < numberOfBricks;  i++)
         {
          int x = i * -40 + 200;
          int y = 380;
-         addObject(new Platform(), x, y);
+         addObject(new CastlePlatform(), x, y);
          
         }
         for (int i = 0; i < numberOfBricks;  i++)
         {
          int x = i * -40 + 0;
          int y = 380;
-         addObject(new Platform(), x, y);
+         addObject(new CastlePlatform(), x, y);
          
         }
         for (int i = 0; i < numberOfBricks;  i++)
         {
          int x = i * -40 + -200;
          int y = 380;
-         addObject(new Platform(), x, y);
+         addObject(new CastlePlatform(), x, y);
          
         }
         for (int i = 0; i < numberOfBricks;  i++)
         {
          int x = i * -40 + -400;
          int y = 380;
-         addObject(new Platform(), x, y);
+         addObject(new CastlePlatform(), x, y);
          
         }
         for (int i = 0; i < numberOfBricks;  i++)
         {
          int x = i * -40 + -600;
          int y = 380;
-         addObject(new Platform(), x, y);
+         addObject(new CastlePlatform(), x, y);
          
         }
         //Roof
@@ -378,174 +366,88 @@ public class MyWorld extends World
     }
     public void platforms()
     {
-        // First level of platforms.
-        for (int i = 0; i < 7; i++)
+        CastlePlatform2 castleplatform22 = new CastlePlatform2();
+        addObject(castleplatform22,-670,280);
+        CastlePlatform2 castleplatform23 = new CastlePlatform2();
+        addObject(castleplatform23,-630,280);
+        CastlePlatform2 castleplatform24 = new CastlePlatform2();
+        addObject(castleplatform24,-520,280);
+        CastlePlatform2 castleplatform25 = new CastlePlatform2();
+        addObject(castleplatform25,-480,280);
+        CastlePlatform2 castleplatform26 = new CastlePlatform2();
+        addObject(castleplatform26,-380,280);
+        CastlePlatform2 castleplatform27 = new CastlePlatform2();
+        addObject(castleplatform27,-340,280);
+        CastlePlatform2 castleplatform28 = new CastlePlatform2();
+        addObject(castleplatform28,-340,180);
+        CastlePlatform2 castleplatform29 = new CastlePlatform2();
+        addObject(castleplatform29,-420,90);
+        CastlePlatform2 castleplatform210 = new CastlePlatform2();
+        addObject(castleplatform210,-460,90);
+        CastlePlatform2 castleplatform211 = new CastlePlatform2();
+        addObject(castleplatform211,-560,90);
+        CastlePlatform2 castleplatform212 = new CastlePlatform2();
+        addObject(castleplatform212,-600,90);
+        CastlePlatform2 castleplatform213 = new CastlePlatform2();
+        addObject(castleplatform213,-700,90);
+        CastlePlatform2 castleplatform214 = new CastlePlatform2();
+        addObject(castleplatform214,-758,0);
+        CastlePlatform2 castleplatform215 = new CastlePlatform2();
+        addObject(castleplatform215,-680,-100);
+        CastlePlatform2 castleplatform216 = new CastlePlatform2();
+        addObject(castleplatform216,-640,-100);
+        CastlePlatform2 castleplatform217 = new CastlePlatform2();
+        addObject(castleplatform217,-500,-100);
+        CastlePlatform2 castleplatform218 = new CastlePlatform2();
+        addObject(castleplatform218,-540,-100);
+        
+        CastlePlatform2 castleplatform219 = new CastlePlatform2();
+        addObject(castleplatform219,-340,-90);
+        CastlePlatform2 castleplatform220 = new CastlePlatform2();
+        addObject(castleplatform220,-380,-90);
+        CastlePlatform2 castleplatform221 = new CastlePlatform2();
+        addObject(castleplatform221,-220,-90);
+        
+    }
+    public void walls()
+    {
+        for (int i = 0; i < 10;i++)
         {
-            int y = 280;
-            for (int a = 0; a < 2;  a++)
-            {
-                int x = i * -200 + a * -40 + 100;
-                
-                addObject(new Platform2(), x, y);
+         int x = -300;
+         int y = i * 40;
+         addObject(new CastlePlatform(), x, y);
          
-            }
         }
-        // Second level of platforms.
-        for (int i = 0; i < 7; i++)
+        for (int i = 0; i < 10;i++)
         {
-            int y = 183;
-            for (int a = 0; a < 2;  a++)
-            {
-                int x = i * -200 + a * -40 + 200;
-                
-                addObject(new Platform2(), x, y);
+         int x = -260;
+         int y = i * 40;
+         addObject(new CastlePlatform(), x, y);
          
-            }
         }
-        //Third level of platforms.
-        for (int i = 0; i < 8; i++)
+        CastlePlatform castleplatform = new CastlePlatform();
+        addObject(castleplatform,-300,-40);
+        CastlePlatform castleplatform1 = new CastlePlatform();
+        addObject(castleplatform1,-300,-80);
+        CastlePlatform castleplatform2 = new CastlePlatform();
+        addObject(castleplatform2,-260,-40);
+        CastlePlatform castleplatform3 = new CastlePlatform();
+        addObject(castleplatform3,-260,-80);
+        for (int i = 0; i < 10;i++)
         {
-            int y = 77;
-            for (int a = 0; a < 2;  a++)
-            {
-                int x = i * -200 + a * -40 + 500;
-                
-                addObject(new Platform2(), x, y);
+         int x = -300;
+         int y = i * -40 - 180;
+         addObject(new CastlePlatform(), x, y);
          
-            }
         }
-        // Forth
-        for (int i = 0; i < 7; i++)
+        for (int i = 0; i < 10;i++)
         {
-            int y = -29;
-            for (int a = 0; a < 2;  a++)
-            {
-                int x = i * -200 + a * -40 + 400;
-                
-                addObject(new Platform2(), x, y);
+         int x = -260;
+         int y = i * -40 - 180;
+         addObject(new CastlePlatform(), x, y);
          
-            }
-        }
-        //Fifth
-        for (int i = 0; i < 8; i++)
-        {
-            int y = -135;
-            for (int a = 0; a < 2;  a++)
-            {
-                int x = i * -200 + a * -40 + 500;
-                
-                addObject(new Platform2(), x, y);
-         
-            }
-        }
-        //Sixth
-        for (int i = 0; i < 8; i++)
-        {
-            int y = -241;
-            for (int a = 0; a < 2;  a++)
-            {
-                int x = i * -200 + a * -40 + 400;
-                
-                addObject(new Platform2(), x, y);
-         
-            }
-        }
-        //Seventh
-        for (int i = 0; i < 8; i++)
-        {
-            int y = -347;
-            for (int a = 0; a < 2;  a++)
-            {
-                int x = i * -200 + a * -40 + 500;
-                
-                addObject(new Platform2(), x, y);
-         
-            }
-        }
-        //Eightth
-        for (int i = 0; i < 7; i++)
-        {
-            int y = -453;
-            for (int a = 0; a < 2;  a++)
-            {
-                int x = i * -200 + a * -40 + 400;
-                
-                addObject(new Platform2(), x, y);
-         
-            }
-        }
-        //Nineth
-        for (int i = 0; i < 8; i++)
-        {
-            int y = -559;
-            for (int a = 0; a < 2;  a++)
-            {
-                int x = i * -200 + a * -40 + 500;
-                
-                addObject(new Platform2(), x, y);
-         
-            }
-        }
-        //Tenth
-        for (int i = 0; i < 7; i++)
-        {
-            int y = -665;
-            for (int a = 0; a < 2;  a++)
-            {
-                int x = i * -200 + a * -40 + 400;
-                
-                addObject(new Platform2(), x, y);
-         
-            }
-        }
-        //Eleventh
-        for (int i = 0; i < 8; i++)
-        {
-            int y = -771;
-            for (int a = 0; a < 2;  a++)
-            {
-                int x = i * -200 + a * -40 + 500;
-                
-                addObject(new Platform2(), x, y);
-         
-            }
-        }
-        //Twelveth
-        for (int i = 0; i < 7; i++)
-        {
-            int y = -877;
-            for (int a = 0; a < 2;  a++)
-            {
-                int x = i * -200 + a * -40 + 400;
-                
-                addObject(new Platform2(), x, y);
-         
-            }
-        }
-        //Thirteenth
-        for (int i = 0; i < 8; i++)
-        {
-            int y = -983;
-            for (int a = 0; a < 2;  a++)
-            {
-                int x = i * -200 + a * -40 + 500;
-                
-                addObject(new Platform2(), x, y);
-         
-            }
-        }
-        //Fourteenth
-        for (int i = 0; i < 7; i++)
-        {
-            int y = -1089;
-            for (int a = 0; a < 2;  a++)
-            {
-                int x = i * -200 + a * -40 + 400;
-                
-                addObject(new Platform2(), x, y);
-         
-            }
         }
         
     }
+    
 }
