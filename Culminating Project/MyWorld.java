@@ -75,12 +75,25 @@ public class MyWorld extends World
         addObject(door,550, 315);
 
         Sword sword = new Sword();
-        addObject(sword, 353,147);
+
+        addObject(sword, 290, 250);
         boarder();
         platforms();
+        spawningBats();
+        Bat bat = new Bat();
+        
+        
+        
+
+        
         ground();
+
         walls();
         
+
+
+       
+
 
         Orc orc = new Orc();
         addObject(orc,500,320);
@@ -198,6 +211,59 @@ public class MyWorld extends World
          int x = i * -40 + -600;
          int y = 460;
          addObject(new SolidGround(), x, y);
+         
+        }
+    }
+
+    public void spawningBats()
+    {
+        for (int i = 0; i < 7;  i++)
+        {
+         int x = i * -200 + 350;
+         int y = 140;
+         addObject(new Bat(), x, y);
+         
+        }
+        for (int i = 0; i < 7;  i++)
+        {
+         int x = i * -200 + 250;
+         int y = -160;
+         addObject(new Bat(), x, y);
+         
+        }
+        for (int i = 0; i < 7;  i++)
+        {
+         int x = i * -200 + 450;
+         int y = -360;
+         addObject(new Bat(), x, y);
+         
+        }
+        for (int i = 0; i < 7;  i++)
+        {
+         int x = i * -200 + 150;
+         int y = -560;
+         addObject(new Bat(), x, y);
+         
+        }
+        for (int i = 0; i < 7;  i++)
+        {
+         int x = i * -200 + 400;
+         int y = -760;
+         addObject(new Bat(), x, y);
+         
+        }
+        for (int i = 0; i < 7;  i++)
+        {
+         int x = i * -200 + 0;
+         int y = -960;
+         addObject(new Bat(), x, y);
+         
+        }
+        for (int i = 0; i < 7;  i++)
+        {
+         int x = i * -200 + -150;
+         int y = -1160;
+         addObject(new Bat(), x, y);
          
         }
     }
@@ -366,6 +432,7 @@ public class MyWorld extends World
     }
     public void platforms()
     {
+
         CastlePlatform2 castleplatform22 = new CastlePlatform2();
         addObject(castleplatform22,-670,280);
         CastlePlatform2 castleplatform23 = new CastlePlatform2();
@@ -411,7 +478,13 @@ public class MyWorld extends World
     }
     public void walls()
     {
-        for (int i = 0; i < 10;i++)
+ 
+         
+            }
+        }
+        //Eleventh
+        for (int i = 0; i < 8; i++)
+
         {
          int x = -300;
          int y = i * 40;
