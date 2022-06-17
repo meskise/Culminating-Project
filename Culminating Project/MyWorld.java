@@ -478,10 +478,7 @@ public class MyWorld extends World
     }
     public void walls()
     {
- 
-         
-            }
-        }
+
         //Eleventh
         for (int i = 0; i < 8; i++)
 
