@@ -20,7 +20,7 @@ public class LevelTwo extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1, false); 
-        setPaintOrder(PickUp.class, PlayerOne.class, Bow.class, Orc.class, Arrow.class, DoorTwo.class, Platform.class, SolidGround.class, Spike.class , Platform2.class, Sword.class, Key.class, Door.class, Temp.class);
+        setPaintOrder(PickUp.class, Lava.class, PlayerOne.class, Bow.class, Orc.class, Arrow.class, DoorTwo.class, Platform.class, SolidGround.class, Spike.class , Platform2.class, Sword.class, Key.class, Door.class, Temp.class);
         prepare();
     }
     
@@ -44,6 +44,21 @@ public class LevelTwo extends World
         Bow bow = new Bow();
         addObject(bow, 500, 340);
         
+        SolidCastleGround gatewall = new SolidCastleGround();
+        addObject(gatewall, 1050, 260);
+        SolidCastleGround gatewall2 = new SolidCastleGround();
+        addObject(gatewall2, 1050, 220);
+        SolidCastleGround gatewall3 = new SolidCastleGround();
+        addObject(gatewall3, 1050, 180);
+        SolidCastleGround gatewall4 = new SolidCastleGround();
+        addObject(gatewall4, 1050, 140);
+        SolidCastleGround gatewall5 = new SolidCastleGround();
+        addObject(gatewall5, 1050, 100);
+        
+        Spike2 spike = new Spike2();
+        addObject(spike, 560, 360);
+        Spike2 spike2 = new Spike2();
+        addObject(spike2, 620, 360);
     }
     
     public void checkScroll()
@@ -84,49 +99,49 @@ public class LevelTwo extends World
         {
          int x = i * -40 + 1660;
          int y = 380;
-         addObject(new CastlePlatform(), x, y);
+         addObject(new Platform(), x, y);
          
         }
         for (int i = 0; i < numberOfBricks;  i++)
         {
          int x = i * -40 + 1460;
          int y = 380;
-         addObject(new CastlePlatform(), x, y);
+         addObject(new Platform(), x, y);
          
         }
         for (int i = 0; i < numberOfBricks;  i++)
         {
          int x = i * -40 + 1260;
          int y = 380;
-         addObject(new CastlePlatform(), x, y);
+         addObject(new Platform(), x, y);
          
         }
         for (int i = 0; i < numberOfBricks;  i++)
         {
          int x = i * -40 + 1060;
          int y = 380;
-         addObject(new CastlePlatform(), x, y);
+         addObject(new Platform(), x, y);
          
         }
         for (int i = 0; i < numberOfBricks;  i++)
         {
          int x = i * -40 + 860;
-         int y = 380;
-         addObject(new CastlePlatform(), x, y);
+         int y = 385;
+         addObject(new Lava(), x, y);
          
         }
         for (int i = 0; i < numberOfBricks;  i++)
         {
          int x = i * -40 + 660;
          int y = 380;
-         addObject(new CastlePlatform(), x, y);
+         addObject(new Platform(), x, y);
          
         }
         for (int i = 0; i < numberOfBricks;  i++)
         {
          int x = i * -40 + 460;
          int y = 380;
-         addObject(new CastlePlatform(), x, y);
+         addObject(new Platform(), x, y);
          
         }
         // Solid ground

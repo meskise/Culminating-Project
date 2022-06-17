@@ -37,7 +37,14 @@ public class Arrow extends Actor
     
     public void collisionCheck()
     {
-        
+        if (isTouching(Platform.class))
+        {
+            getWorld().removeObject(this);
+        }
+        else if (isTouching(SolidCastleGround.class))
+        {
+            getWorld().removeObject(this);
+        }
     }
     
     public void bowShoot()
