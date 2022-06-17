@@ -32,7 +32,13 @@ public class Arrow extends Actor
     public void act() 
     {
         bowShoot();
+        collisionCheck();
     }    
+    
+    public void collisionCheck()
+    {
+        
+    }
     
     public void bowShoot()
     {
