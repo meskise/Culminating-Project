@@ -14,6 +14,8 @@ public class PlayerOne extends Actor
     
     //Movement Speed.
     final double SPEED_X = 2.5;
+    // jump hight
+    int JUMPHIGHT = -14;
     // Check if facing right or is in air.
     boolean isFacingRight;
     boolean isInAir;
@@ -82,7 +84,18 @@ public class PlayerOne extends Actor
         bowPickUp();
         keyPickUp();
         swordCombat();
+        enemyColisions();
         bowCombat();
+
+    }
+    public void enemyColisions()
+    {
+        if (isTouching(Bat.class))
+        {
+            //getWorld().showText("Game Over",400,300);
+            getWorld().removeObject(this);
+            Greenfoot.stop();
+        }
     }
     
     public void swordCombat()
@@ -245,7 +258,7 @@ public class PlayerOne extends Actor
             if (isTouching(Platform.class))
             {
                 // Jump. 
-                deltaY = -14;
+                deltaY = JUMPHIGHT;
             }
             
         }
