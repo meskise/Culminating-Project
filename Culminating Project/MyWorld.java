@@ -66,39 +66,30 @@ public class MyWorld extends World
      */
     private void prepare()
     {
-
+        boarder();
+        platforms();
+        spawningBats();
+        ground();
+        Spikes();
+        walls();
+        misc();
+    }
+    
+    public void misc()
+    {
         addObject(player,-760,330);
-
         Key key = new Key();
         addObject(key,70,50);
         Door door = new Door();
         addObject(door,750, 315);
-
         Sword sword = new Sword();
-
         addObject(sword, 740, -10);
-        boarder();
-        platforms();
-        spawningBats();
-        Bat bat = new Bat();
-        
-        
-        
-
-        
-        ground();
-
-        walls();
-        
-
-
-       
-
-
         Orc orc = new Orc();
         addObject(orc,500,320);
-
-        
+    }
+    
+    public void Spikes()
+    {
         for (int i = 0; i < 10; i++)
         {
          int x = -660 + i * 60;
@@ -120,16 +111,22 @@ public class MyWorld extends World
          addObject(new Spike(), x, y);
          
         }
-        
     }
     
     public void ground()
     {
         //Ground
-        for (int i = 0; i < 50;  i++)
+        for (int i = 0; i < 59;  i++)
         {
          int x = -1120 + i * 40;
          int y = 420;
+         addObject(new SolidGround(), x, y);
+         
+        }
+        for (int i = 0; i < 59;  i++)
+        {
+         int x = -1120 + i * 40;
+         int y = 460;
          addObject(new SolidGround(), x, y);
          
         }
@@ -191,59 +188,55 @@ public class MyWorld extends World
          addObject(new SolidGround(), x, y);
          
         }
+        //Right Wall
+        for (int i = 0; i < 30;  i++)
+        {
+         int x = 880;
+         int y = 380 - i * 40;
+         addObject(new SolidGround(), x, y);
+         
+        }
+        for (int i = 0; i < 30;  i++)
+        {
+         int x = 920;
+         int y = 380 - i * 40;
+         addObject(new SolidGround(), x, y);
+         
+        }
+        for (int i = 0; i < 30;  i++)
+        {
+         int x = 960;
+         int y = 380 - i * 40;
+         addObject(new SolidGround(), x, y);
+         
+        }
+        for (int i = 0; i < 30;  i++)
+        {
+         int x = 1000;
+         int y = 380 - i * 40;
+         addObject(new SolidGround(), x, y);
+         
+        }
+        for (int i = 0; i < 30;  i++)
+        {
+         int x = 1040;
+         int y = 380 - i * 40;
+         addObject(new SolidGround(), x, y);
+         
+        }
+        for (int i = 0; i < 30;  i++)
+        {
+         int x = 1080;
+         int y = 380 - i * 40;
+         addObject(new SolidGround(), x, y);
+         
+        }
     }
 
     public void spawningBats()
     {
-        // for (int i = 0; i < 7;  i++)
-        // {
-         // int x = i * -200 + 350;
-         // int y = 140;
-         // addObject(new Bat(), x, y);
-         
-        // }
-        // // for (int i = 0; i < 7;  i++)
-        // // {
-         // // int x = i * -200 + 250;
-         // // int y = -160;
-         // // addObject(new Bat(), x, y);
-         
-        // // }
-        // for (int i = 0; i < 7;  i++)
-        // {
-         // int x = i * -200 + 450;
-         // int y = -360;
-         // addObject(new Bat(), x, y);
-         
-        // }
-        // for (int i = 0; i < 7;  i++)
-        // {
-         // int x = i * -200 + 150;
-         // int y = -560;
-         // addObject(new Bat(), x, y);
-         
-        // }
-        // for (int i = 0; i < 7;  i++)
-        // {
-         // int x = i * -200 + 400;
-         // int y = -760;
-         // addObject(new Bat(), x, y);
-         
-        // }
-        // for (int i = 0; i < 7;  i++)
-        // {
-         // int x = i * -200 + 0;
-         // int y = -960;
-         // addObject(new Bat(), x, y);
-         
-        // }
-        // for (int i = 0; i < 7;  i++)
-        // {
-         // int x = i * -200 + -150;
-         // int y = -1160;
-         // addObject(new Bat(), x, y);
-         
-        // }
+        Bat bat = new Bat();
+        addObject(bat, 70 , 40);
     }
     
     public void boarder()

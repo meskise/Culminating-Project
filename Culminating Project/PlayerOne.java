@@ -436,6 +436,7 @@ public class PlayerOne extends Actor
             }
             
         }
+       
         int height = getImage().getHeight();
         if (isDead == true)
         {
