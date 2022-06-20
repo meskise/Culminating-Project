@@ -246,6 +246,11 @@ public class LevelTwo extends World
         addObject(lava7, 1022, -360);
         LavaTriangle lava8 = new LavaTriangle();
         addObject(lava8, 1022, -395);
+        Lava lava9 = new Lava();
+        addObject(lava9, 1062, -395);
+        
+        Platform lavaplatform1 = new Platform();
+        addObject(lavaplatform1, 1062, -355);
         
         Platform platform51 = new Platform();
         addObject(platform51, 1102, -120);
