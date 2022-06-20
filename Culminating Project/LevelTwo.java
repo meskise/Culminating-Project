@@ -230,6 +230,23 @@ public class LevelTwo extends World
         Lava platform50 = new Lava();
         addObject(platform50, 1062, -115);
         
+        Lava lava1 = new Lava();
+        addObject(lava1, 1022, -150);
+        Lava lava2 = new Lava();
+        addObject(lava2, 1022, -185);
+        Lava lava3 = new Lava();
+        addObject(lava3, 1022, -220);
+        Lava lava4 = new Lava();
+        addObject(lava4, 1022, -255);
+        Lava lava5 = new Lava();
+        addObject(lava5, 1022, -290);
+        Lava lava6 = new Lava();
+        addObject(lava6, 1022, -325);
+        Lava lava7 = new Lava();
+        addObject(lava7, 1022, -360);
+        LavaTriangle lava8 = new LavaTriangle();
+        addObject(lava8, 1022, -395);
+        
         Platform platform51 = new Platform();
         addObject(platform51, 1102, -120);
         
