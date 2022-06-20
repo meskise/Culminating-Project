@@ -72,11 +72,11 @@ public class MyWorld extends World
         Key key = new Key();
         addObject(key,70,50);
         Door door = new Door();
-        addObject(door,550, 315);
+        addObject(door,750, 315);
 
         Sword sword = new Sword();
 
-        addObject(sword, 290, 100);
+        addObject(sword, 740, -10);
         boarder();
         platforms();
         spawningBats();
@@ -113,6 +113,14 @@ public class MyWorld extends World
          addObject(new Spike(), x, y);
          
         }
+        for (int i = 0; i < 8; i++)
+        {
+         int x = 360 + i * 60;
+         int y = 180;
+         addObject(new Spike(), x, y);
+         
+        }
+        
     }
     
     public void ground()
@@ -323,6 +331,18 @@ public class MyWorld extends World
         addObject(castleplatform222,60,80);
         CastlePlatform2 castleplatform223 = new CastlePlatform2();
         addObject(castleplatform223,160,0);
+        CastlePlatform2 castleplatform224 = new CastlePlatform2();
+        addObject(castleplatform224,400,20);
+        CastlePlatform2 castleplatform225 = new CastlePlatform2();
+        addObject(castleplatform225,440,20);
+        CastlePlatform2 castleplatform226 = new CastlePlatform2();
+        addObject(castleplatform226,550,20);
+        CastlePlatform2 castleplatform227 = new CastlePlatform2();
+        addObject(castleplatform227,590,20);
+        CastlePlatform2 castleplatform228 = new CastlePlatform2();
+        addObject(castleplatform228,700,20);
+        CastlePlatform2 castleplatform229 = new CastlePlatform2();
+        addObject(castleplatform229,740,20);
     }
     public void walls()
     {
@@ -385,7 +405,7 @@ public class MyWorld extends World
          addObject(new CastlePlatform(), x, y);
          
         }
-        //HHHHH
+        
         for (int i = 0; i < 12;i++)
         {
          int x = 200;
@@ -394,6 +414,21 @@ public class MyWorld extends World
          
         }
         
-            }
+        for (int i = 0; i < 9;i++)
+        {
+         int x = 310;
+         int y = -80 + i * 40;
+         addObject(new CastlePlatform(), x, y);
+         
+        }
+        
+        for (int i = 0; i < 13;i++)
+        {
+         int x = 350 + i * 40;
+         int y = 200;
+         addObject(new CastlePlatform(), x, y);
+         
+        }
+    }
     
 }
