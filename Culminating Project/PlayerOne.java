@@ -85,23 +85,12 @@ public class PlayerOne extends Actor
         bowPickUp();
         keyPickUp();
         swordCombat();
-        enemyColisions();
         bowCombat();
         if (Greenfoot.isKeyDown("h"))
         {
             Greenfoot.setWorld(new LevelTwo());
         }
       
-    }
-    
-    public void enemyColisions()
-    {
-        if (isTouching(Bat.class))
-        {
-            //getWorld().showText("Game Over",400,300);
-            getWorld().removeObject(this);
-            Greenfoot.stop();
-        }
     }
     
     public void swordCombat()
@@ -436,6 +425,24 @@ public class PlayerOne extends Actor
             }
             
         }
+        if (isTouching(Bat.class))
+        {
+            if (isDead == false)
+            {
+                frameCounter = 0;
+                isDead = true;
+            }
+        }
+        
+        if (isTouching(Lava.class))
+        {
+            if (isDead == false)
+            {
+                frameCounter = 0;
+                isDead = true;
+            }
+        }
+        
         int height = getImage().getHeight();
         if (isDead == true)
         {
