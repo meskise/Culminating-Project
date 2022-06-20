@@ -125,6 +125,14 @@ public class MyWorld extends World
          addObject(new SolidGround(), x, y);
          
         }
+        //Roof
+        for (int i = 0; i < 50;  i++)
+        {
+         int x = -1120 + i * 40;
+         int y = -340;
+         addObject(new SolidGround(), x, y);
+         
+        }
         //Left wall
         for (int i = 0; i < 20;  i++)
         {
@@ -233,66 +241,23 @@ public class MyWorld extends World
     public void boarder()
     {
         //Floor
-        for (int i = 0; i < 40;  i++)
+        for (int i = 0; i < 41;  i++)
         {
-         int x = -760 + i * 40;
+         int x = -800 + i * 40;
          int y = 380;
          addObject(new CastlePlatform(), x, y);
          
         }
         //Roof
-        for (int i = 0; i < numberOfBricks;  i++)
+        for (int i = 0; i < 41;  i++)
         {
-         int x = i * -40 + 600;
-         int y = -1200;
+         int x = -800 + i * 40;
+         int y = -300;
          addObject(new Roof(), x, y);
          
         }
-        for (int i = 0; i < numberOfBricks;  i++)
-        {
-         int x = i * -40 + 400;
-         int y = -1200;
-         addObject(new Roof(), x, y);
-         
-        }
-        for (int i = 0; i < numberOfBricks;  i++)
-        {
-         int x = i * -40 + 200;
-         int y = -1200;
-         addObject(new Roof(), x, y);
-         
-        }
-        for (int i = 0; i < numberOfBricks;  i++)
-        {
-         int x = i * -40 + 0;
-         int y = -1200;
-         addObject(new Roof(), x, y);
-         
-        }
-        for (int i = 0; i < numberOfBricks;  i++)
-        {
-         int x = i * -40 + -200;
-         int y = -1200;
-         addObject(new Roof(), x, y);
-         
-        }
-        for (int i = 0; i < numberOfBricks;  i++)
-        {
-         int x = i * -40 + -400;
-         int y = -1200;
-         addObject(new Roof(), x, y);
-         
-        }
-        for (int i = 0; i < numberOfBricks;  i++)
-        {
-         int x = i * -40 + -600;
-         int y = -1200;
-         addObject(new Roof(), x, y);
-         
-        }
-
         // Right boarder
-        for (int i = 0; i < 10;  i++)
+        for (int i = 0; i < 30;  i++)
         {
          int x = 840;
          int y = 380 - i * 40;
@@ -420,57 +385,15 @@ public class MyWorld extends World
          addObject(new CastlePlatform(), x, y);
          
         }
-        
+        //HHHHH
         for (int i = 0; i < 12;i++)
         {
          int x = 200;
-         int y = 340 - i * 40;
+         int y = -80 + i * 40;
          addObject(new CastlePlatform(), x, y);
          
         }
         
-        for (int i = 0; i < 4; i++)
-        {
-         int x = 160;
-         int y = 340 - i * 40;
-         addObject(new CastlePlatform(), x, y);
-         
-        }
-        for (int i = 0; i < 4; i++)
-        {
-         int x = 120;
-         int y = 340 - i * 40;
-         addObject(new CastlePlatform(), x, y);
-         
-        }
-        for (int i = 0; i < 4; i++)
-        {
-         int x = 80;
-         int y = 340 - i * 40;
-         addObject(new CastlePlatform(), x, y);
-         
-        }
-        for (int i = 0; i < 4; i++)
-        {
-         int x = 40;
-         int y = 340 - i * 40;
-         addObject(new CastlePlatform(), x, y);
-         
-        }
-        for (int i = 0; i < 4; i++)
-        {
-         int x = 0;
-         int y = 340 - i * 40;
-         addObject(new CastlePlatform(), x, y);
-         
-        }
-        for (int i = 0; i < 4; i++)
-        {
-         int x = -40;
-         int y = 340 - i * 40;
-         addObject(new CastlePlatform(), x, y);
-         
-        }
-    }
+            }
     
 }

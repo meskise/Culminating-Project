@@ -166,6 +166,47 @@ public class Orc extends Actor
         {
             isTouchingPlayer = false;
         }
+        int height = getImage().getHeight();
+        int width = getImage().getWidth();
+        
+        Actor platform = getOneObjectAtOffset( - width /2, 0 ,Platform.class);
+        if (platform != null)
+        {
+            deltaX = 0;
+            
+            stopOnRightObject(platform);
+        }
+        
+        platform = getOneObjectAtOffset( width /2, 0, Platform.class);
+        if (platform != null)
+        {
+            deltaX = 0;
+            
+            stopOnLeftObject(platform);
+        }
+        
+    }
+    
+    /**
+     * Stop right on object when called.
+     */
+    public void stopOnRightObject(Actor object)
+    {
+        int width = getImage().getWidth();
+        int objectWidth = object.getImage().getWidth();
+        
+        setLocation(object.getX() + objectWidth /2 + width /2, getY());
+    }
+    
+    /**
+     * Stop left on object when called.
+     */
+    public void stopOnLeftObject(Actor object)
+    {
+        int width = getImage().getWidth();
+        int objectWidth = object.getImage().getWidth();
+        
+        setLocation(object.getX() - objectWidth /2 - width /2, getY());
     }
     
     public void attack()
