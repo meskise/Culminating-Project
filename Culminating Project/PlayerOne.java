@@ -11,11 +11,12 @@ public class PlayerOne extends Actor
     // Number of acts/frames between animation images.
     final int ANIMATION_INTERVAL = 7;
     int frameCounter = 0;// Frame counter. For animations.
+    int counter = 0;
     
     //Movement Speed.
-    final double SPEED_X = 2.5;
-    // jump hight
-    int JUMPHIGHT = -14;
+    double SPEED_X = 2.5;
+    // jump height
+    int JUMPHEIGHT = -14;
     // Check if facing right or is in air.
     boolean isFacingRight;
     boolean isInAir;
@@ -89,6 +90,7 @@ public class PlayerOne extends Actor
         {
             Greenfoot.setWorld(new LevelTwo());
         }
+      
     }
     
     public void swordCombat()
@@ -227,7 +229,7 @@ public class PlayerOne extends Actor
         {
             deltaX = - SPEED_X;
             isFacingRight = false;
-            if ((isInAir == false) && (isFacingRight == false))
+            if ((isInAir == false) && (isFacingRight == false) && (isDead == false))
             {
                 animate(imagesWalkLeft);
             }
@@ -236,7 +238,7 @@ public class PlayerOne extends Actor
         {
             deltaX = SPEED_X;
             isFacingRight = true;
-            if ((isInAir == false) && (isFacingRight == true))
+            if ((isInAir == false) && (isFacingRight == true) && (isDead == false))
             {
                 animate(imagesWalkRight);
             }
@@ -252,7 +254,7 @@ public class PlayerOne extends Actor
             if (isTouching(Platform.class))
             {
                 // Jump. 
-                deltaY = JUMPHIGHT;
+                deltaY = JUMPHEIGHT;
             }
             
         }
@@ -446,9 +448,16 @@ public class PlayerOne extends Actor
         {
             Actor platform = getOneObjectAtOffset(0, height / 2, Platform.class);
             deathAnimation();
+            SPEED_X = 0;
+            JUMPHEIGHT = 0;
             if (platform != null)
             {
                 moveOnTopOfObject(platform);
+            }
+            counter++;
+            if (counter == 50)
+            {
+                 Greenfoot.setWorld(new HomeScreen());
             }
         }
     }
