@@ -56,7 +56,7 @@ public class PlayerOne extends Actor
 
     private boolean pickUpMsgTwo = false;
     private boolean pickUpMsgThree = false;
-    private boolean swordPickedUp = false;
+    public boolean swordPickedUp = false;
     private boolean bowPickedUp = false;
     private boolean swordLocation;
 
@@ -121,6 +121,10 @@ public class PlayerOne extends Actor
             sword.setLocation(getX(), getY());
         }
         
+        if (Greenfoot.isKeyDown("e")&&(swordPickedUp == true))
+        {
+            swordMelee();
+        }
         // If facing right, sword has been picked up and sword/player are touching eachother, set sword rotation to 240 to appear as if it is being carried.
         if (isFacingRight == true && swordPickedUp == true && isTouching(Sword.class))
         {
@@ -130,6 +134,7 @@ public class PlayerOne extends Actor
         {
             sword.setRotation(120);
         }
+        
 
     }
     
@@ -227,7 +232,10 @@ public class PlayerOne extends Actor
             pickUpMsgTwo = true;
         }
     }
-    
+    public void swordMelee()
+    {
+        
+    }
     /**
      * Basic movement.
      */

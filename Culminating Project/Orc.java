@@ -5,7 +5,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Orc extends Actor
 {
-    
+    GameWorld world;
     // Movement variables.
     boolean isInAir;
     boolean isFacingRight = true;
@@ -41,7 +41,10 @@ public class Orc extends Actor
     {
         loadImages();
     }
-    
+    protected void addedToWorld(World world)
+    {
+        this.world = (GameWorld) world;
+    }
     
     public void act()
     {
@@ -58,7 +61,18 @@ public class Orc extends Actor
     
     public void healthSystem()
     {
-        if (isTouching(Sword.class))
+        // if (isTouching(Sword.class))
+        // {
+            // health = health - 25;
+            // //System.out.println(health);
+        // }
+        // if (isTouching(Sword.class) && (world.player.swordPickedUp == true))
+        // {
+            // health = health - 25;
+            // //System.out.println(health);
+        // }
+        
+        if (isTouching(Sword.class) && (world.player.swordPickedUp == true && (Greenfoot.isKeyDown("e"))))
         {
             health = health - 25;
             //System.out.println(health);

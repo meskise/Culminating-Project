@@ -6,9 +6,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class MyWorld extends World
+public class MyWorld extends GameWorld
 {
-    PlayerOne player = new PlayerOne();
+    
     int scrollDistance = 2;
     int vScrollDistance = 5;
     int numberOfBricks = 5;
