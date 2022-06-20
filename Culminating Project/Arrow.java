@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Arrow extends Actor
 {
-
+    int frameCounter = 0;
     boolean isFacingRight;
     // Movement.
     double deltaX = 0;
@@ -44,6 +44,16 @@ public class Arrow extends Actor
         else if (isTouching(SolidCastleGround.class))
         {
             getWorld().removeObject(this);
+        }
+        else if (isTouching(Bat.class))
+        {
+            frameCounter++;
+            
+        }
+        if (frameCounter >= 2)
+        {
+            getWorld().removeObject(this);
+            frameCounter = 0;
         }
     }
     
