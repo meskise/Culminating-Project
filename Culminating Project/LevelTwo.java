@@ -40,6 +40,7 @@ public class LevelTwo extends World
         leftBorder();
         rightBorder();
         roof();
+        platforms();
         
         Bow bow = new Bow();
         addObject(bow, 500, 340);
@@ -54,6 +55,36 @@ public class LevelTwo extends World
         addObject(gatewall4, 1050, 140);
         SolidCastleGround gatewall5 = new SolidCastleGround();
         addObject(gatewall5, 1050, 100);
+        SolidCastleGround gatewall6 = new SolidCastleGround();
+        addObject(gatewall6, 1050, 60);
+        SolidCastleGround gatewall7 = new SolidCastleGround();
+        addObject(gatewall7, 1050, 20);
+        SolidCastleGround gatewall8 = new SolidCastleGround();
+        addObject(gatewall8, 1050, -20);
+        SolidCastleGround gatewall9 = new SolidCastleGround();
+        addObject(gatewall9, 1050, -60);
+        SolidCastleGround gatewall10 = new SolidCastleGround();
+        addObject(gatewall10, 1050, -100);
+        SolidCastleGround gatewall11 = new SolidCastleGround();
+        addObject(gatewall11, 1090, 260);
+        SolidCastleGround gatewall12 = new SolidCastleGround();
+        addObject(gatewall12, 1090, 220);
+        SolidCastleGround gatewall13 = new SolidCastleGround();
+        addObject(gatewall13, 1090, 180);
+        SolidCastleGround gatewall14 = new SolidCastleGround();
+        addObject(gatewall14, 1090, 140);
+        SolidCastleGround gatewall15 = new SolidCastleGround();
+        addObject(gatewall15, 1090, 100);
+        SolidCastleGround gatewall16 = new SolidCastleGround();
+        addObject(gatewall16, 1090, 60);
+        SolidCastleGround gatewall17 = new SolidCastleGround();
+        addObject(gatewall17, 1090, 20);
+        SolidCastleGround gatewall18 = new SolidCastleGround();
+        addObject(gatewall18, 1090, -20);
+        SolidCastleGround gatewall19 = new SolidCastleGround();
+        addObject(gatewall19, 1090, -60);
+        SolidCastleGround gatewall20 = new SolidCastleGround();
+        addObject(gatewall20, 1090, -100);
         
         Spike2 spike = new Spike2();
         addObject(spike, 560, 360);
@@ -90,6 +121,28 @@ public class LevelTwo extends World
         {
             actor.setLocation(actor.getX() - x, actor.getY() - y);
         }
+    }
+    
+    public void platforms()
+    {
+        Platform2 platform = new Platform2();
+        addObject(platform, 450, 290);
+        Platform2 platform2 = new Platform2();
+        addObject(platform2, 490, 290);
+        
+        Platform2 platform3 = new Platform2();
+        addObject(platform3, 580, 225);
+        Platform2 platform4 = new Platform2();
+        addObject(platform4, 620, 225);
+        
+        Platform2 platform5 = new Platform2();
+        addObject(platform5, 720, 225);
+        Platform2 platform6 = new Platform2();
+        addObject(platform6, 760, 225);
+        
+        Platform2 platform7 = new Platform2();
+        addObject(platform7, 670, 140);
+        
     }
     
     public void ground()
