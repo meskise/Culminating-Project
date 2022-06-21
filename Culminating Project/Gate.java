@@ -8,16 +8,19 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Gate extends Actor
 {
+    //Sets booleans to false
     boolean isOpen = false;
     boolean keyPickedUp = false;
+    //Loads images
     GreenfootImage GateOpen;
     
     public Gate()
     {
+        //Sets scale of image
         GreenfootImage image = getImage();
         image.scale(75, 85);
         setImage(image);
-        
+        //Sets scale of image
         GateOpen = new GreenfootImage("DoorGateOpen.png");
         GateOpen.scale(100, 85); 
     }

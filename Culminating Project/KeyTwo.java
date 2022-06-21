@@ -8,6 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class KeyTwo extends Key
 {
+    //Sets counter to 0
     int counter = 0;
     public KeyTwo()
     {

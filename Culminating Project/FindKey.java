@@ -8,6 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class FindKey extends Actor
 {
+    //Sets counter to 0
     private int counter = 0;
     public FindKey()
     {
@@ -22,6 +23,7 @@ public class FindKey extends Actor
      */
     public void act()
     {
+        //Removes object after a certain amout of time
         counter++; 
         if(counter >= 150)
         {

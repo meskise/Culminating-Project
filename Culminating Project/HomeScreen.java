@@ -6,7 +6,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @version (a version number or a date)
  */
  public class HomeScreen extends World
- { StartButton button;
+  { 
+   //Declares actors
+   StartButton button;
    Levels levels;
    L1 l1;
    L2 l2;
@@ -29,12 +31,14 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
    }
    public void act()
    {
+        //Displays guide screen
         if (Greenfoot.mouseClicked(button))
         {
             removeObject(button);
             Greenfoot.delay(20);
             addObject(guide, 400 , 300);
         }
+        //Displays Level select
         if(Greenfoot.isKeyDown("enter"))
         {
             removeObject(guide);
@@ -43,10 +47,12 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
             addObject(l1,100,200);
             addObject(l2,300,200);
         }
+        //Starts Level One
         if (Greenfoot.mouseClicked(l1))
         {
             Greenfoot.setWorld(new MyWorld());
         }
+        //Starts Level Two
         if (Greenfoot.mouseClicked(l2))
         {
             Greenfoot.setWorld(new LevelTwo());

@@ -8,12 +8,16 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Bat extends Actor
 {
+    //Movement Variables
     int deltaY;
     int deltaX;
+    //Animation variables
     final int ANIMATION_INTERVAL = 3;
     int frameCounter = 0;
     boolean isFacingRight;
+    //Is dead variable
     boolean isDead = false;
+    //Loads images
     GreenfootImage[]imagesFlyLeft;
     GreenfootImage[]imagesFlyRight;
     public Bat()
@@ -28,7 +32,7 @@ public class Bat extends Actor
      */
     public void act() 
     {
-
+       //If collision with world change direction
        if (isTouching(Arrow.class))
        {
            isDead = true;

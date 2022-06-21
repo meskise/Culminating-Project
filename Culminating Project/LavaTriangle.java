@@ -10,6 +10,7 @@ public class LavaTriangle extends Lava
 {
     public LavaTriangle()
     {
+        //Sets scale of image
         GreenfootImage image = getImage();
         image.scale(42,35);
         setImage(image);

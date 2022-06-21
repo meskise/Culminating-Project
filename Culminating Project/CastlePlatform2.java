@@ -10,6 +10,7 @@ public class CastlePlatform2 extends Platform
 {
     public CastlePlatform2()
     {
+        //Sets image scale
         GreenfootImage image = getImage();
         image.scale(40,20);
         setImage(image);
