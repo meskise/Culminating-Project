@@ -35,7 +35,7 @@ public class DoorThree extends Actor
         // If door is touching player, and key isn't in world, you win.
         if (isTouching(PlayerOne.class) && getWorld().getObjects(KeyThree.class).isEmpty())
         {
-            //Greenfoot.setWorld(new Winner());
+            Greenfoot.setWorld(new YouWin());
         }
         
         if (getWorld().getObjects(KeyThree.class).isEmpty())
