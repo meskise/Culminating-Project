@@ -58,10 +58,14 @@ public class PlayerOne extends Actor
     private boolean pickUpMsgTwo = false;
     private boolean pickUpMsgThree = false;
     private boolean findKeyMsg = false;
+    private boolean findKeyMsg2 = false;
+    private boolean findKeyMsg3 = false;
     private boolean swordPickedUp = false;
     private boolean bowPickedUp = false;
     private boolean swordLocation;
     private boolean keyPickedUp = false;
+    private boolean keyPickedUp2 = false;
+    private boolean keyPickedUp3 = false;
 
     /** 
      * Scale and load all images.
@@ -93,17 +97,42 @@ public class PlayerOne extends Actor
     
     public void doorLogic()
     {
-        if (getWorld().getObjects(KeyTwo.class).isEmpty())
+        if (getWorld().getObjects(Key.class).isEmpty())
         {
             keyPickedUp = true;
             
         }
         
         FindKey findKey = new FindKey();
-         if (keyPickedUp == false && findKeyMsg == false && isTouching(Gate.class))
+         if (keyPickedUp == false && findKeyMsg == false && isTouching(Door.class))
         {
             getWorld().addObject(findKey, getX() + 5, getY() - 25);
             findKeyMsg = true;
+        }
+        
+        
+        if (getWorld().getObjects(KeyTwo.class).isEmpty())
+        {
+            keyPickedUp2 = true;
+            
+        }
+        
+         if (keyPickedUp2 == false && findKeyMsg2 == false && isTouching(Gate.class))
+        {
+            getWorld().addObject(findKey, getX() + 5, getY() - 25);
+            findKeyMsg2 = true;
+        }
+        
+        if (getWorld().getObjects(KeyThree.class).isEmpty())
+        {
+            keyPickedUp3 = true;
+            
+        }
+        
+         if (keyPickedUp3 == false && findKeyMsg3 == false && isTouching(DoorThree.class))
+        {
+            getWorld().addObject(findKey, getX() + 5, getY() - 25);
+            findKeyMsg3 = true;
         }
     }
     

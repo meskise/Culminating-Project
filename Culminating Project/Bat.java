@@ -33,8 +33,19 @@ public class Bat extends Actor
            isDead = true;
            getWorld().removeObject(this);
        }
+       else if (isTouching(Sword.class))
+       {
+           isDead = true;
+           getWorld().removeObject(this);
+       }
         //if Bat gets too close to Left edge, change y direction to go Right.
        else if(isTouching(LeftWall.class))
+       {
+           deltaX=3;
+           isFacingRight = true;
+           //getImage().mirrorVertically();
+       }
+       else if(isTouching(BatWallLeft.class))
        {
            deltaX=3;
            isFacingRight = true;

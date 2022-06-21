@@ -1,3 +1,4 @@
+
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
@@ -20,15 +21,19 @@ public class LevelTwo extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1, false); 
-        setPaintOrder(PickUp.class, FindKey.class, Lava.class, Gate.class, PlayerOne.class, Bow.class, KeyTwo.class, Orc.class, Arrow.class, DoorTwo.class, Platform.class, SolidGround.class, Spike.class , Platform2.class, Sword.class, Key.class, Door.class, Temp.class, TempWall.class);
+        setPaintOrder(PickUp.class, FindKey.class, Lava.class, Gate.class, PlayerOne.class, Bow.class, KeyTwo.class, Orc.class, Arrow.class, DoorTwo.class, DoorThree.class, Platform.class, SolidGround.class, Spike.class , Platform2.class, Sword.class, Key.class, Door.class, Temp.class, TempWall.class);
         prepare();
     }
     
     public void act()
     {
+        //Scrolling screen
         checkScroll();
     }
     
+    /**
+     * Spawn objects when called
+     */
     private void prepare()
     {
         addObject(player, 300, 330);
@@ -41,6 +46,15 @@ public class LevelTwo extends World
         addObject (key, 365, -650);
         TempWall temp = new TempWall();
         addObject(temp, 1090, 322);
+        DoorThree door3 = new DoorThree();
+        addObject(door3, 1620, -95);
+        KeyThree key3 = new KeyThree();
+        addObject(key3, 1142, -655);
+        
+        BatWallLeft bwl = new BatWallLeft();
+        addObject(bwl, 1120, -50);
+        BatWallLeft bwl2= new BatWallLeft();
+        addObject(bwl2, 1120, -475);
         
         bats();
         ground();
@@ -138,7 +152,9 @@ public class LevelTwo extends World
         addObject(spike2, 620, 360);
     }
 
-    
+    /**
+     * Scrolling screen void.
+     */
     public void checkScroll()
     {
         if (player.getX() < 298.5)
@@ -162,6 +178,9 @@ public class LevelTwo extends World
         }
     }
     
+    /**
+     * Scrolling screen void.
+     */
     public void scroll(int x , int y)
     {
         for (Actor actor : getObjects(Actor.class))
@@ -170,6 +189,9 @@ public class LevelTwo extends World
         }
     }
     
+    /**
+     * Void for most platforms.
+     */
     public void platforms()
     {
         Platform2 platform = new Platform2();
@@ -396,25 +418,107 @@ public class LevelTwo extends World
         addObject(platforms20, 390, -625);
         Platform2 platforms21 = new Platform2();
         addObject(platforms21, 845, -635);
-
         
-        Spike2 spike = new Spike2();
-        addObject(spike, 272, -140);
-        Spike2 spike2 = new Spike2();
-        addObject(spike2, 332, -140);
-        Spike2 spike7 = new Spike2();
-        addObject(spike7, 620, -140);        
-        Spike2 spike3 = new Spike2();
-        addObject(spike3, 680, -140);
-        Spike2 spike4 = new Spike2();
-        addObject(spike4, 740, -140);
-        Spike2 spike5 = new Spike2();
-        addObject(spike5, 800, -140);
-        Spike2 spike6 = new Spike2();
-        addObject(spike6, 860, -140);
+        // Platforms on right side of map.
+        Platform2 platformss1 = new Platform2();
+        addObject(platformss1, 1175, 250);
+        Platform2 platformss2 = new Platform2();
+        addObject(platformss2, 1215, 250);
+        Platform2 platformss3 = new Platform2();
+        addObject(platformss3, 1300, 175);
+        Platform2 platformss4 = new Platform2();
+        addObject(platformss4, 1340, 175);
+        Platform2 platformss6 = new Platform2();
+        addObject(platformss6, 1190, 80);
+        Platform2 platformss7 = new Platform2();
+        addObject(platformss7, 1230, 80);
+        Platform2 platformss8 = new Platform2();
+        addObject(platformss8, 1330, 0);
+        Platform2 platformss9 = new Platform2();
+        addObject(platformss9, 1440, 0);
+        Platform2 platformss10 = new Platform2();
+        addObject(platformss10, 1480, 0);
+        Platform2 platformss11 = new Platform2();
+        addObject(platformss11, 1620, -40);
+        Platform2 platformss12 = new Platform2();
+        addObject(platformss12, 1660, -40);
+        Platform2 platformss13 = new Platform2();
+        addObject(platformss13, 1580, -40);
+        Platform2 platformss14 = new Platform2();
+        addObject(platformss14, 1460, -120);
+        Platform2 platformss15 = new Platform2();
+        addObject(platformss15, 1340, -175);
+        Platform2 platformss16 = new Platform2();
+        addObject(platformss16, 1380, -175);
+        Platform2 platformss17 = new Platform2();
+        addObject(platformss17, 1200, -175);
+        Platform2 platformss18 = new Platform2();
+        addObject(platformss18, 1240, -175);
+        Platform2 platformss19 = new Platform2();
+        addObject(platformss19, 1290, -280);
+        Platform2 platformss20 = new Platform2();
+        addObject(platformss20, 1222, -350);
+        Platform2 platformss21 = new Platform2();
+        addObject(platformss21, 1182, -350);
+        Platform2 platformss22 = new Platform2();
+        addObject(platformss22, 1300, -450);
+        Platform2 platformss23 = new Platform2();
+        addObject(platformss23, 1340, -450);
+        Platform2 platformss24 = new Platform2();
+        addObject(platformss24, 1440, -450);
+        Platform2 platformss25 = new Platform2();
+        addObject(platformss25, 1480, -450);
+        Platform2 platformss26 = new Platform2();
+        addObject(platformss26, 1550, -515);
+        Platform2 platformss27 = new Platform2();
+        addObject(platformss27, 1620, -575);
+        Platform2 platformss28 = new Platform2();
+        addObject(platformss28, 1660, -575);
+        Platform2 platformss29 = new Platform2();
+        addObject(platformss29, 1480, -625);
+        Platform2 platformss30 = new Platform2();
+        addObject(platformss30, 1520, -625);
+        Platform2 platformss31 = new Platform2();
+        addObject(platformss31, 1360, -625);
+        Platform2 platformss32 = new Platform2();
+        addObject(platformss32, 1400, -625);
+        Platform2 platformss33 = new Platform2();
+        addObject(platformss33, 1230, -625);
+        Platform2 platformss34 = new Platform2();
+        addObject(platformss34, 1270, -625);
+        Platform2 platformss35 = new Platform2();
+        addObject(platformss35, 1142, -625);
+        
+        
+        
+        Spike2 spikes = new Spike2();
+        addObject(spikes, 272, -140);
+        Spike2 spikes2 = new Spike2();
+        addObject(spikes2, 332, -140);
+        Spike2 spikes7 = new Spike2();
+        addObject(spikes7, 620, -140);        
+        Spike2 spikes3 = new Spike2();
+        addObject(spikes3, 680, -140);
+        Spike2 spikes4 = new Spike2();
+        addObject(spikes4, 740, -140);
+        Spike2 spikes5 = new Spike2();
+        addObject(spikes5, 800, -140);
+        Spike2 spikes6 = new Spike2();
+        addObject(spikes6, 860, -140);
+        
+        Spike2 spikes8 = new Spike2();
+        addObject(spikes8, 1400, 360);
+        Spike2 spikes9 = new Spike2();
+        addObject(spikes9, 1460, 360);
+        Spike2 spikes10 = new Spike2();
+        addObject(spikes10, 1520, 360);
+        Spike2 spikes11 = new Spike2();
+        addObject(spikes11, 1162, -420);
         
         Orc orc = new Orc();
         addObject(orc, 860, -180);
+        Orc orc2 = new Orc();
+        addObject(orc2, 1500, 300);
     }
     
     public void bats()
@@ -437,6 +541,20 @@ public class LevelTwo extends World
         {
          int x = i * -150 + 900;
          int y = -670;
+         addObject(new Bat(), x, y);
+         
+        }
+        for (int i = 0; i < 2;  i++)
+        {
+         int x = i * -150 + 1500;
+         int y = -50;
+         addObject(new Bat(), x, y);
+         
+        }
+        for (int i = 0; i < 2;  i++)
+        {
+         int x = i * -150 + 1500;
+         int y = -475;
          addObject(new Bat(), x, y);
          
         }
