@@ -68,6 +68,7 @@ public class MyWorld extends GameWorld
     {
 
         addObject(player,-760,330);
+        
 
         Key key = new Key();
         addObject(key,70,50);
@@ -82,19 +83,10 @@ public class MyWorld extends GameWorld
         spawningBats();
         Bat bat = new Bat();
         
-        
-        
-
-        
         ground();
 
         walls();
         
-
-
-       
-
-
         Orc orc = new Orc();
         addObject(orc,500,320);
 

@@ -74,8 +74,10 @@ public class Orc extends Actor
         
         if (isTouching(Sword.class) && (world.player.swordPickedUp == true && (Greenfoot.isKeyDown("e"))))
         {
-            health = health - 25;
-            //System.out.println(health);
+            health = health - 100;
+            Greenfoot.delay(20);
+            System.out.println(health);
+            
         }
         
         if (health <= 0)
