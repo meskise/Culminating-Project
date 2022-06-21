@@ -22,7 +22,7 @@ public class MyWorld extends GameWorld
         super(600, 400, 1 , false); 
         prepare();
         //Paint order
-        setPaintOrder(PickUp.class, FindKey.class, PlayerOne.class, Orc.class, SolidGround.class , Platform.class, CastlePlatform.class , LeftWall.class , Spike.class , Platform2.class, CastlePlatform2.class , Sword.class, Key.class, Door.class, Temp.class);
+        setPaintOrder(PickUp.class, FindKey.class, PlayerOne.class, Orc.class, SolidGround.class , Platform.class, CastlePlatform.class , LeftWall.class , Spike.class , Platform2.class, CastlePlatform2.class , Sword.class, Key.class, Door.class);
     }
     
     public void act()
