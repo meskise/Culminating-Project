@@ -74,12 +74,9 @@ public class Orc extends Actor
         }
         
         if (isTouching(Sword.class) && (world.player.swordPickedUp == true && (Greenfoot.isKeyDown("e"))))
-
         {
             health = health - 100;
             Greenfoot.delay(20);
-            System.out.println(health);
-            
         }
         else if (isTouching(Sword.class) && (world.player.swordPickedUp == true && swordThrow == true))
         {
@@ -88,9 +85,9 @@ public class Orc extends Actor
         if (isTouching(Arrow.class))
         {
             health = health - 75;
-            
         }
-        //If out of healt remove orc
+
+        //If out of health remove orc
         if (health <= 0)
         {
             die();

@@ -22,7 +22,7 @@ public class MyWorld extends GameWorld
         super(600, 400, 1 , false); 
         prepare();
         //Paint order
-        setPaintOrder(PickUp.class, FindKey.class, PlayerOne.class, Orc.class, SolidGround.class , Platform.class, CastlePlatform.class , LeftWall.class , Spike.class , Platform2.class, CastlePlatform2.class , Sword.class, Key.class, Door.class, Temp.class);
+        setPaintOrder(PickUp.class, FindKey.class, PlayerOne.class, Orc.class, SolidGround.class , Platform.class, CastlePlatform.class , LeftWall.class , Spike.class , Platform2.class, CastlePlatform2.class , Sword.class, Key.class, Door.class);
     }
     
     public void act()
@@ -237,7 +237,7 @@ public class MyWorld extends GameWorld
     public void spawningBats()
     {
         Bat bat = new Bat();
-        addObject(bat, 70 , 30);
+        addObject(bat, 70 , -20);
     }
     //Spawns map border
     public void boarder()

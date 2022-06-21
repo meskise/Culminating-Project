@@ -82,7 +82,6 @@ public class PlayerOne extends Actor
         GreenfootImage image = getImage();
         image.scale(35,45);
         setImage(image);
-        
         loadImages();
     }
 
