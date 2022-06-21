@@ -486,6 +486,7 @@ public class PlayerOne extends Actor
             }
         }
         
+
         int height = getImage().getHeight();
         if (isDead == true)
         {
@@ -500,7 +501,7 @@ public class PlayerOne extends Actor
             counter++;
             if (counter == 50)
             {
-                 Greenfoot.setWorld(new HomeScreen());
+                 Greenfoot.setWorld(new YouDied());
             }
         }
     }
