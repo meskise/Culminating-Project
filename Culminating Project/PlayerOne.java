@@ -439,6 +439,9 @@ public class PlayerOne extends Actor
             }
             
         }
+
+       
+
         if (isTouching(Bat.class))
         {
             if (isDead == false)
@@ -457,6 +460,7 @@ public class PlayerOne extends Actor
             }
         }
         
+
         int height = getImage().getHeight();
         if (isDead == true)
         {
