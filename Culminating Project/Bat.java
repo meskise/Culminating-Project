@@ -28,15 +28,27 @@ public class Bat extends Actor
      */
     public void act() 
     {
-        movement();
-    } 
-    
-    public void movement()
-    {
+
+       if (isTouching(Arrow.class))
+       {
+           isDead = true;
+           getWorld().removeObject(this);
+       }
+       else if (isTouching(Sword.class))
+       {
+           isDead = true;
+           getWorld().removeObject(this);
+       }
        //if Bat gets too close to Left edge, change y direction to go Right.
-       if(isTouching(LeftWall.class))
+       else if(isTouching(LeftWall.class))
        {
            deltaX= 3;
+           isFacingRight = true;
+           //getImage().mirrorVertically();
+       }
+       else if(isTouching(BatWallLeft.class))
+       {
+           deltaX=3;
            isFacingRight = true;
            //getImage().mirrorVertically();
        }
