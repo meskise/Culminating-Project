@@ -237,7 +237,7 @@ public class MyWorld extends GameWorld
     public void spawningBats()
     {
         Bat bat = new Bat();
-        addObject(bat, 70 , 30);
+        addObject(bat, 70 , -20);
     }
     //Spawns map border
     public void boarder()

@@ -67,21 +67,14 @@ public class Orc extends Actor
     
     public void healthSystem()
     {
-
-        
-        
         if (isTouching(Sword.class) && (world.player.swordPickedUp == true && (Greenfoot.isKeyDown("e"))))
-
         {
             health = health - 100;
             Greenfoot.delay(20);
-            System.out.println(health);
-            
         }
         if (isTouching(Arrow.class))
         {
             health = health - 75;
-            //System.out.println(health);
         }
         //If out of healt remove orc
         if (health <= 0)
