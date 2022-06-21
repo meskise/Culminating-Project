@@ -42,6 +42,7 @@ public class PlayerOne extends Actor
     GreenfootImage[] imagesDieRight;
     GreenfootImage[] imagesDieLeft;
     
+    // Variable to check if player has touched key.
     private boolean touchedKey = false;
 
     
@@ -51,10 +52,12 @@ public class PlayerOne extends Actor
     private Actor bow;
     private boolean pickUpMsg = false;
 
-    
+    // Add spike
     private Actor spike;
+    //Check if dead.
     boolean isDead = false;
 
+    // Booleans for picking up objects and to check if pick up msg's have been displayed.
     private boolean pickUpMsgTwo = false;
     private boolean pickUpMsgThree = false;
     private boolean findKeyMsg = false;
@@ -72,9 +75,11 @@ public class PlayerOne extends Actor
      */
     public PlayerOne()
     {
+        // Set image and scale player one.
         GreenfootImage image = getImage();
         image.scale(35,45);
         setImage(image);
+        
         loadImages();
     }
     
@@ -95,8 +100,12 @@ public class PlayerOne extends Actor
         doorLogic();
     }
     
+    /**
+     * Void for displaying "you must find key" msg.
+     */
     public void doorLogic()
     {
+        // if key is not in world, the key is picked up
         if (getWorld().getObjects(Key.class).isEmpty())
         {
             keyPickedUp = true;
@@ -104,38 +113,43 @@ public class PlayerOne extends Actor
         }
         
         FindKey findKey = new FindKey();
+        // If key is not picked up, the find msg has not been displayed and player is touching door, display find key msg and set it to true.
          if (keyPickedUp == false && findKeyMsg == false && isTouching(Door.class))
         {
             getWorld().addObject(findKey, getX() + 5, getY() - 25);
             findKeyMsg = true;
         }
         
-        
+        // if key is not in world, the key is picked up
         if (getWorld().getObjects(KeyTwo.class).isEmpty())
         {
             keyPickedUp2 = true;
             
         }
-        
+         // If key is not picked up, the find msg has not been displayed and player is touching door, display find key msg and set it to true.
          if (keyPickedUp2 == false && findKeyMsg2 == false && isTouching(Gate.class))
         {
             getWorld().addObject(findKey, getX() + 5, getY() - 25);
             findKeyMsg2 = true;
         }
         
+        // if key is not in world, the key is picked up
         if (getWorld().getObjects(KeyThree.class).isEmpty())
         {
             keyPickedUp3 = true;
             
         }
-        
-         if (keyPickedUp3 == false && findKeyMsg3 == false && isTouching(DoorThree.class))
+         // If key is not picked up, the find msg has not been displayed and player is touching door, display find key msg and set it to true.
+        if (keyPickedUp3 == false && findKeyMsg3 == false && isTouching(DoorThree.class))
         {
             getWorld().addObject(findKey, getX() + 5, getY() - 25);
             findKeyMsg3 = true;
         }
     }
     
+    /**
+     * Void for sword combat.
+     */
     public void swordCombat()
     {
         // If left clicked, and sword is picked up, sword location is false.
@@ -167,6 +181,9 @@ public class PlayerOne extends Actor
 
     }
     
+    /**
+     * Void for picking up sword.
+     */
     public void swordPickUp()
     {
         PickUp pickup = new PickUp();
@@ -190,6 +207,9 @@ public class PlayerOne extends Actor
         }
     }
     
+    /**
+     * Void for bow combat.
+     */
     public void bowCombat()
     {
         // If facing right, bow has been picked up and bow/player are touching eachother, set bow rotation to 240 to appear as if it is being carried.
@@ -204,6 +224,9 @@ public class PlayerOne extends Actor
         
     }
     
+    /**
+     * Void for picking up bow.
+     */
     public void bowPickUp()
     {
         PickUp pickup = new PickUp();
@@ -236,7 +259,7 @@ public class PlayerOne extends Actor
             bow.setLocation(getX() + 10, getY() + 5);
             bow.setRotation(0);
         }
-       
+        // If bow is picked up, g is pressed and facing right is false then set location to left of player.
         if (bowPickedUp == true && Greenfoot.isKeyDown("g") && isFacingRight == false)
         {
             bow.setLocation(getX() - 10, getY() + 5);
@@ -245,6 +268,9 @@ public class PlayerOne extends Actor
    
     }
     
+    /**
+     * Void for picking up key.
+     */
     public void keyPickUp()
     {
         PickUp pickup = new PickUp();
@@ -448,6 +474,9 @@ public class PlayerOne extends Actor
         
     }
     
+    /** 
+     * Void for all player death related things.
+     */
     public void death()
     {
         if (isTouching(Spike.class))
@@ -501,11 +530,15 @@ public class PlayerOne extends Actor
             counter++;
             if (counter == 50)
             {
+                // After 50 frames, set world to you died.
                  Greenfoot.setWorld(new YouDied());
             }
         }
     }
     
+    /**
+     * Void for death animation.
+     */
     public void deathAnimation()
     {
         if (isFacingRight == true)
@@ -519,6 +552,9 @@ public class PlayerOne extends Actor
             }
     }
     
+    /**
+     * Void for animations.
+     */
     void animateNoLoop(GreenfootImage[] images)
     {
         if (frameCounter >= images.length * ANIMATION_INTERVAL)  // Greater or equal (>=) takes care of animations with different number of images.
@@ -551,6 +587,9 @@ public class PlayerOne extends Actor
         
         frameCounter++;
     }
+    /**
+     * Void for loading all images.
+     */
     void loadImages()
     {
         imagesWalkRight = new GreenfootImage[6];
