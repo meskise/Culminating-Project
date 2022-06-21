@@ -1,15 +1,16 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class PickUp here.
+ * Write a description of class FindKey here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class PickUp extends Actor
-{   
+public class FindKey extends Actor
+{
+    //Sets counter to 0
     private int counter = 0;
-    public PickUp()
+    public FindKey()
     {
         // Load image and resize it.
         GreenfootImage image = getImage();
@@ -17,17 +18,16 @@ public class PickUp extends Actor
         setImage(image);
     }
     /**
-     * Act - do whatever the PickUp wants to do. This method is called whenever
+     * Act - do whatever the FindKey wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act()
     {
-        //After certain time remove this actor
+        //Removes object after a certain amout of time
         counter++; 
         if(counter >= 150)
         {
             getWorld().removeObject(this);
         }
-    
     }
 }

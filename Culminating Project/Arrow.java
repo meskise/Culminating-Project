@@ -8,7 +8,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Arrow extends Actor
 {
-
+    //Animation variables
+    int frameCounter = 0;
     boolean isFacingRight;
     // Movement.
     double deltaX = 0;
@@ -34,12 +35,33 @@ public class Arrow extends Actor
         bowShoot();
         collisionCheck();
     }    
-    
+    //Check if collision has happened and removes arrow
     public void collisionCheck()
     {
-        
+        if (isTouching(Platform.class))
+        {
+            getWorld().removeObject(this);
+        }
+        else if (isTouching(SolidCastleGround.class))
+        {
+            getWorld().removeObject(this);
+        }
+        else if (isTouching(Bat.class))
+        {
+            frameCounter++;
+            
+        }
+        else if (isTouching(Orc.class))
+        {
+            frameCounter++;
+        }
+        if (frameCounter >= 2)
+        {
+            getWorld().removeObject(this);
+            frameCounter = 0;
+        }
     }
-    
+    //Allows bow to shoot
     public void bowShoot()
     {
         // Rotation is the rotation of the arrow.

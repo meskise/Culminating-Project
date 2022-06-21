@@ -1,23 +1,23 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class CastlePlatform here.
+ * Write a description of class LavaTriangle here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class CastlePlatform extends Platform
+public class LavaTriangle extends Lava
 {
-    public CastlePlatform()
+    public LavaTriangle()
     {
-        //Sets image scale
+        //Sets scale of image
         GreenfootImage image = getImage();
-        image.scale(40,40);
+        image.scale(42,35);
         setImage(image);
     }
     
     /**
-     * Act - do whatever the CastlePlatform wants to do. This method is called whenever
+     * Act - do whatever the LavaTriangle wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act() 

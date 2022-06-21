@@ -8,11 +8,16 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Bat extends Actor
 {
+    //Movement Variables
     int deltaY;
     int deltaX;
+    //Animation variables
     final int ANIMATION_INTERVAL = 3;
     int frameCounter = 0;
     boolean isFacingRight;
+    //Is dead variable
+    boolean isDead = false;
+    //Loads images
     GreenfootImage[]imagesFlyLeft;
     GreenfootImage[]imagesFlyRight;
     public Bat()
@@ -27,17 +32,54 @@ public class Bat extends Actor
      */
     public void act() 
     {
-        //if Bat gets too close to Left edge, change y direction to go Right.
-       if(isTouching(LeftWall.class))
+       //If collision with world change direction
+       if (isTouching(Arrow.class))
+       {
+           isDead = true;
+           getWorld().removeObject(this);
+       }
+       else if (isTouching(Sword.class))
+       {
+           isDead = true;
+           getWorld().removeObject(this);
+       }
+       //if Bat gets too close to Left edge, change y direction to go Right.
+       else if(isTouching(LeftWall.class))
+       {
+           deltaX= 3;
+           isFacingRight = true;
+           //getImage().mirrorVertically();
+       }
+       else if(isTouching(BatWallLeft.class))
        {
            deltaX=3;
            isFacingRight = true;
            //getImage().mirrorVertically();
        }
        //if Bat gets too close to Right edge, change y direction to go Left.
-       if(isTouching(RightWall.class))
+       else if(isTouching(RightWall.class))
        {
            deltaX=-3;
+           isFacingRight = false;
+           //getImage().mirrorVertically();
+       }
+       else if(isTouching(SolidCastleGround.class))
+       {
+           deltaX=-3;
+           isFacingRight = false;
+           //getImage().mirrorVertically();
+       }
+        //if Bat gets too close to Left edge, change y direction to go Right.
+       else if(isTouching(LeftCastleWall.class))
+       {
+           deltaX=3;
+           isFacingRight = true;
+           //getImage().mirrorVertically();
+       }
+       //if Bat gets too close to Right edge, change y direction to go Left.
+       else if(isTouching(RightCastleWall.class))
+       {
+           deltaX= -3;
            isFacingRight = false;
            //getImage().mirrorVertically();
        }
@@ -50,8 +92,11 @@ public class Bat extends Actor
        {
            animate(imagesFlyLeft);
        }
-       setLocation(getX() + deltaX, getY() + deltaY);
-    }    
+       if (isDead == false)
+       {
+           setLocation(getX() + deltaX, getY() + deltaY);
+       }
+    }
     /**
      * Animates using the specified images.
      */

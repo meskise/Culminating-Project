@@ -1,23 +1,15 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Roof here.
+ * Write a description of class LeftCastleWall here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Roof extends Platform
+public class LeftCastleWall extends Platform
 {
-    public Roof()
-    {
-        //Sets image scale
-        GreenfootImage image = getImage();
-        image.scale(42,41);
-        setImage(image);
-    }
-    
     /**
-     * Act - do whatever the Roof wants to do. This method is called whenever
+     * Act - do whatever the LeftCastleWall wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act() 

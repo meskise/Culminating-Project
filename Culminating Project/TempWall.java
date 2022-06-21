@@ -1,33 +1,31 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class PickUp here.
+ * Write a description of class TempWall here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class PickUp extends Actor
-{   
-    private int counter = 0;
-    public PickUp()
+public class TempWall extends Platform
+{
+    public TempWall()
     {
-        // Load image and resize it.
+        //Sets image scale
         GreenfootImage image = getImage();
-        image.scale(125, 40);
+        image.scale(40,40);
         setImage(image);
     }
+    
     /**
-     * Act - do whatever the PickUp wants to do. This method is called whenever
+     * Act - do whatever the TempWall wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act()
     {
-        //After certain time remove this actor
-        counter++; 
-        if(counter >= 150)
+        if (getWorld().getObjects(KeyTwo.class).isEmpty())
         {
+            // Spawn temporary object on doors coordinates.
             getWorld().removeObject(this);
         }
-    
     }
 }

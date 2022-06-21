@@ -1,33 +1,33 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class PickUp here.
+ * Write a description of class KeyTwo here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class PickUp extends Actor
-{   
-    private int counter = 0;
-    public PickUp()
+public class KeyTwo extends Key
+{
+    //Sets counter to 0
+    int counter = 0;
+    public KeyTwo()
     {
-        // Load image and resize it.
         GreenfootImage image = getImage();
-        image.scale(125, 40);
+        image.scale(30, 30);
         setImage(image);
     }
+    
     /**
-     * Act - do whatever the PickUp wants to do. This method is called whenever
+     * Act - do whatever the KeyTwo wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act()
     {
-        //After certain time remove this actor
-        counter++; 
-        if(counter >= 150)
+        if (isTouching(PlayerOne.class) && Greenfoot.isKeyDown("f"))
         {
+            // Remove key after touching player.
             getWorld().removeObject(this);
+            
         }
-    
     }
 }

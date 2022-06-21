@@ -8,16 +8,18 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class DoorTwo extends Actor
 {
+    //Set counter to 0
     int counter = 0;
-    
+    //Load images
     GreenfootImage DoorClosed;
     
     public DoorTwo()
     {
+        //Sets scale of image
         GreenfootImage image = getImage();
         image.scale(75, 100);
         setImage(image);
-        
+        //Sets scale of image
         DoorClosed = new GreenfootImage("DoorClosedDark.png");
         DoorClosed.scale(75, 100); 
     }
@@ -28,6 +30,7 @@ public class DoorTwo extends Actor
      */
     public void act() 
     {
+        //Door is open then closed
         if (counter >= 75)
         {
              setImage(DoorClosed);   

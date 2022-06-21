@@ -8,10 +8,11 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Spike extends Actor
 {
-    int counter = 0;
+    
     
     public Spike()
     {
+        //Sets image scale
         GreenfootImage image = getImage();
         image.scale(60, 30);
         setImage(image);

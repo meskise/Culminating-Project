@@ -8,7 +8,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class MyWorld extends GameWorld
 {
-    
+
+    //Scrolling screen variables
+
     int scrollDistance = 2;
     int vScrollDistance = 5;
     int numberOfBricks = 5;
@@ -21,14 +23,15 @@ public class MyWorld extends GameWorld
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1 , false); 
         prepare();
-        setPaintOrder(PickUp.class, PlayerOne.class, Orc.class, SolidGround.class , Platform.class, CastlePlatform.class , LeftWall.class , Spike.class , Platform2.class, CastlePlatform2.class , Sword.class, Key.class, Door.class, Temp.class);
+        //Paint order
+        setPaintOrder(PickUp.class, FindKey.class, PlayerOne.class, Orc.class, SolidGround.class , Platform.class, CastlePlatform.class , LeftWall.class , Spike.class , Platform2.class, CastlePlatform2.class , Sword.class, Key.class, Door.class, Temp.class);
     }
     
     public void act()
     {
         checkScroll();
     }
-    
+    //Gets ints needed to scroll screen
     public void checkScroll()
     {
         if (player.getX() < 298.5)
@@ -51,7 +54,7 @@ public class MyWorld extends GameWorld
             scroll(0 , - vScrollDistance);
         }
     }
-    
+    //Scrolls the screen
     public void scroll(int x , int y)
     {
         for (Actor actor : getObjects(Actor.class))
@@ -66,6 +69,7 @@ public class MyWorld extends GameWorld
      */
     private void prepare()
     {
+
 
         addObject(player,-760,330);
         
@@ -83,14 +87,30 @@ public class MyWorld extends GameWorld
         spawningBats();
         Bat bat = new Bat();
         
-        ground();
 
+        ground();
+        Spikes();
         walls();
-        
+
+        misc();
+    }
+    //Spawns misc stuff like key, door, sword, orc, and player
+    public void misc()
+    {
+        addObject(player,-760,330);
+        Key key = new Key();
+        addObject(key,70,50);
+        Door door = new Door();
+        addObject(door,750, 315);
+        Sword sword = new Sword();
+        addObject(sword, 740, -10);
+
         Orc orc = new Orc();
         addObject(orc,500,320);
-
-        
+    }
+    //Spawns spikes
+    public void Spikes()
+    {
         for (int i = 0; i < 10; i++)
         {
          int x = -660 + i * 60;
@@ -105,15 +125,29 @@ public class MyWorld extends GameWorld
          addObject(new Spike(), x, y);
          
         }
+        for (int i = 0; i < 8; i++)
+        {
+         int x = 360 + i * 60;
+         int y = 180;
+         addObject(new Spike(), x, y);
+         
+        }
     }
-    
+    //Spawns solid ground around map
     public void ground()
     {
         //Ground
-        for (int i = 0; i < 50;  i++)
+        for (int i = 0; i < 59;  i++)
         {
          int x = -1120 + i * 40;
          int y = 420;
+         addObject(new SolidGround(), x, y);
+         
+        }
+        for (int i = 0; i < 59;  i++)
+        {
+         int x = -1120 + i * 40;
+         int y = 460;
          addObject(new SolidGround(), x, y);
          
         }
@@ -175,61 +209,57 @@ public class MyWorld extends GameWorld
          addObject(new SolidGround(), x, y);
          
         }
+        //Right Wall
+        for (int i = 0; i < 30;  i++)
+        {
+         int x = 880;
+         int y = 380 - i * 40;
+         addObject(new SolidGround(), x, y);
+         
+        }
+        for (int i = 0; i < 30;  i++)
+        {
+         int x = 920;
+         int y = 380 - i * 40;
+         addObject(new SolidGround(), x, y);
+         
+        }
+        for (int i = 0; i < 30;  i++)
+        {
+         int x = 960;
+         int y = 380 - i * 40;
+         addObject(new SolidGround(), x, y);
+         
+        }
+        for (int i = 0; i < 30;  i++)
+        {
+         int x = 1000;
+         int y = 380 - i * 40;
+         addObject(new SolidGround(), x, y);
+         
+        }
+        for (int i = 0; i < 30;  i++)
+        {
+         int x = 1040;
+         int y = 380 - i * 40;
+         addObject(new SolidGround(), x, y);
+         
+        }
+        for (int i = 0; i < 30;  i++)
+        {
+         int x = 1080;
+         int y = 380 - i * 40;
+         addObject(new SolidGround(), x, y);
+         
+        }
     }
-
+    //Spawns bats
     public void spawningBats()
     {
-        // for (int i = 0; i < 7;  i++)
-        // {
-         // int x = i * -200 + 350;
-         // int y = 140;
-         // addObject(new Bat(), x, y);
-         
-        // }
-        // // for (int i = 0; i < 7;  i++)
-        // // {
-         // // int x = i * -200 + 250;
-         // // int y = -160;
-         // // addObject(new Bat(), x, y);
-         
-        // // }
-        // for (int i = 0; i < 7;  i++)
-        // {
-         // int x = i * -200 + 450;
-         // int y = -360;
-         // addObject(new Bat(), x, y);
-         
-        // }
-        // for (int i = 0; i < 7;  i++)
-        // {
-         // int x = i * -200 + 150;
-         // int y = -560;
-         // addObject(new Bat(), x, y);
-         
-        // }
-        // for (int i = 0; i < 7;  i++)
-        // {
-         // int x = i * -200 + 400;
-         // int y = -760;
-         // addObject(new Bat(), x, y);
-         
-        // }
-        // for (int i = 0; i < 7;  i++)
-        // {
-         // int x = i * -200 + 0;
-         // int y = -960;
-         // addObject(new Bat(), x, y);
-         
-        // }
-        // for (int i = 0; i < 7;  i++)
-        // {
-         // int x = i * -200 + -150;
-         // int y = -1160;
-         // addObject(new Bat(), x, y);
-         
-        // }
+        Bat bat = new Bat();
+        addObject(bat, 70 , 40);
     }
-    
+    //Spawns map border
     public void boarder()
     {
         //Floor
@@ -266,6 +296,7 @@ public class MyWorld extends GameWorld
         }
         
     }
+    //Spawns the half platforms
     public void platforms()
     {
 
@@ -315,7 +346,20 @@ public class MyWorld extends GameWorld
         addObject(castleplatform222,60,80);
         CastlePlatform2 castleplatform223 = new CastlePlatform2();
         addObject(castleplatform223,160,0);
+        CastlePlatform2 castleplatform224 = new CastlePlatform2();
+        addObject(castleplatform224,400,20);
+        CastlePlatform2 castleplatform225 = new CastlePlatform2();
+        addObject(castleplatform225,440,20);
+        CastlePlatform2 castleplatform226 = new CastlePlatform2();
+        addObject(castleplatform226,550,20);
+        CastlePlatform2 castleplatform227 = new CastlePlatform2();
+        addObject(castleplatform227,590,20);
+        CastlePlatform2 castleplatform228 = new CastlePlatform2();
+        addObject(castleplatform228,700,20);
+        CastlePlatform2 castleplatform229 = new CastlePlatform2();
+        addObject(castleplatform229,740,20);
     }
+    //Spawns full platforms or in map walls
     public void walls()
     {
         for (int i = 0; i < 10; i++)
@@ -366,7 +410,7 @@ public class MyWorld extends GameWorld
         {
          int x = -60;
          int y = -80 + i * 40;
-         addObject(new CastlePlatform(), x, y);
+         addObject(new LeftWall(), x, y);
          
         }
         
@@ -377,15 +421,30 @@ public class MyWorld extends GameWorld
          addObject(new CastlePlatform(), x, y);
          
         }
-        //HHHHH
+        
         for (int i = 0; i < 12;i++)
         {
          int x = 200;
+         int y = -80 + i * 40;
+         addObject(new RightWall(), x, y);
+         
+        }
+        
+        for (int i = 0; i < 9;i++)
+        {
+         int x = 310;
          int y = -80 + i * 40;
          addObject(new CastlePlatform(), x, y);
          
         }
         
-            }
+        for (int i = 0; i < 13;i++)
+        {
+         int x = 350 + i * 40;
+         int y = 200;
+         addObject(new CastlePlatform(), x, y);
+         
+        }
+    }
     
 }
