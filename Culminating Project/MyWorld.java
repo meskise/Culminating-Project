@@ -8,9 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class MyWorld extends GameWorld
 {
-
     //Scrolling screen variables
-
     int scrollDistance = 2;
     int vScrollDistance = 5;
     int numberOfBricks = 5;
@@ -69,29 +67,12 @@ public class MyWorld extends GameWorld
      */
     private void prepare()
     {
-
-
-        addObject(player,-760,330);
-        
-
-        Key key = new Key();
-        addObject(key,70,50);
-        Door door = new Door();
-        addObject(door,550, 315);
-
-        Sword sword = new Sword();
-
-        addObject(sword, 290, 300);
         boarder();
         platforms();
         spawningBats();
-        Bat bat = new Bat();
-        
-
         ground();
         Spikes();
         walls();
-
         misc();
     }
     //Spawns misc stuff like key, door, sword, orc, and player
@@ -104,7 +85,6 @@ public class MyWorld extends GameWorld
         addObject(door,750, 315);
         Sword sword = new Sword();
         addObject(sword, 740, -10);
-
         Orc orc = new Orc();
         addObject(orc,500,320);
     }
@@ -299,7 +279,6 @@ public class MyWorld extends GameWorld
     //Spawns the half platforms
     public void platforms()
     {
-
         CastlePlatform2 castleplatform22 = new CastlePlatform2();
         addObject(castleplatform22,-670,280);
         CastlePlatform2 castleplatform23 = new CastlePlatform2();
@@ -334,14 +313,12 @@ public class MyWorld extends GameWorld
         addObject(castleplatform217,-500,-100);
         CastlePlatform2 castleplatform218 = new CastlePlatform2();
         addObject(castleplatform218,-540,-100);
-        
         CastlePlatform2 castleplatform219 = new CastlePlatform2();
         addObject(castleplatform219,-340,-90);
         CastlePlatform2 castleplatform220 = new CastlePlatform2();
         addObject(castleplatform220,-380,-90);
         CastlePlatform2 castleplatform221 = new CastlePlatform2();
         addObject(castleplatform221,-220,-90);
-        
         CastlePlatform2 castleplatform222 = new CastlePlatform2();
         addObject(castleplatform222,60,80);
         CastlePlatform2 castleplatform223 = new CastlePlatform2();
