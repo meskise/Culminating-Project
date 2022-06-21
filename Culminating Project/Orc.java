@@ -63,6 +63,11 @@ public class Orc extends Actor
             health = health - 25;
             //System.out.println(health);
         }
+        if (isTouching(Arrow.class))
+        {
+            health = health - 75;
+            //System.out.println(health);
+        }
         
         if (health <= 0)
         {
