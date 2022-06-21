@@ -565,8 +565,8 @@ public class PlayerOne extends Actor
             {
                 moveOnTopOfObject(platform);
             }
-            counter++;
-            if (counter == 50)
+            frameCounter++;
+            if (frameCounter == 50)
             {
                 // After 50 frames, set world to you died.
                  Greenfoot.setWorld(new YouDied());

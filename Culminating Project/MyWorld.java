@@ -81,7 +81,7 @@ public class MyWorld extends GameWorld
 
         Sword sword = new Sword();
 
-        addObject(sword, 290, 100);
+        addObject(sword, 290, 300);
         boarder();
         platforms();
         spawningBats();
