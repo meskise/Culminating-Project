@@ -9,8 +9,6 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class LevelTwo extends GameWorld 
 {
-
-    
     // Scrolling screen variables.
 
     int scrollDistance = 2;
