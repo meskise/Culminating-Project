@@ -439,9 +439,6 @@ public class PlayerOne extends Actor
             }
             
         }
-
-       
-
         if (isTouching(Bat.class))
         {
             if (isDead == false)
@@ -475,7 +472,7 @@ public class PlayerOne extends Actor
             counter++;
             if (counter == 50)
             {
-                 Greenfoot.setWorld(new HomeScreen());
+                 Greenfoot.setWorld(new YouDied());
             }
         }
     }
