@@ -387,7 +387,7 @@ public class MyWorld extends World
         {
          int x = -60;
          int y = -80 + i * 40;
-         addObject(new CastlePlatform(), x, y);
+         addObject(new LeftWall(), x, y);
          
         }
         
@@ -403,7 +403,7 @@ public class MyWorld extends World
         {
          int x = 200;
          int y = -80 + i * 40;
-         addObject(new CastlePlatform(), x, y);
+         addObject(new RightWall(), x, y);
          
         }
         
