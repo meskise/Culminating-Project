@@ -10,6 +10,7 @@ public class SolidCastleGround extends Platform
 {
     public SolidCastleGround()
     {
+        //Sets image scale
         GreenfootImage image = getImage();
         image.scale(42,41);
         setImage(image);

@@ -10,6 +10,7 @@ public class TempWall extends Platform
 {
     public TempWall()
     {
+        //Sets image scale
         GreenfootImage image = getImage();
         image.scale(40,40);
         setImage(image);

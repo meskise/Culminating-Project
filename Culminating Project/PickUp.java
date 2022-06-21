@@ -22,6 +22,7 @@ public class PickUp extends Actor
      */
     public void act()
     {
+        //After certain time remove this actor
         counter++; 
         if(counter >= 150)
         {

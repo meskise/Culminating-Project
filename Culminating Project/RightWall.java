@@ -10,6 +10,7 @@ public class RightWall extends Platform
 {
     public RightWall()
     {
+        //Sets image scale
         GreenfootImage image = getImage();
         image.scale(42,41);
         setImage(image);

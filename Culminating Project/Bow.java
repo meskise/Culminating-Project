@@ -8,22 +8,26 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Bow extends Actor
 {
+    //Animation variables
     final int ANIMATION_INTERVAL = 7;
     int frameCounter = 0;
+    boolean isFacingRight;
+    //Time between shots
     int shotCounter = 0;
+    //Declares actors
     private Actor arrow;
     private Actor playerone;
-    
-    boolean isFacingRight;
+    //Dont move until pick up
     boolean setLocation = false;
-    
+    //Rotation
     public static int rotation;
-    
+    //LOad images
     GreenfootImage[] imagesBowShootLeft;
     GreenfootImage[] imagesBowShootRight;
     
     public Bow()
     {
+        //Sets scale of image
         GreenfootImage image = getImage();
         image.scale(15, 40);
         setImage(image);
@@ -66,7 +70,7 @@ public class Bow extends Actor
             animate(imagesBowShootRight);
             shotCounter++;
             setLocation = true;
-            //setRotation(0);
+            
         }
         
         if (Greenfoot.isKeyDown("g") && isFacingRight == false && isTouching(PlayerOne.class))
@@ -74,7 +78,7 @@ public class Bow extends Actor
             animate(imagesBowShootLeft);
             shotCounter++;
             setLocation = true;
-            //setRotation(180);
+            
         }
         
         if (shotCounter >= 30 && isFacingRight == true && isTouching(PlayerOne.class))

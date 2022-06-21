@@ -45,19 +45,26 @@ public class Orc extends Actor
     
     public void act()
     {
-        deltaX = move;
-        if (isTouchingPlayer == false)
-        {
-            setLocation(getX() + deltaX , getY() + deltaY);
-        }
+        movement();
         runAnimations();
         checkCollision();
         applyGravity();
         healthSystem();
     }
     
+    public void movement()
+    {
+        //Moves orc
+        deltaX = move;
+        if (isTouchingPlayer == false)
+        {
+            setLocation(getX() + deltaX , getY() + deltaY);
+        }
+    }
+    
     public void healthSystem()
     {
+        //Allows orc to take damge
         if (isTouching(Sword.class))
         {
             health = health - 25;
@@ -68,7 +75,7 @@ public class Orc extends Actor
             health = health - 75;
             //System.out.println(health);
         }
-        
+        //If out of healt remove orc
         if (health <= 0)
         {
             die();
@@ -78,6 +85,7 @@ public class Orc extends Actor
     
     public void runAnimations()
     {
+        //Runs the walk and attack animation
         if (isTouchingPlayer == true)
         {
             if (isFacingRight == true)
@@ -114,6 +122,7 @@ public class Orc extends Actor
            
     public void applyGravity()
     {
+        //Gets height and width
         int height = getImage().getHeight();
         int width = getImage().getWidth();
       
@@ -139,7 +148,7 @@ public class Orc extends Actor
                 move = 2;
             }
         }
-      
+        //If at the edge of platform move the other way
         if (isAtEdge())
         {
             if(move == 2)
@@ -163,6 +172,7 @@ public class Orc extends Actor
     
     public void checkCollision()
     {
+        //Checks if touching player
         if (isTouching(PlayerOne.class))
         {
             isTouchingPlayer = true;
@@ -171,6 +181,7 @@ public class Orc extends Actor
         {
             isTouchingPlayer = false;
         }
+        //Gets height and width of image
         int height = getImage().getHeight();
         int width = getImage().getWidth();
         
@@ -195,7 +206,7 @@ public class Orc extends Actor
     /**
      * Stop right on object when called.
      */
-    public void stopOnRightObject(Actor object)
+    public void stopOnRightObject(Actor object)//Stops on right
     {
         int width = getImage().getWidth();
         int objectWidth = object.getImage().getWidth();
@@ -206,20 +217,14 @@ public class Orc extends Actor
     /**
      * Stop left on object when called.
      */
-    public void stopOnLeftObject(Actor object)
+    public void stopOnLeftObject(Actor object)//Stops on left
     {
         int width = getImage().getWidth();
         int objectWidth = object.getImage().getWidth();
         
         setLocation(object.getX() - objectWidth /2 - width /2, getY());
     }
-    
-    public void attack()
-    {
-        
-    }
-    
-    public void die()
+    public void die()//Animate dieing
     {
         if (isFacingRight == true)
         {

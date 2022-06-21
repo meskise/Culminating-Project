@@ -8,6 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Arrow extends Actor
 {
+    //Animation variables
     int frameCounter = 0;
     boolean isFacingRight;
     // Movement.
@@ -34,7 +35,7 @@ public class Arrow extends Actor
         bowShoot();
         collisionCheck();
     }    
-    
+    //Check if collision has happened and removes arrow
     public void collisionCheck()
     {
         if (isTouching(Platform.class))
@@ -60,7 +61,7 @@ public class Arrow extends Actor
             frameCounter = 0;
         }
     }
-    
+    //Allows bow to shoot
     public void bowShoot()
     {
         // Rotation is the rotation of the arrow.

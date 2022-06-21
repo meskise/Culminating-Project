@@ -8,14 +8,16 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class DoorThree extends Actor
 {
+    //Load images
     GreenfootImage DoorOpen;
     
     public DoorThree()
     {
+        //Sets scale of image
         GreenfootImage image = getImage();
         image.scale(75, 100);
         setImage(image);
-        
+        //Sets scale of image
         DoorOpen = new GreenfootImage("DoorOpenRed.png");
         DoorOpen.scale(75, 100); 
     }

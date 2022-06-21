@@ -10,6 +10,7 @@ public class Lava extends Actor
 {
     public Lava()
     {
+        //Sets scale of image
         GreenfootImage image = getImage();
         image.scale(42,35);
         setImage(image);

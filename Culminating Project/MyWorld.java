@@ -8,7 +8,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class MyWorld extends World
 {
+    //Declares Player one
     PlayerOne player = new PlayerOne();
+    //Scrolling screen variables
     int scrollDistance = 2;
     int vScrollDistance = 5;
     int numberOfBricks = 5;
@@ -21,6 +23,7 @@ public class MyWorld extends World
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1 , false); 
         prepare();
+        //Paint order
         setPaintOrder(PickUp.class, FindKey.class, PlayerOne.class, Orc.class, SolidGround.class , Platform.class, CastlePlatform.class , LeftWall.class , Spike.class , Platform2.class, CastlePlatform2.class , Sword.class, Key.class, Door.class, Temp.class);
     }
     
@@ -28,7 +31,7 @@ public class MyWorld extends World
     {
         checkScroll();
     }
-    
+    //Gets ints needed to scroll screen
     public void checkScroll()
     {
         if (player.getX() < 298.5)
@@ -51,7 +54,7 @@ public class MyWorld extends World
             scroll(0 , - vScrollDistance);
         }
     }
-    
+    //Scrolls the screen
     public void scroll(int x , int y)
     {
         for (Actor actor : getObjects(Actor.class))
@@ -74,7 +77,7 @@ public class MyWorld extends World
         walls();
         misc();
     }
-    
+    //Spawns misc stuff like key, door, sword, orc, and player
     public void misc()
     {
         addObject(player,-760,330);
@@ -87,7 +90,7 @@ public class MyWorld extends World
         Orc orc = new Orc();
         addObject(orc,500,320);
     }
-    
+    //Spawns spikes
     public void Spikes()
     {
         for (int i = 0; i < 10; i++)
@@ -112,7 +115,7 @@ public class MyWorld extends World
          
         }
     }
-    
+    //Spawns solid ground around map
     public void ground()
     {
         //Ground
@@ -232,13 +235,13 @@ public class MyWorld extends World
          
         }
     }
-
+    //Spawns bats
     public void spawningBats()
     {
         Bat bat = new Bat();
         addObject(bat, 70 , 40);
     }
-    
+    //Spawns map border
     public void boarder()
     {
         //Floor
@@ -275,6 +278,7 @@ public class MyWorld extends World
         }
         
     }
+    //Spawns the half platforms
     public void platforms()
     {
 
@@ -337,6 +341,7 @@ public class MyWorld extends World
         CastlePlatform2 castleplatform229 = new CastlePlatform2();
         addObject(castleplatform229,740,20);
     }
+    //Spawns full platforms or in map walls
     public void walls()
     {
         for (int i = 0; i < 10; i++)

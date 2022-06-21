@@ -10,6 +10,7 @@ public class Platform2 extends Platform
 {
     public Platform2()
     {
+        //Sets image scale
         GreenfootImage image = getImage();
         image.scale(42,21);
         setImage(image);

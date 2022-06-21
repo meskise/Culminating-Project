@@ -10,6 +10,7 @@ public class Roof extends Platform
 {
     public Roof()
     {
+        //Sets image scale
         GreenfootImage image = getImage();
         image.scale(42,41);
         setImage(image);

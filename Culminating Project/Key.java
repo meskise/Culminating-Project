@@ -8,9 +8,11 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Key extends Actor
 {
+    //Sets counter to 0
     int counter = 0;
     public Key()
     {
+        //Sets scale of image
         GreenfootImage image = getImage();
         image.scale(30, 30);
         setImage(image);

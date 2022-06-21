@@ -10,6 +10,7 @@ public class LeftWall extends Platform
 {
     public LeftWall()
     {
+        //Sets image scale
         GreenfootImage image = getImage();
         image.scale(42,41);
         setImage(image);
