@@ -13,6 +13,7 @@ public class Bat extends Actor
     final int ANIMATION_INTERVAL = 3;
     int frameCounter = 0;
     boolean isFacingRight;
+    boolean isDead = false;
     GreenfootImage[]imagesFlyLeft;
     GreenfootImage[]imagesFlyRight;
     public Bat()
@@ -27,20 +28,48 @@ public class Bat extends Actor
      */
     public void act() 
     {
+
         movement();
     } 
     
     public void movement()
     {
+
+       if (isTouching(Arrow.class))
+       {
+           isDead = true;
+           getWorld().removeObject(this);
+       }
+
         //if Bat gets too close to Left edge, change y direction to go Right.
-       if(isTouching(LeftWall.class))
+       else if(isTouching(LeftWall.class))
        {
            deltaX= 3;
            isFacingRight = true;
            //getImage().mirrorVertically();
        }
        //if Bat gets too close to Right edge, change y direction to go Left.
-       if(isTouching(RightWall.class))
+       else if(isTouching(RightWall.class))
+       {
+           deltaX=-3;
+           isFacingRight = false;
+           //getImage().mirrorVertically();
+       }
+       else if(isTouching(SolidCastleGround.class))
+       {
+           deltaX=-3;
+           isFacingRight = false;
+           //getImage().mirrorVertically();
+       }
+        //if Bat gets too close to Left edge, change y direction to go Right.
+       else if(isTouching(LeftCastleWall.class))
+       {
+           deltaX=3;
+           isFacingRight = true;
+           //getImage().mirrorVertically();
+       }
+       //if Bat gets too close to Right edge, change y direction to go Left.
+       else if(isTouching(RightCastleWall.class))
        {
            deltaX= -3;
            isFacingRight = false;
@@ -55,11 +84,19 @@ public class Bat extends Actor
        {
            animate(imagesFlyLeft);
        }
+
        setLocation(getX() + deltaX, getY() + deltaY);
     }
     
     
     
+
+       if (isDead == false)
+       {
+           setLocation(getX() + deltaX, getY() + deltaY);
+       }
+    }    
+
     /**
      * Animates using the specified images.
      */

@@ -57,9 +57,11 @@ public class PlayerOne extends Actor
 
     private boolean pickUpMsgTwo = false;
     private boolean pickUpMsgThree = false;
+    private boolean findKeyMsg = false;
     private boolean swordPickedUp = false;
     private boolean bowPickedUp = false;
     private boolean swordLocation;
+    private boolean keyPickedUp = false;
 
     /** 
      * Scale and load all images.
@@ -85,22 +87,23 @@ public class PlayerOne extends Actor
         bowPickUp();
         keyPickUp();
         swordCombat();
-        enemyColisions();
         bowCombat();
-        if (Greenfoot.isKeyDown("h"))
-        {
-            Greenfoot.setWorld(new LevelTwo());
-        }
-      
+        doorLogic();
     }
     
-    public void enemyColisions()
+    public void doorLogic()
     {
-        if (isTouching(Bat.class))
+        if (getWorld().getObjects(KeyTwo.class).isEmpty())
         {
-            //getWorld().showText("Game Over",400,300);
-            getWorld().removeObject(this);
-            Greenfoot.stop();
+            keyPickedUp = true;
+            
+        }
+        
+        FindKey findKey = new FindKey();
+         if (keyPickedUp == false && findKeyMsg == false && isTouching(Gate.class))
+        {
+            getWorld().addObject(findKey, getX() + 5, getY() - 25);
+            findKeyMsg = true;
         }
     }
     
@@ -436,7 +439,28 @@ public class PlayerOne extends Actor
             }
             
         }
+
        
+
+        if (isTouching(Bat.class))
+        {
+            if (isDead == false)
+            {
+                frameCounter = 0;
+                isDead = true;
+            }
+        }
+        
+        if (isTouching(Lava.class))
+        {
+            if (isDead == false)
+            {
+                frameCounter = 0;
+                isDead = true;
+            }
+        }
+        
+
         int height = getImage().getHeight();
         if (isDead == true)
         {
