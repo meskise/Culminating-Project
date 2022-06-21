@@ -9,9 +9,12 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class LevelTwo extends World
 {
+    // Declare player.
     PlayerOne player = new PlayerOne();
+    // Scrolling screen variables.
     int scrollDistance = 2;
     int vScrollDistance = 5;
+    // For for loops.
     int numberOfBricks = 5;
     /**
      * Constructor for objects of class LevelTwo.
@@ -21,10 +24,15 @@ public class LevelTwo extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1, false); 
+        // Paint order for level 2.
         setPaintOrder(PickUp.class, FindKey.class, Lava.class, Gate.class, PlayerOne.class, Bow.class, KeyTwo.class, Orc.class, Arrow.class, DoorTwo.class, DoorThree.class, Platform.class, SolidGround.class, Spike.class , Platform2.class, Sword.class, Key.class, Door.class, Temp.class, TempWall.class);
         prepare();
     }
     
+    /**
+     * 
+     * Act void for scrolling screen.
+     */
     public void act()
     {
         //Scrolling screen
@@ -36,8 +44,9 @@ public class LevelTwo extends World
      */
     private void prepare()
     {
+        // Spawn player.
         addObject(player, 300, 330);
-        
+        // Add all main objects to level.
         DoorTwo door = new DoorTwo();
         addObject(door, 320, 310);
         Gate gate = new Gate();
@@ -50,7 +59,7 @@ public class LevelTwo extends World
         addObject(door3, 1620, -95);
         KeyThree key3 = new KeyThree();
         addObject(key3, 1142, -655);
-        
+        // Bat walls so bats travel left to right.
         BatWallLeft bwl = new BatWallLeft();
         addObject(bwl, 1120, -50);
         BatWallLeft bwl2= new BatWallLeft();
@@ -63,9 +72,11 @@ public class LevelTwo extends World
         roof();
         platforms();
         
+        // Add bow.
         Bow bow = new Bow();
         addObject(bow, 1002, -10);
         
+        // Add gate walls above the gate.
         RightCastleWall gatewall = new RightCastleWall();
         addObject(gatewall, 1062, 260);
         RightCastleWall gatewall2 = new RightCastleWall();
@@ -145,7 +156,7 @@ public class LevelTwo extends World
         addObject(gatewall38, 1102, -800);
         
         
-        
+        // Add spikes to left side.
         Spike2 spike = new Spike2();
         addObject(spike, 560, 360);
         Spike2 spike2 = new Spike2();
@@ -185,6 +196,7 @@ public class LevelTwo extends World
     {
         for (Actor actor : getObjects(Actor.class))
         {
+            // Move actors along with player.
             actor.setLocation(actor.getX() - x, actor.getY() - y);
         }
     }
@@ -194,6 +206,7 @@ public class LevelTwo extends World
      */
     public void platforms()
     {
+        // Add platforms
         Platform2 platform = new Platform2();
         addObject(platform, 450, 290);
         Platform2 platform2 = new Platform2();
@@ -288,6 +301,7 @@ public class LevelTwo extends World
         Platform platform46 = new Platform();
         addObject(platform46, 902, -120);
         
+        // Add lava.
         Lava platform47 = new Lava();
         addObject(platform47, 942, -115);
         Lava platform48 = new Lava();
@@ -337,6 +351,7 @@ public class LevelTwo extends World
         LavaTriangle lava20 = new LavaTriangle();
         addObject(lava20, 1062, -745);
         
+        // Add platforms beneath lava.
         Platform lavaplatform1 = new Platform();
         addObject(lavaplatform1, 1062, -360);
         SolidCastleGround lavaplatform2 = new SolidCastleGround();
@@ -350,6 +365,7 @@ public class LevelTwo extends World
         SolidCastleGround lavaplatform6 = new SolidCastleGround();
         addObject(lavaplatform6, 1142, -360);
         
+        // More platforms.
         Platform platform51 = new Platform();
         addObject(platform51, 1102, -120);
         
@@ -492,7 +508,7 @@ public class LevelTwo extends World
         addObject(platformss35, 1142, -625);
         
         
-        
+        // More spikes.
         Spike2 spikes = new Spike2();
         addObject(spikes, 272, -140);
         Spike2 spikes2 = new Spike2();
@@ -517,12 +533,16 @@ public class LevelTwo extends World
         Spike2 spikes11 = new Spike2();
         addObject(spikes11, 1162, -420);
         
+        //Add orcs.
         Orc orc = new Orc();
         addObject(orc, 860, -180);
         Orc orc2 = new Orc();
         addObject(orc2, 1500, 300);
     }
     
+    /**
+     * Void for spawning bats.
+     */
     public void bats()
     {
         for (int i = 0; i < 3;  i++)
@@ -562,6 +582,9 @@ public class LevelTwo extends World
         }
     }
     
+    /** 
+     * Void for ground under player.
+     */
     public void ground()
     {
         //Floor
@@ -723,6 +746,9 @@ public class LevelTwo extends World
         }
     }
     
+    /**
+     * Void for spawning all roof tiles.
+     */
     public void roof()
     {
         // Roof
@@ -1117,6 +1143,9 @@ public class LevelTwo extends World
         }
     }
     
+    /**
+     * Void for all right border tiles.
+     */
     public void rightBorder()
     {
         // Right border
@@ -1192,6 +1221,9 @@ public class LevelTwo extends World
         
     }
     
+    /**
+     * Void for all left border tiles.
+     */
     public void leftBorder()
     {
         // Left Border
