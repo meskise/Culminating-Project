@@ -67,7 +67,6 @@ public class PlayerOne extends Actor
     private boolean findKeyMsg2 = false;
     private boolean findKeyMsg3 = false;
    
-
     private boolean bowPickedUp = false;
     private boolean swordLocation;
     private boolean keyPickedUp = false;
@@ -86,7 +85,7 @@ public class PlayerOne extends Actor
         
         loadImages();
     }
-    
+
     /**
      * Act for all voids.
      */
@@ -166,6 +165,7 @@ public class PlayerOne extends Actor
         {
             swordLocation = true;
         }
+        
         if (swordPickedUp == true)
         {
             getWorld().setPaintOrder(Platform.class,Spike.class,PlayerOne.class,Sword.class);
@@ -177,12 +177,7 @@ public class PlayerOne extends Actor
             sword.setLocation(getX(), getY());
             
         }
-        
-        if (Greenfoot.isKeyDown("e")&&(swordPickedUp == true))
-        {
-            
-            
-        }
+
         // If facing right, sword has been picked up and sword/player are touching eachother, set sword rotation to 240 to appear as if it is being carried.
         if (isFacingRight == true && swordPickedUp == true && isTouching(Sword.class))
         {

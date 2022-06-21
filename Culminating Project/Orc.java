@@ -9,12 +9,13 @@ public class Orc extends Actor
     // Movement variables.
     boolean isInAir;
     boolean isFacingRight = true;
+    boolean swordThrow;
     boolean isTouchingPlayer;
     int deltaY;
     int deltaX;
     final int gravity = 1;
     int move = 2;
-    
+    int counter = 0;
     
     // Animation variables.
     int animationInterval = 7;  // Number of frames between animation images.
@@ -67,8 +68,10 @@ public class Orc extends Actor
     
     public void healthSystem()
     {
-
-        
+        if (Greenfoot.mousePressed(null) && (world.player.swordPickedUp == true))
+        {
+            swordThrow = true;
+        }
         
         if (isTouching(Sword.class) && (world.player.swordPickedUp == true && (Greenfoot.isKeyDown("e"))))
 
@@ -78,16 +81,30 @@ public class Orc extends Actor
             System.out.println(health);
             
         }
+        else if (isTouching(Sword.class) && (world.player.swordPickedUp == true && swordThrow == true))
+        {
+            health = health - 25;
+        }
         if (isTouching(Arrow.class))
         {
             health = health - 75;
-            //System.out.println(health);
+            
         }
         //If out of healt remove orc
         if (health <= 0)
         {
             die();
             getWorld().removeObject(this);
+        }
+        
+        if (swordThrow == true)
+        {
+            counter++;
+            if (counter >= 10)
+            {
+                swordThrow = false;
+                counter = 0;
+            }
         }
     }
     
