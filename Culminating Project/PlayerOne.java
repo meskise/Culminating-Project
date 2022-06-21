@@ -95,7 +95,7 @@ public class PlayerOne extends Actor
         movementKeys();
         applyGravity();
         collisonCheck();
-        //death();
+        death();
         swordPickUp();
         bowPickUp();
         keyPickUp();
