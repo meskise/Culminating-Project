@@ -20,7 +20,7 @@ public class LevelTwo extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1, false); 
-        setPaintOrder(PickUp.class, Lava.class, PlayerOne.class, Bow.class, Orc.class, Arrow.class, DoorTwo.class, Platform.class, SolidGround.class, Spike.class , Platform2.class, Sword.class, Key.class, Door.class, Temp.class);
+        setPaintOrder(PickUp.class, FindKey.class, Lava.class, Gate.class, PlayerOne.class, Bow.class, KeyTwo.class, Orc.class, Arrow.class, DoorTwo.class, Platform.class, SolidGround.class, Spike.class , Platform2.class, Sword.class, Key.class, Door.class, Temp.class, TempWall.class);
         prepare();
     }
     
@@ -35,6 +35,12 @@ public class LevelTwo extends World
         
         DoorTwo door = new DoorTwo();
         addObject(door, 320, 310);
+        Gate gate = new Gate();
+        addObject(gate, 1090, 322);
+        KeyTwo key = new KeyTwo();
+        addObject (key, 365, -650);
+        TempWall temp = new TempWall();
+        addObject(temp, 1090, 322);
         
         bats();
         ground();
@@ -87,12 +93,51 @@ public class LevelTwo extends World
         addObject(gatewall19, 1102, -60);
         SolidCastleGround gatewall20 = new SolidCastleGround();
         addObject(gatewall20, 1102, -80);
+        SolidCastleGround gatewall21 = new SolidCastleGround();
+        addObject(gatewall21, 1102, -120);
+        SolidCastleGround gatewall22 = new SolidCastleGround();
+        addObject(gatewall22, 1102, -160);
+        SolidCastleGround gatewall23 = new SolidCastleGround();
+        addObject(gatewall23, 1102, -200);
+        SolidCastleGround gatewall24 = new SolidCastleGround();
+        addObject(gatewall24, 1102, -240);
+        SolidCastleGround gatewall25 = new SolidCastleGround();
+        addObject(gatewall25, 1102, -280);
+        SolidCastleGround gatewall26 = new SolidCastleGround();
+        addObject(gatewall26, 1102, -320);
+        SolidCastleGround gatewall27 = new SolidCastleGround();
+        addObject(gatewall27, 1102, -360);
+        SolidCastleGround gatewall28 = new SolidCastleGround();
+        addObject(gatewall28, 1102, -400);
+        SolidCastleGround gatewall29 = new SolidCastleGround();
+        addObject(gatewall29, 1102, -440);
+        SolidCastleGround gatewall30 = new SolidCastleGround();
+        addObject(gatewall30, 1102, -480);
+        SolidCastleGround gatewall31 = new SolidCastleGround();
+        addObject(gatewall31, 1102, -520);
+        SolidCastleGround gatewall32 = new SolidCastleGround();
+        addObject(gatewall32, 1102, -560);
+        SolidCastleGround gatewall33 = new SolidCastleGround();
+        addObject(gatewall33, 1102, -600);
+        SolidCastleGround gatewall34 = new SolidCastleGround();
+        addObject(gatewall34, 1102, -640);
+        SolidCastleGround gatewall35 = new SolidCastleGround();
+        addObject(gatewall35, 1102, -680);
+        SolidCastleGround gatewall36 = new SolidCastleGround();
+        addObject(gatewall36, 1102, -720);
+        SolidCastleGround gatewall37 = new SolidCastleGround();
+        addObject(gatewall37, 1102, -760);
+        SolidCastleGround gatewall38 = new SolidCastleGround();
+        addObject(gatewall38, 1102, -800);
+        
+        
         
         Spike2 spike = new Spike2();
         addObject(spike, 560, 360);
         Spike2 spike2 = new Spike2();
         addObject(spike2, 620, 360);
     }
+
     
     public void checkScroll()
     {
@@ -249,8 +294,39 @@ public class LevelTwo extends World
         Lava lava9 = new Lava();
         addObject(lava9, 1062, -395);
         
+        Lava lava10 = new Lava();
+        addObject(lava10, 1062, -430);
+        Lava lava11 = new Lava();
+        addObject(lava11, 1062, -465);
+        Lava lava12 = new Lava();
+        addObject(lava12, 1062, -500);
+        Lava lava13 = new Lava();
+        addObject(lava13, 1062, -535);
+        Lava lava14 = new Lava();
+        addObject(lava14, 1062, -570);
+        Lava lava15 = new Lava();
+        addObject(lava15, 1062, -605);
+        Lava lava16 = new Lava();
+        addObject(lava16, 1062, -640);
+        Lava lava17 = new Lava();
+        addObject(lava17, 1062, -675);
+        Lava lava18 = new Lava();
+        addObject(lava18, 1062, -710);
+        LavaTriangle lava20 = new LavaTriangle();
+        addObject(lava20, 1062, -745);
+        
         Platform lavaplatform1 = new Platform();
-        addObject(lavaplatform1, 1062, -355);
+        addObject(lavaplatform1, 1062, -360);
+        SolidCastleGround lavaplatform2 = new SolidCastleGround();
+        addObject(lavaplatform2, 1102, -360);
+        Platform lavaplatform3 = new Platform();
+        addObject(lavaplatform3, 1102, -400);
+        Platform lavaplatform4 = new Platform();
+        addObject(lavaplatform4, 1142, -400);
+        Platform lavaplatform5 = new Platform();
+        addObject(lavaplatform5, 1182, -400);
+        SolidCastleGround lavaplatform6 = new SolidCastleGround();
+        addObject(lavaplatform6, 1142, -360);
         
         Platform platform51 = new Platform();
         addObject(platform51, 1102, -120);
@@ -276,6 +352,69 @@ public class LevelTwo extends World
         addObject(platform58,902, 75);
         Platform2 platform59 = new Platform2();
         addObject(platform59,942, 75);
+        
+        Platform2 platforms1 = new Platform2();
+        addObject(platforms1, 535, -225);
+        Platform2 platforms2 = new Platform2();
+        addObject(platforms2, 575, -225);
+        
+        Platform2 platforms3 = new Platform2();
+        addObject(platforms3, 382, -275);
+        Platform2 platforms4 = new Platform2();
+        addObject(platforms4, 422, -275);
+        Platform2 platforms5 = new Platform2();
+        addObject(platforms5, 300, -350);
+        Platform2 platforms6 = new Platform2();
+        addObject(platforms6, 405, -425);
+        Platform2 platforms7 = new Platform2();
+        addObject(platforms7, 445, -425);
+        Platform2 platforms8 = new Platform2();
+        addObject(platforms8, 560, -425);
+        Platform2 platforms9 = new Platform2();
+        addObject(platforms9, 600, -425);
+        Platform2 platforms10 = new Platform2();
+        addObject(platforms10, 715, -425);
+        Platform2 platforms11 = new Platform2();
+        addObject(platforms11, 755, -425);
+        Platform2 platforms12 = new Platform2();
+        addObject(platforms12, 840, -475);
+        Platform2 platforms13 = new Platform2();
+        addObject(platforms13, 715, -550);
+        Platform2 platforms14 = new Platform2();
+        addObject(platforms14, 755, -550);
+        Platform2 platforms15 = new Platform2();
+        addObject(platforms15, 590, -625);
+        Platform2 platforms16 = new Platform2();
+        addObject(platforms16, 630, -625);
+        Platform2 platforms17 = new Platform2();
+        addObject(platforms17, 460, -625);
+        Platform2 platforms18 = new Platform2();
+        addObject(platforms18, 500, -625);
+        Platform2 platforms19 = new Platform2();
+        addObject(platforms19, 350, -625);
+        Platform2 platforms20 = new Platform2();
+        addObject(platforms20, 390, -625);
+        Platform2 platforms21 = new Platform2();
+        addObject(platforms21, 845, -635);
+
+        
+        Spike2 spike = new Spike2();
+        addObject(spike, 272, -140);
+        Spike2 spike2 = new Spike2();
+        addObject(spike2, 332, -140);
+        Spike2 spike7 = new Spike2();
+        addObject(spike7, 620, -140);        
+        Spike2 spike3 = new Spike2();
+        addObject(spike3, 680, -140);
+        Spike2 spike4 = new Spike2();
+        addObject(spike4, 740, -140);
+        Spike2 spike5 = new Spike2();
+        addObject(spike5, 800, -140);
+        Spike2 spike6 = new Spike2();
+        addObject(spike6, 860, -140);
+        
+        Orc orc = new Orc();
+        addObject(orc, 860, -180);
     }
     
     public void bats()
@@ -284,6 +423,20 @@ public class LevelTwo extends World
         {
          int x = i * -200 + 900;
          int y = 180;
+         addObject(new Bat(), x, y);
+         
+        }
+        for (int i = 0; i < 3;  i++)
+        {
+         int x = i * -200 + 900;
+         int y = -500;
+         addObject(new Bat(), x, y);
+         
+        }
+        for (int i = 0; i < 3;  i++)
+        {
+         int x = i * -150 + 900;
+         int y = -670;
          addObject(new Bat(), x, y);
          
         }

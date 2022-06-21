@@ -47,6 +47,12 @@ public class Bat extends Actor
            isFacingRight = false;
            //getImage().mirrorVertically();
        }
+       else if(isTouching(SolidCastleGround.class))
+       {
+           deltaX=-3;
+           isFacingRight = false;
+           //getImage().mirrorVertically();
+       }
         //if Bat gets too close to Left edge, change y direction to go Right.
        else if(isTouching(LeftCastleWall.class))
        {

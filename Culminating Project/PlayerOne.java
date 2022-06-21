@@ -57,9 +57,11 @@ public class PlayerOne extends Actor
 
     private boolean pickUpMsgTwo = false;
     private boolean pickUpMsgThree = false;
+    private boolean findKeyMsg = false;
     private boolean swordPickedUp = false;
     private boolean bowPickedUp = false;
     private boolean swordLocation;
+    private boolean keyPickedUp = false;
 
     /** 
      * Scale and load all images.
@@ -86,11 +88,23 @@ public class PlayerOne extends Actor
         keyPickUp();
         swordCombat();
         bowCombat();
-        if (Greenfoot.isKeyDown("h"))
+        doorLogic();
+    }
+    
+    public void doorLogic()
+    {
+        if (getWorld().getObjects(KeyTwo.class).isEmpty())
         {
-            Greenfoot.setWorld(new LevelTwo());
+            keyPickedUp = true;
+            
         }
-      
+        
+        FindKey findKey = new FindKey();
+         if (keyPickedUp == false && findKeyMsg == false && isTouching(Gate.class))
+        {
+            getWorld().addObject(findKey, getX() + 5, getY() - 25);
+            findKeyMsg = true;
+        }
     }
     
     public void swordCombat()

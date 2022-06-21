@@ -50,6 +50,10 @@ public class Arrow extends Actor
             frameCounter++;
             
         }
+        else if (isTouching(Orc.class))
+        {
+            frameCounter++;
+        }
         if (frameCounter >= 2)
         {
             getWorld().removeObject(this);
