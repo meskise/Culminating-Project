@@ -88,8 +88,10 @@ public class Bat extends Actor
        {
            animate(imagesFlyLeft);
        }
-
-       setLocation(getX() + deltaX, getY() + deltaY);
+       if (isDead == false)
+       {
+           setLocation(getX() + deltaX, getY() + deltaY);
+       }
     }
     /**
      * Animates using the specified images.
