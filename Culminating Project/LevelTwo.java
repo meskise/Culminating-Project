@@ -7,11 +7,12 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class LevelTwo extends World
+public class LevelTwo extends GameWorld 
 {
-    // Declare player.
-    PlayerOne player = new PlayerOne();
+
+    
     // Scrolling screen variables.
+
     int scrollDistance = 2;
     int vScrollDistance = 5;
     // For for loops.

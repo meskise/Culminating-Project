@@ -11,8 +11,9 @@ public class PlayerOne extends Actor
     // Number of acts/frames between animation images.
     final int ANIMATION_INTERVAL = 7;
     int frameCounter = 0;// Frame counter. For animations.
-    int counter = 0;
-    
+
+    int swordFrameCounter = 0;
+
     //Movement Speed.
     double SPEED_X = 2.5;
     // jump height
@@ -38,7 +39,6 @@ public class PlayerOne extends Actor
     GreenfootImage[] imagesJumpLeft;
     GreenfootImage[] imagesIdleRight;
     GreenfootImage[] imagesIdleLeft;
-
     GreenfootImage[] imagesDieRight;
     GreenfootImage[] imagesDieLeft;
     
@@ -60,10 +60,14 @@ public class PlayerOne extends Actor
     // Booleans for picking up objects and to check if pick up msg's have been displayed.
     private boolean pickUpMsgTwo = false;
     private boolean pickUpMsgThree = false;
+
+    public boolean swordPickedUp = false;
+
     private boolean findKeyMsg = false;
     private boolean findKeyMsg2 = false;
     private boolean findKeyMsg3 = false;
-    private boolean swordPickedUp = false;
+   
+
     private boolean bowPickedUp = false;
     private boolean swordLocation;
     private boolean keyPickedUp = false;
@@ -91,7 +95,7 @@ public class PlayerOne extends Actor
         movementKeys();
         applyGravity();
         collisonCheck();
-        death();
+        //death();
         swordPickUp();
         bowPickUp();
         keyPickUp();
@@ -162,23 +166,54 @@ public class PlayerOne extends Actor
         {
             swordLocation = true;
         }
+        if (swordPickedUp == true)
+        {
+            getWorld().setPaintOrder(Platform.class,Spike.class,PlayerOne.class,Sword.class);
+        }
         
         // If sword location is true, then set location of sword to PlayerOne.
         if (swordLocation == true)
         {
             sword.setLocation(getX(), getY());
+            
         }
         
+        if (Greenfoot.isKeyDown("e")&&(swordPickedUp == true))
+        {
+            
+            
+        }
         // If facing right, sword has been picked up and sword/player are touching eachother, set sword rotation to 240 to appear as if it is being carried.
         if (isFacingRight == true && swordPickedUp == true && isTouching(Sword.class))
         {
-            sword.setRotation(240);
+            sword.setLocation(sword.getX() + 20, sword.getY());
+            //sword.setRotation(240);
+            
+            if (Greenfoot.isKeyDown("e"))
+            {
+                leftAnimateSword();
+            }
+            else
+            {
+                sword.setRotation(240);
+                swordFrameCounter = 0;
+            }
+            
         }
         else if (isFacingRight == false && swordPickedUp == true && isTouching(Sword.class)) // If facing left, sword has been picked up and sword/player are touching eachother, set sword rotation to 120 to appear as if it is being carried.
         {
-            sword.setRotation(120);
+            sword.setLocation(sword.getX() - 20, sword.getY());
+            //sword.setRotation(120);
+            if (Greenfoot.isKeyDown("e"))
+            {
+                rightAnimateSword();
+            }
+            else
+            {
+                sword.setRotation(120);
+                swordFrameCounter = 0;
+            }
         }
-
     }
     
     /**
@@ -287,7 +322,10 @@ public class PlayerOne extends Actor
             pickUpMsgTwo = true;
         }
     }
-    
+    public void swordMelee()
+    {
+        
+    }
     /**
      * Basic movement.
      */
@@ -569,7 +607,74 @@ public class PlayerOne extends Actor
         
         frameCounter++;
     }
-    
+    void rightAnimateSword()
+    {
+        if (swordFrameCounter == 0)
+        {
+            sword.setRotation(120);
+        }
+        else if (swordFrameCounter == 2)
+        {
+            sword.setRotation(140);
+        }
+        else if (swordFrameCounter == 4)
+        {
+            sword.setRotation(160);
+        }
+        else if (swordFrameCounter == 6)
+        {
+            sword.setRotation(180);
+        }
+        else if (swordFrameCounter == 8)
+        {
+            sword.setRotation(160);
+        }
+        else if (swordFrameCounter == 10)
+        {
+            sword.setRotation(140);
+        }
+        if (swordFrameCounter == 12)
+        {
+            sword.setRotation(120);
+            // Reset frame counter after last image has been deployed for long enough. 
+            
+        }
+        swordFrameCounter++;
+    }
+    void leftAnimateSword()
+    {
+        if (swordFrameCounter == 0)
+        {
+            sword.setRotation(240);
+        }
+        else if (swordFrameCounter == 2)
+        {
+            sword.setRotation(260);
+        }
+        else if (swordFrameCounter == 4)
+        {
+            sword.setRotation(280);
+        }
+        else if (swordFrameCounter == 6)
+        {
+            sword.setRotation(300);
+        }
+        else if (swordFrameCounter == 8)
+        {
+            sword.setRotation(280);
+        }
+        else if (swordFrameCounter == 10)
+        {
+            sword.setRotation(260);
+        }
+        if (swordFrameCounter == 12)
+        {
+            sword.setRotation(240);
+            // Reset frame counter after last image has been deployed for long enough. 
+            
+        }
+        swordFrameCounter++;
+    }
     /**
      * Animates using the specified images.
      */

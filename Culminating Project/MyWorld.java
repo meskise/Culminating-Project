@@ -6,11 +6,11 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class MyWorld extends World
+public class MyWorld extends GameWorld
 {
-    //Declares Player one
-    PlayerOne player = new PlayerOne();
+
     //Scrolling screen variables
+
     int scrollDistance = 2;
     int vScrollDistance = 5;
     int numberOfBricks = 5;
@@ -69,12 +69,29 @@ public class MyWorld extends World
      */
     private void prepare()
     {
+
+
+        addObject(player,-760,330);
+        
+
+        Key key = new Key();
+        addObject(key,70,50);
+        Door door = new Door();
+        addObject(door,550, 315);
+
+        Sword sword = new Sword();
+
+        addObject(sword, 290, 100);
         boarder();
         platforms();
         spawningBats();
+        Bat bat = new Bat();
+        
+
         ground();
         Spikes();
         walls();
+
         misc();
     }
     //Spawns misc stuff like key, door, sword, orc, and player
@@ -87,6 +104,7 @@ public class MyWorld extends World
         addObject(door,750, 315);
         Sword sword = new Sword();
         addObject(sword, 740, -10);
+
         Orc orc = new Orc();
         addObject(orc,500,320);
     }
