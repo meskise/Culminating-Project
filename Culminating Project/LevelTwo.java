@@ -167,12 +167,12 @@ public class LevelTwo extends World
             scroll(+ scrollDistance , 0);
         }
         
-        if (player.getY() > 300)
+        if (player.getY() > 250)
         {
             scroll(0 , + vScrollDistance);
         }
         
-        if (player.getY() < 100)
+        if (player.getY() < 150)
         {
             scroll(0 , - vScrollDistance);
         }
@@ -711,6 +711,13 @@ public class LevelTwo extends World
         {
          int x = i * -40 + 460;
          int y = 460;
+         addObject(new SolidCastleGround(), x, y);
+         
+        }
+        for (int i = 0; i < 35;  i++)
+        {
+         int x = i * -40 + 1660;
+         int y = 500;
          addObject(new SolidCastleGround(), x, y);
          
         }
