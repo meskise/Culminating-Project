@@ -374,6 +374,8 @@ public class LevelTwo extends World
         addObject(platform58,902, 75);
         Platform2 platform59 = new Platform2();
         addObject(platform59,942, 75);
+        Platform2 platform60 = new Platform2();
+        addObject(platform60,422, -90);
         
         Platform2 platforms1 = new Platform2();
         addObject(platforms1, 535, -225);
